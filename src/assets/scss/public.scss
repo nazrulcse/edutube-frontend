@@ -1,0 +1,179 @@
+@import "variables";
+
+* {
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.hints {
+  font-size: 14px;
+  font-family: 'Railway';
+}
+
+.primary-header, .primary-header-white {
+  font-family: $primary-font;
+  font-weight: bold;
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.primary-header {
+  color: $icon-color;
+}
+
+.primary-header-white {
+  color: $white;
+}
+
+/* Button design for edutube */
+.primary-btn, .default-btn {
+  min-width: 180px;
+  min-height: 40px;
+  display: inline-block;
+  text-align: center;
+  line-height: 28px !important;
+  font-size: 15px !important;
+}
+.primary-btn, .primary-btn-sm {
+  font-family: $primary-font;
+  font-weight: normal;
+  font-size: 14px !important;
+  padding: 4px 16px !important;
+  color: $white !important;
+  background-color: $pink;
+  border-bottom: 2px solid $deep-pink !important;
+  &:hover {
+    color: $white;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 2px solid $pink !important;
+  }
+}
+
+.default-btn, .default-btn-sm {
+  font-family: $primary-font;
+  font-weight: normal;
+  font-size: 14px !important;
+  padding: 4px 16px !important;
+  color: $icon-color !important;
+  background-color: $secondary-color;
+  border-bottom: 2px solid #c7c7c7 !important;
+  &:hover {
+    color: $icon-color;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 2px solid $secondary-color !important;
+  }
+}
+
+.facebook-btn {
+  color: #ffffff !important;
+  background-color: #494492;
+  border-bottom: 2px solid #3E3979 !important;
+  text-align: left !important;
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 2px solid #3E3979 !important;
+  }
+  .icon {
+    display: inline-block;
+    margin-right: 25px;
+    font-weight: bold;
+  }
+}
+
+.google-btn {
+  color: #333333 !important;
+  background-color: $secondary-color;
+  border-bottom: 2px solid rgba(200, 200, 200, 0.25) !important;
+  text-align: left !important;
+  &:hover {
+    color: #333333;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 2px solid $secondary-color !important;
+  }
+  .icon {
+    display: inline-block;
+    margin-right: 25px;
+    font-weight: bold;
+  }
+}
+
+/* Search button */
+.search-group-btn {
+  .search-btn-input {
+    padding: 10px 15px;
+    border-radius: 3px 0 0 3px;
+    border: 0 none;
+    outline: 0 none;
+    font-size: 10px;
+    border: 1px solid $boder-color;
+    border-right: 0;
+    outline: none;
+    &:focus {
+      outline: 0;
+    }
+  }
+  .group-btn {
+    background-color: $pink;
+    border: inherit;
+    border-radius: 0 3px 3px 0;
+    color: $white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 10px;
+    outline: none;
+    padding: 0 15px;
+  }
+}
+
+/* Footer social media button class declaration */
+.facebook-bg {background-color: $facebook}
+.twitter-bg {background-color: $twitter}
+.youtube-bg {background-color: $youtube}
+.linkedin-bg {background-color: $linkedin}
+
+.footer-social {
+  margin-bottom: 15px;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+      margin-right: 5px;
+      a {
+        display: inline-block;
+        padding: 0px 7px;
+        font-size: 15px;
+        color: $white;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        &:hover {
+          cursor: pointer;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+/* Validation error message */
+
+.validation-error {
+  color: red;
+}
+
+.mr-auto {
+  margin: auto !important;
+}
+
+.edu-font-sx {
+  font-size: 11px !important;
+}

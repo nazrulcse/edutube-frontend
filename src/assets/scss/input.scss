@@ -1,0 +1,35 @@
+.form-control-default {
+	width: 100%;
+	padding: 7px 10px;
+	border-radius: 6px;
+	background: #ffffff;
+	border: solid 1.3px #cccccc;
+	color: #888888;
+}
+
+select.form-control-default {
+	padding: 9px;
+}
+
+.edu-label-default {
+	color: #aaaaaa;
+	margin-bottom: 5px;
+	font-size: 15px;
+	font-weight: bold;
+	display: block;
+}
+
+.edu-link-default {
+	color: #999999;
+    text-decoration: none;
+    &:hover {
+    	color: #555555;
+    	text-decoration: none;
+    }
+}
+
+.edu-form-group {
+	width: 100%;
+	display: block;
+	margin-bottom: 10px;
+}

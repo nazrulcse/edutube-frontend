@@ -1,0 +1,69 @@
+
+.profile-top-bar {
+	padding: 5px 0;
+}
+
+.edu-panel-default {
+  background: $secondary-color;
+  padding: 25px 25px 20px 25px;
+  margin-bottom: 20px;
+  border: solid 1.5px #cccccc;
+  border-radius: 5px;
+  .panel-header {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .panel-body {
+    .inner-panel {
+    	padding: 15px 10px;
+    	background: #ffffff;
+    	margin-bottom: 10px;
+    	border: solid 1.5px #cccccc;
+    	border-radius: 5px; 
+    }
+  }
+}
+
+.profile-avatar-wrapper {
+	text-align: center;
+	border-right: solid 1.5px #cccccc;
+  .profile-avatar {
+    	width: 127px;
+    	height: 127px;
+    	padding: 20px;
+    	border-radius: 100%;
+    	background: #CBCBCB;
+    	margin: auto;
+    	margin-bottom: 25px;
+    }
+}
+
+.edu-pill-wrapper {
+  background: $secondary-color;
+  padding: 0;
+  margin-bottom: 20px !important;
+  border: solid 1.5px #cccccc;
+  border-radius: 5px;
+  a {
+  	&.nav-link {
+  		font-size: 16px;
+  		color: #333333;
+  		padding: 12px 15px;
+  		min-height: 22px;
+  		display: block;
+  		border-bottom: solid 1px #cccccc;
+  		border-radius: 0;
+  		&:last-child {
+  			border-bottom: none;
+  		}
+  	}
+  	&.active {
+  		background: transparent !important;
+  		font-weight: bold;
+  		border-left: solid 3px #888888;
+  		color: #333333 !important;
+  	}
+  }
+}
