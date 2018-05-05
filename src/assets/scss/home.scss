@@ -275,48 +275,50 @@
 #community-section {
   border-top: solid 1px $secondary-color;
   padding: 5% 7%;
-  h2 {
-    font-family: $primary-font;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-  }
-  .slider-items {
-    .slider-item {
-      padding: 20px 30px;
-    }
-  }
-  p {
-    font-family: $primary-font;
-     font-size: 14px;
-     text-align: center;
-  }
-  .user-section {
-    border-radius: 30px;
-    background: $secondary-color;
-    text-align: center;
-    max-width: 210px;
-    padding: 5px 0;
-    overflow: hidden;
-    margin: auto;
-    .avatar {
-      //background: image-url('images/newaj.jpg');
-      width: 50px;
-      border-radius: 100%;
-      padding: 10px;
-      margin: 0 5px 0 10px;
-      float: left;
-      background: #ffffff;
-    } 
-    .information {
+  .slick-item {
+    h2 {
       font-family: $primary-font;
+      font-size: 20px;
+      font-weight: bold;
       text-align: center;
-      font-size: 12px;
-      padding-top: 5px;
-      h4 {
+    }
+    .slider-items {
+      .slider-item {
+        padding: 20px 30px;
+      }
+    }
+    p {
+      font-family: $primary-font;
+      font-size: 14px;
+      text-align: center;
+    }
+    .user-section {
+      border-radius: 30px;
+      background: $secondary-color;
+      text-align: center;
+      max-width: 210px;
+      padding: 5px 0;
+      overflow: hidden;
+      margin: auto;
+      .avatar {
+        //background: image-url('images/newaj.jpg');
+        width: 50px;
+        border-radius: 100%;
+        padding: 10px;
+        margin: 0 5px 0 10px;
+        float: left;
+        background: #ffffff;
+      }
+      .information {
         font-family: $primary-font;
-        margin-bottom: 4px;
-        font-size: 14px;
+        text-align: center;
+        font-size: 12px;
+        padding-top: 5px;
+        h4 {
+          font-family: $primary-font;
+          margin-bottom: 4px;
+          font-size: 14px;
+        }
       }
     }
   }
