@@ -7,6 +7,11 @@ import { HeaderComponent } from './header/header.component';
 import { SliderComponent } from './slider/slider.component';
 import { FooterComponent } from './footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
+import { Routing } from './app.routes';
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './users/profile/profile.component';
+import { EditComponent } from './users/profile/edit/edit.component';
+import { StudentComponent } from './users/profile/edit/student/student.component';
 
 @NgModule({
   declarations: [
@@ -15,10 +20,15 @@ import { SignupComponent } from './signup/signup.component';
     HeaderComponent,
     SliderComponent,
     FooterComponent,
-    SignupComponent
+    SignupComponent,
+    HomeComponent,
+    ProfileComponent,
+    EditComponent,
+    StudentComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    Routing
   ],
   providers: [],
   bootstrap: [AppComponent]
