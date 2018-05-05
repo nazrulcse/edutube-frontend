@@ -31,7 +31,6 @@
   max-width: 370px;
 }
 
-
 .navbar-form {
   width: 40% !important;
   margin-left: 20px;
@@ -275,7 +274,33 @@
 #community-section {
   border-top: solid 1px $secondary-color;
   padding: 5% 7%;
-  .slick-item {
+  #communityCarousel {
+    .carousel-indicators {
+      bottom: 0;
+      margin: 0;
+      li {
+        background-color: $secondary-color !important;
+        border: 2px solid #cccccc !important;
+        &.active {
+          border: 2px solid $pink !important;
+          background-color: #ffffff !important;
+        }
+      }
+    }
+    .carousel-control-prev {
+        color: #333333;
+        font-size: 32px;
+        width: 30px;
+        left: -30px;
+    }
+    .carousel-control-next {
+      color: #333333;
+      font-size: 32px;
+      width: 30px;
+      right: -30px;
+    }
+  }
+  .carousel-item {
     h2 {
       font-family: $primary-font;
       font-size: 20px;

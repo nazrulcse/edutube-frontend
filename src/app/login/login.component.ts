@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-
 import { AuthenticationService } from '../authentication';
 
 @Component({
@@ -9,20 +8,22 @@ import { AuthenticationService } from '../authentication';
   styleUrls: ['./login.component.scss']
 })
 
-let credentia = {
-  email: '',
-  password: '',
-  remember_me: false
-}
-
 export class LoginComponent implements OnInit {
-
+  credential = {
+      email: '',
+      password: '',
+      remember: false
+  }
+  
   constructor(private router: Router,
-    private authService: AuthenticationService) {
-
+    private authService: AuthenticationService) {   
   }
 
   ngOnInit() {
+  }
+
+  public onSubmit() {
+    console.log(this.credential);
   }
 
   public login() {

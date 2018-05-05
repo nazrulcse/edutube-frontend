@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { AuthService } from 'ngx-auth';
+import { Observable } from 'rxjs';
 
 import { TokenStorage } from './token-storage.service';
 
@@ -11,7 +10,7 @@ interface AccessData {
 }
 
 @Injectable()
-export class AuthenticationService implements AuthService {
+export class AuthenticationService {
 
   constructor(
     private http: HttpClient,
@@ -87,7 +86,7 @@ export class AuthenticationService implements AuthService {
 
   public login(): Observable<any> {
     return this.http.post(`http://localhost:3000/login`, { })
-    .do((tokens: AccessData) => this.saveAccessData(tokens));
+    // .tap((tokens: AccessData) => this.saveAccessData(tokens));
   }
 
   /**

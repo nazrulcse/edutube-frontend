@@ -1,7 +1,7 @@
 <section id="main-menu"><!-- Main menu -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <a class="edutube-navbar-brand navbar-brand" href="#">EDUTUBE</a>
+        <a class="edutube-navbar-brand navbar-brand" routerLink="/"> EDUTUBE </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -11,56 +11,27 @@
           <ul class="navbar-nav">
             <li class="nav-item dropdown thumb-dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Categories <span class="caret"></span></a>
-              <!--<ul class="dropdown-menu" role="menu">-->
-                <!--<li role="presentation" class="dropdown-header">Head 1</li>-->
-                <!--<li>-->
-                  <!--<a href="#">-->
+              <ul class="dropdown-menu" role="menu">
+                <li role="presentation" class="dropdown-header"> Head 1</li>
+                <li>
+                  <a href="#">
                     <!--Preview carousel indicators-->
-                    <!--<div class="thumbnail">-->
-                      <!--&lt;!&ndash; <img class="img-responsive" src="http://krowdly.co/snippets/thumbnails/1.jpg"> &ndash;&gt;-->
-                    <!--</div>-->
-                  <!--</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                  <!--<a href="#">-->
-                    <!--Simple subscribe form-->
-                    <!--<div class="thumbnail">-->
-                      <!--&lt;!&ndash; <img class="img-responsive" src="http://krowdly.co/snippets/thumbnails/2.jpg"> &ndash;&gt;-->
-                    <!--</div>-->
-                  <!--</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                  <!--<a href="#">-->
-                    <!--Flat user profile-->
-                    <!--<div class="thumbnail">-->
-                      <!--&lt;!&ndash; <img class="img-responsive" src="http://krowdly.co/snippets/thumbnails/3.jpg"> &ndash;&gt;-->
-                    <!--</div>-->
-                  <!--</a>-->
-                <!--</li>-->
-                <!--<li class="divider"></li>-->
-                <!--<li role="presentation" class="dropdown-header">Thumbnail with caption</li>-->
-                <!--<li>-->
-                  <!--<a href="#">-->
-                    <!--Discount labels-->
-                    <!--<div class="thumbnail">-->
-                      <!--&lt;!&ndash; <img class="img-responsive" src="http://krowdly.co/snippets/thumbnails/4.jpg"> &ndash;&gt;-->
-                      <!--<div class="caption">-->
-                        <!--<p>You can add any text for describe thumbnail here.</p>-->
-                      <!--</div>-->
-                    <!--</div>-->
-                  <!--</a>-->
-                <!--</li>-->
-              <!--</ul>-->
+                    <div class="thumbnail">
+                      <!-- <img class="img-responsive" src="http://krowdly.co/snippets/thumbnails/1.jpg"> -->
+                    </div>
+                  </a>
+                </li>
+              </ul>
             </li>
           </ul>
           <form class="form-inline mr-auto navbar-form">
             <input class="navbar-search-input" placeholder="Search..." name="">
           </form>
           <ul class="navbar-nav navbar-right right-menu-container">
-            <li class="nav-item"><a href="#" class='nav-link'>Live Classes</a></li>
-            <li class="nav-item"><a href="#" class='nav-link'>Become a Tutor</a></li>
+            <li class="nav-item"><a routerLink="/" class='nav-link'>Live Classes</a></li>
+            <li class="nav-item"><a routerLink="/" class='nav-link'>Become a Tutor</a></li>
             <li class="nav-item">
-              <a href="#" class='nav-link'>
+              <a routerLink="/" class='nav-link'>
                 <img src="/assets/images/shopping-cart.png" class="img-responsive" alt="">
               </a>
             </li>
