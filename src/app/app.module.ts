@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './users/profile/profile.component';
 import { EditComponent } from './users/profile/edit/edit.component';
 import { StudentComponent } from './users/profile/edit/student/student.component';
+import { AuthenticationModule } from './authentication';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { StudentComponent } from './users/profile/edit/student/student.component
   ],
   imports: [
     BrowserModule,
-    Routing
+    Routing,
+    AuthenticationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
