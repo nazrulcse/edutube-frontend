@@ -177,3 +177,44 @@
 .edu-font-sx {
   font-size: 11px !important;
 }
+
+/* Sub nav bar */
+.sub-nav {
+  font-family: $primary-font;
+  background-color: $primary-color;
+  border-top: 1px solid $boder-color;
+  border-bottom: 1px solid $boder-color;
+  .sub-nav-ul-style {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    li {
+      display: inline-block;
+      margin-right: 10px;
+      .active {
+        color: $icon-color;
+        font-weight: bold;
+        position: relative;
+        &:before {
+          content: '';
+          position: absolute;
+          min-width: 50px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 3px;
+          background-color: $pink;
+        }
+      }
+      a {
+        text-decoration: none;
+        color: $icon-color;
+        display: inline-block;
+        cursor: pointer;
+        font-size: 14px;
+        padding: 8px;
+      }
+    }
+  }
+}
