@@ -479,6 +479,8 @@ label {
   .footer-bottom-section {
     background: #ffffff;
     padding: 6px 20px;
+    clear: both;
+    overflow: hidden;
     .left-section {
       float: left;
       color: #808080;
@@ -493,34 +495,15 @@ label {
         padding: 0;
         list-style: none;
         li {
-          line-height: 16px;
-          position: relative;
           display: inline-block;
           a {
-            position: relative;
+            display: inline-block;
             color: #808080;
-            text-decoration: none;
-            padding: 4px;
+            padding: 4px 2px;
             font-family: $primary-font;
             font-size: 12px;
             &:hover {
-              text-decoration: none;
-            }
-            &:before {
-              content: '';
-              position: absolute;
-              border-right: solid 1px #aaaaaa;
-              right: -2px;
-              top: 5px;
-              bottom: 5px;
-            } 
-          }
-          &:last-child {
-            a {
-              &:before {
-                content: '';
-                border-right: none;
-              }
+              text-decoration: underline;
             }
           }
         }
