@@ -79,8 +79,11 @@
 
 /* Slider design */
 .carousel-inner {
-  max-height: 450px;
+  // max-height: 450px;
   .carousel-item {
+    img {
+      min-height: calc(100vh - 200px);
+    }
     .carousel-caption {
       position: absolute;
       left: 0;
@@ -109,6 +112,7 @@
 }
 
 /* Largest community */
+
 #largest-community {
   background: $white;
   -webkit-box-shadow: 2px 2px 4px #ccc, 3px 3px 2px #ddd, 2px 2px 1px #eee;
