@@ -23,12 +23,12 @@ export class LoginComponent implements OnInit {
   }
 
   public onSubmit() {
-    console.log(this.credential);
+    this.login(this.credential);
   }
 
-  public login() {
+  public login(credential) {
     this.authService
-      .login()
+      .login(credential)
       .subscribe(() => this.router.navigateByUrl('/'));
   }
 

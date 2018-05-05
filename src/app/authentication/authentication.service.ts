@@ -23,11 +23,11 @@ export class AuthenticationService {
    * @returns {Observable<boolean>}
    * @memberOf AuthService
    */
-  public isAuthorized(): Observable < boolean > {
-    return this.tokenStorage
-      .getAccessToken()
-      .map(token => !!token);
-  }
+  // public isAuthorized(): Observable < boolean > {
+  //   return this.tokenStorage
+  //     .getAccessToken()
+  //     .map(token => !!token);
+  // }
 
   /**
    * Get access token
@@ -45,19 +45,19 @@ export class AuthenticationService {
    * can execute pending requests or retry original one
    * @returns {Observable<any>}
    */
-  public refreshToken(): Observable < AccessData > {
-    return this.tokenStorage
-      .getRefreshToken()
-      .switchMap((refreshToken: string) => {
-        return this.http.post(`http://localhost:3000/refresh`, { refreshToken });
-      })
-      .do(this.saveAccessData.bind(this))
-      .catch((err) => {
-        this.logout();
+  // public refreshToken(): Observable < AccessData > {
+  //   return this.tokenStorage
+  //     .getRefreshToken()
+  //     .switchMap((refreshToken: string) => {
+  //       return this.http.post(`http://localhost:3000/refresh`, { refreshToken });
+  //     })
+  //     .do(this.saveAccessData.bind(this))
+  //     .catch((err) => {
+  //       this.logout();
 
-        return Observable.throw(err);
-      });
-  }
+  //       return Observable.throw(err);
+  //     });
+  // }
 
   /**
    * Function, checks response of failed request to determine,
@@ -84,8 +84,8 @@ export class AuthenticationService {
    * EXTRA AUTH METHODS
    */
 
-  public login(): Observable<any> {
-    return this.http.post(`http://localhost:3000/login`, { })
+  public login(credential): Observable<any> {
+    return this.http.post("http://localhost:8000/api/login", credential)
     // .tap((tokens: AccessData) => this.saveAccessData(tokens));
   }
 
