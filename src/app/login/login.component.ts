@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
       password: '',
       remember: false
   }
+  errors = [];
+  message = "";
   
   constructor(private router: Router,
     private authService: AuthenticationService) {   
@@ -28,8 +30,23 @@ export class LoginComponent implements OnInit {
 
   public login(credential) {
     this.authService
-      .login(credential)
-      .subscribe(() => this.router.navigateByUrl('/'));
+      .login(credential).subscribe(
+        data => {
+          //this.loader.dismiss();
+          if(data.success) {
+            this.authService.saveAccessData("ss", "ss");
+            this.router.navigateByUrl('/profile');
+          }
+          else {
+            this.message = data.message;
+          }
+          console.log(data);
+        },
+        err =>  { 
+          this.errors = err;
+          //this.loader.dismiss();
+        }
+      );
   }
 
 }

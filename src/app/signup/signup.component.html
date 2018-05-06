@@ -8,6 +8,9 @@
         </button>
       </div>
       <div class="modal-body">
+        <ul>
+          <li *ngFor="let error of errors">{{error}}</li>
+        </ul>
         <div id="edutube-register-form" class="form-wrapper sign-in-wrap">
             <form class='edutube-auth-form form-horizontal' #registrationForm="ngForm" (ngSubmit)="registration()" novalidate>
 

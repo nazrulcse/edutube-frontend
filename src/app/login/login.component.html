@@ -8,6 +8,9 @@
         </button>
       </div>
       <div class="modal-body">
+        <div class='alert alert-danger' *ngIf="message">
+          {{message}}
+        </div>
         <div id="edutube-register-form" class="form-wrapper sign-in-wrap">
             <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class='form-horizontal edutube-auth-form'>
 

@@ -84,9 +84,16 @@ export class AuthenticationService {
    * EXTRA AUTH METHODS
    */
 
-  public login(credential): Observable<any> {
-    return this.http.post("http://localhost:8000/api/login", credential)
-    // .tap((tokens: AccessData) => this.saveAccessData(tokens));
+  public registration(data) {
+    return this.http.post("http://localhost:8000/api/register", data);
+  }
+
+  /**
+   * EXTRA AUTH METHODS
+   */
+
+  public login(credential) {
+    return this.http.post("http://localhost:8000/api/login", credential);
   }
 
   /**
@@ -103,7 +110,7 @@ export class AuthenticationService {
    * @private
    * @param {AccessData} data
    */
-  private saveAccessData({ accessToken, refreshToken }: AccessData) {
+  public saveAccessData(accessToken, refreshToken) {
     this.tokenStorage
       .setAccessToken(accessToken)
       .setRefreshToken(refreshToken);

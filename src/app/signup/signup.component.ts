@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import { AuthenticationService } from '../authentication';
 
 @Component({
   selector: 'app-signup',
@@ -14,11 +16,30 @@ export class SignupComponent implements OnInit {
     password_confirmation: '',
     user_type: false
   }
+  errors = [];
 
-  constructor() { }
+  constructor(private router: Router,
+    private authService: AuthenticationService) { }
 
   public registration() {
-    console.log(this.user_info);
+    this.authService
+      .registration(this.user_info).subscribe(
+        data => {
+          //this.loader.dismiss();
+          if(data.success) {
+            this.authService.saveAccessData("ss", "ss");
+          }
+          else {
+            console.log(data.errors);
+            this.errors = Object.values(data.errors);
+          }
+          console.log(data);
+        },
+        err =>  { 
+          this.errors = err;
+          //this.loader.dismiss();
+        }
+      );
   }
 
   ngOnInit() {
