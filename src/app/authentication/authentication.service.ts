@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
 import { TokenStorage } from './token-storage.service';
@@ -25,6 +26,18 @@ export class AuthenticationService {
   }
 
   /**
+   * get auth headers
+   * @returns {HttpHeaders}
+   * @memberOf AuthService
+   */
+
+   public getAuthHeader() {
+      const headers = new HttpHeaders()
+        .set('Authorization', 'Bearer ' + this.getAccessToken());
+      return headers;
+   }
+
+  /**
    * Get access token
    * @description Should return access token in Observable from e.g.
    * localStorage
@@ -42,6 +55,16 @@ export class AuthenticationService {
    */
   public getAuthUser(): any {
     return this.tokenStorage.getUserData();
+  }
+
+  /**
+   * Get auth user data
+   * @description Should return user data from API.
+   * localStorage
+   * @returns {UserData<JSON>}
+   */
+  public me(): Observable<any> {
+    return this.http.get("http://localhost:8000/api/auth/me", {headers: this.getAuthHeader()});
   }
 
   /**

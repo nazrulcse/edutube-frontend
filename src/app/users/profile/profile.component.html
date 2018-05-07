@@ -1,69 +1,132 @@
-<!-- Profile sub nav -->
 <section id="profile-sub-nav">
   <div class="sub-nav">
     <ul class="sub-nav-ul-style">
       <li><a href="#" class="active">Profile</a></li>
-      <li><a href="#">Profile1</a></li>
-      <li><a href="#">Profile2</a></li>
-      <li><a href="#">Profile3</a></li>
     </ul>
-
   </div>
 </section>
-<!-- Profile body -->
-<section id="profile-body">
+<section id="profile-page">
   <div class="profile-wrap">
     <div class="profile-container container">
-      <a routerLink="/profile/edit">Edit</a>
+      <div class='profile-top-bar'>
+        <a class='edu-link-default' routerLink="/profile/edit"> Edit Profile </a>
+      </div>
       <div class="profile row">
-        <div class="left-sidebar col-sm-3">
-          <div class="profile-header">
-            <div class="pro-img">
-              <img src="assets/images/profile.png" alt="Profile pic">
-            </div>
-            <div class="pro-info">
-              <p>Mutaher Hossain Litu</p>
-              <ul>
+        <div class="col-sm-3">
+          <div class="side-panel-default" style="height: 99%;">
+            <section class='clearfix'>
+              <div class="profile-avatar">
+                <div class='avatar'>
+                  <img src="assets/images/community.png" alt="Profile pic">
+                </div>
+              </div>
+              <div class='profile-basic-information'>
+                <b> {{user.name}} </b>
+                <div class='info-text'>
+                  {{user.institution}}
+                </div>
+                <div class='info-text'>
+                  {{user.degree}} 
+                </div>
+                <span class='info-text'>
+                 <i class="fa fa-map-marker"></i>  {{user.city}}, {{user.country}}
+                </span>
+              </div>
+            </section>
+            <section>
+              <ul class='list-default'>
+                <li> <i class="fa fa-user"></i> &nbsp; Followings <span class="pull-right"> 55 </span> </li>
+                <li> <i class="fa fa-user"></i> &nbsp; Followers <span class="pull-right"> 23 </span> </li>
+              </ul>
+            </section>
+            <section>
+              <h4 class='section-header'> About Me </h4>
+              <p class='about-me-text mb0'>
+                {{user.about_me}}
+              </p>
+            </section>
+            <section>
+              <h4 class='section-header'> Education </h4>
+              <ul class="list-default profile-education-list">
                 <li>
-                  <a>Class five</a>
+                  <b> Udayan School and College </b>
+                  <div>
+                    Nursery - Class Five  
+                  </div>
+                  Dhaka, bangladesh
                 </li>
                 <li>
-                  <a>Ideal School and College</a>
-                </li>
-                <li>
-                  <a>
-                    <i class="fa fa-map"></i>
-                    <span>Dhaka, Bangladesh</span>
-                  </a>
+                  <b> Ideal School and College </b>
+                  <div>
+                    Class Five  
+                  </div>
+                  Dhaka, bangladesh
                 </li>
               </ul>
+            </section>
+            <div class="mt5 member-since">
+              Member since: May 05, 2018
             </div>
           </div>
-          <div class="following">
-            <table>
-              <tbody>
-              <tr>
-                <td><i class="fa fa-user"></i></td>
-                <td>Followings</td>
-                <td>55Followers</td>
-              </tr>
-              <tr>
-                <td><i class="fa fa-user"></i></td>
-                <td>Followers</td>
-                <td>55</td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="about-me">
-            <h5>About ME</h5>
-            <p>
-              This is a section of about me of student. He/ she should write something about
-              him/ her
-            </p>
+        </div>
+        <div class="col-sm-9">
+          <div class="side-panel-default">
+            <div class="panel-header">
+              <div class="sub-nav" style="border: none;">
+                <ul class="sub-nav-ul-style">
+                  <li><a href="#" class="active">Courses</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="panel-space-body">
+              <div class='course-listing'>
+               <div class='course-filter'>
+                 <div class='col-sm-12'>
+                   <div class='row'>
+                     <div class='col-sm-4'>
+                       <label> Sort by </label>
+                       <select name='sort_by' class='edu-form-control'>
+                         <option value='Recently Accessed'> Recently Accessed </option>
+                         <option value='Recently Accessed'> Author </option>
+                       </select>
+                     </div>
+                     <div class='col-sm-4'>
+                       <label> Filter by </label>
+                       <select name='filter_by' class='edu-form-control'>
+                         <option value='Recently Accessed'> Categories </option>
+                         <option value='Recently Accessed'> Author </option>
+                       </select>
+                     </div>
+                     <div class='col-sm-4'>
+                        <div class='search-wrapper'>
+                          <input type="text" class='edu-form-control' placeholder="Search...">
+                        </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               <div class='col-lg-12'>
+                 <div class='row'>
+                  <div class="course-block col-sm-4" *ngFor="let ind of [1,2,3,4]">
+                    <div class='image-header' style="background-image: url('assets/images/slide.jpg');"> </div>
+                    <div class="course-body">
+                      <h3> Basic Algebra {{ind}} </h3>
+                      <div class='course-details'>  </div>
+                      <div class='course-footer'>
+                        <div class='author'> Ali Jafor </div>
+                        <div class='progress'>
+                          <div class='progress-inner' style="width: 50%;"></div>
+                        </div>
+                        <div class='course-state'> 50% completed </div>
+                      </div>
+                    </div>
+                  </div>
+                 </div>
+               </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="right-sidebar col-sm-9"></div>
       </div>
     </div>
   </div>

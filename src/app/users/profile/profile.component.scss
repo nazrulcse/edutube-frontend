@@ -1,3 +1,32 @@
-.modal-backdrop {
-  display: none;
+.about-me-text {
+	font-size: 13.5px;
+	color: #000000;
+	text-align: justify;
+}
+
+.member-since {
+  color: #888888;
+  font-size: 13.5px;
+  text-align: center;
+}
+
+.profile-basic-information {
+  margin-left: 85px;
+  font-size: 14px;
+  .info-text {
+  	font-size: 13px;
+  	color: #333333;
+  }
+}
+
+.profile-avatar {
+	float: left;
+	.avatar {
+		border-radius: 100%;
+	    width: 80px;
+	    height: 80px;
+	    text-align: center;
+	    padding: 10px;
+	    overflow: hidden;
+	}
 }

@@ -218,3 +218,15 @@
     }
   }
 }
+
+.list-default {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  li {
+    font-family: "Open Sans", sans-serif !important;
+    font-size: 14px;
+    color: #333333 !important;
+    margin: 2px 0;
+  }
+}
