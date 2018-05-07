@@ -1,6 +1,6 @@
 <app-header></app-header>
-<app-login></app-login>
-<app-signup></app-signup>
-<app-forgot-password></app-forgot-password>
+<app-login *ngIf="!app_data.auth"></app-login>
+<app-signup *ngIf="!app_data.auth"></app-signup>
+<app-forgot-password *ngIf="!app_data.auth"></app-forgot-password>
 <router-outlet></router-outlet>
 <app-footer></app-footer>

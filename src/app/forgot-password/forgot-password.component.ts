@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import { AuthenticationService } from '../authentication';
+import {EventService} from '../../services/event_service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -8,13 +11,35 @@ import { Component, OnInit } from '@angular/core';
 export class ForgotPasswordComponent implements OnInit {
 
   user_info = {email: ''}
-  constructor() { }
+  message = "";
+  error = '';
+  constructor(private router: Router,
+    private authService: AuthenticationService,
+    private events: EventService) { }
 
   ngOnInit() {
   }
 
   public submit_request() {
-  	console.log(this.user_info);
+  	this.authService
+      .recover(this.user_info.email).subscribe(
+        data => {
+          console.log(data);
+          if(data.success) {
+            this.message = data.message;
+            this.error = '';
+          }
+          else {
+            this.error = data.message;
+            this.message = '';
+          }
+        },
+        err =>  { 
+          console.log(err);
+          this.message = '';
+          this.error = "Something wrong! Please try after sometimes.";
+        }
+      );
   }
 
 }

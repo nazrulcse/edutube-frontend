@@ -8,9 +8,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <ul>
+        <ul class="validation-errors alert alert-danger" *ngIf="errors.length > 0">
           <li *ngFor="let error of errors">{{error}}</li>
         </ul>
+        <div class="alert alert-danger" *ngIf="message"> {{message}} </div>
         <div id="edutube-register-form" class="form-wrapper sign-in-wrap">
             <form class='edutube-auth-form form-horizontal' #registrationForm="ngForm" (ngSubmit)="registration()" novalidate>
 

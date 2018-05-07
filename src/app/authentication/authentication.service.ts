@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { map } from "rxjs/operators";
 import { TokenStorage } from './token-storage.service';
-
-interface AccessData {
-  accessToken: string;
-  refreshToken: string;
-}
 
 @Injectable()
 export class AuthenticationService {
@@ -23,11 +18,11 @@ export class AuthenticationService {
    * @returns {Observable<boolean>}
    * @memberOf AuthService
    */
-  // public isAuthorized(): Observable < boolean > {
-  //   return this.tokenStorage
-  //     .getAccessToken()
-  //     .map(token => !!token);
-  // }
+  public isAuthorized(): boolean {
+    let token = this.tokenStorage
+      .getAccessToken();
+    return !!token;
+  }
 
   /**
    * Get access token
@@ -35,8 +30,18 @@ export class AuthenticationService {
    * localStorage
    * @returns {Observable<string>}
    */
-  public getAccessToken(): Observable < string > {
+  public getAccessToken(): string {
     return this.tokenStorage.getAccessToken();
+  }
+
+  /**
+   * Get user data
+   * @description Should return user data stored during signin.
+   * localStorage
+   * @returns {UserData<JSON>}
+   */
+  public getAuthUser(): any {
+    return this.tokenStorage.getUserData();
   }
 
   /**
@@ -84,16 +89,24 @@ export class AuthenticationService {
    * EXTRA AUTH METHODS
    */
 
-  public registration(data) {
-    return this.http.post("http://localhost:8000/api/register", data);
+  public registration(data): Observable<any> {
+    return this.http.post("http://localhost:8000/api/auth/register", data);
   }
 
   /**
    * EXTRA AUTH METHODS
    */
 
-  public login(credential) {
-    return this.http.post("http://localhost:8000/api/login", credential);
+  public login(credential): Observable<any> {
+    return this.http.post("http://localhost:8000/api/auth/login", credential);
+  }
+
+  /**
+   * recover password
+   */
+
+  public recover(email): Observable<any> {
+    return this.http.post("http://localhost:8000/api/auth/recover", {email: email});
   }
 
   /**
@@ -108,12 +121,13 @@ export class AuthenticationService {
    * Save access data in the storage
    *
    * @private
-   * @param {AccessData} data
+   * @param token data
    */
-  public saveAccessData(accessToken, refreshToken) {
+  public saveAccessData(accessToken, refreshToken, user) {
     this.tokenStorage
       .setAccessToken(accessToken)
-      .setRefreshToken(refreshToken);
+      .setRefreshToken(refreshToken)
+      .setUserData(user);
   }
 
 }

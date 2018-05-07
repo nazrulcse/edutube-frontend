@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { AuthenticationService } from '../authentication';
+import {EventService} from '../../services/event_service';
+declare var $ :any;
 
 @Component({
   selector: 'app-signup',
@@ -17,17 +19,21 @@ export class SignupComponent implements OnInit {
     user_type: false
   }
   errors = [];
+  message = '';
 
   constructor(private router: Router,
-    private authService: AuthenticationService) { }
+    private authService: AuthenticationService,
+    private events: EventService) { }
 
   public registration() {
     this.authService
       .registration(this.user_info).subscribe(
         data => {
-          //this.loader.dismiss();
           if(data.success) {
-            this.authService.saveAccessData("ss", "ss");
+            this.authService.saveAccessData(data.token, "", data.user);
+            this.events.emitAuthEvent(true);
+            $('#registration-modal').modal('hide');
+            this.router.navigateByUrl('/profile');
           }
           else {
             console.log(data.errors);
@@ -36,8 +42,7 @@ export class SignupComponent implements OnInit {
           console.log(data);
         },
         err =>  { 
-          this.errors = err;
-          //this.loader.dismiss();
+          this.message = "Something wrong! Please try after sometimes";
         }
       );
   }

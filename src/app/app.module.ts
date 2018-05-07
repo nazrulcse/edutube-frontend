@@ -17,6 +17,8 @@ import { AuthenticationService, TokenStorage } from './authentication';
 import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import {EventService} from '../services/event_service';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     EditComponent,
     StudentComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthenticationService, TokenStorage, HttpClient],
+  providers: [AuthenticationService, TokenStorage, HttpClient, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -78,20 +78,22 @@
 
 
 /* Slider design */
-.carousel-inner {
-  // max-height: 450px;
-  .carousel-item {
-    img {
-      min-height: calc(100vh - 200px);
-    }
-    .carousel-caption {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 35%;
-      h5 {
-        font-family: $primary-font;
-        font-size: 30px;
+#main-slider {
+  .carousel-inner {
+    // max-height: 450px;
+    .carousel-item {
+      img {
+        min-height: calc(100vh - 200px);
+      }
+      .carousel-caption {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 35%;
+        h5 {
+          font-family: $primary-font;
+          font-size: 30px;
+        }
       }
     }
   }

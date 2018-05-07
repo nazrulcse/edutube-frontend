@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { AuthenticationService } from '../authentication';
+import {EventService} from '../../services/event_service';
+declare var $ :any;
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,8 @@ export class LoginComponent implements OnInit {
   message = "";
   
   constructor(private router: Router,
-    private authService: AuthenticationService) {   
+    private authService: AuthenticationService,
+    private events: EventService) {   
   }
 
   ngOnInit() {
@@ -32,19 +35,19 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(credential).subscribe(
         data => {
-          //this.loader.dismiss();
           if(data.success) {
-            this.authService.saveAccessData("ss", "ss");
+            this.authService.saveAccessData(data.token, "", data.user);
+            this.events.emitAuthEvent(true);
+            $('#login-modal').modal('hide');
             this.router.navigateByUrl('/profile');
           }
           else {
             this.message = data.message;
           }
-          console.log(data);
         },
         err =>  { 
-          this.errors = err;
-          //this.loader.dismiss();
+          console.log(err);
+          this.message = "Something wrong! Please try after sometimes.";
         }
       );
   }

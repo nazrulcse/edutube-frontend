@@ -8,9 +8,9 @@ export class TokenStorage {
    * Get access token
    * @returns {Observable<string>}
    */
-  public getAccessToken(): Observable<string> {
+  public getAccessToken(): string {
     const token: string = <string>localStorage.getItem('accessToken');
-    return of(token);
+    return token;
   }
 
   /**
@@ -23,6 +23,20 @@ export class TokenStorage {
   }
 
   /**
+   * Get user data
+   * @returns {UserData<JSON>}
+   */
+  public getUserData() {
+    let user: any = localStorage.getItem('userData');
+    if(typeof(user) == "undefined" || user == "undefined") {
+      return {};
+    }
+    else {
+      return JSON.parse(user);
+    }
+  }
+
+  /**
    * Set access token
    * @returns {TokenStorage}
    */
@@ -30,6 +44,15 @@ export class TokenStorage {
     localStorage.setItem('accessToken', token);
 
     return this;
+  }
+
+  /** 
+  * Set user data got from login api
+  * @returns void
+  */
+
+  public setUserData(user) {
+    localStorage.setItem('userData', JSON.stringify(user));
   }
 
    /**
@@ -48,5 +71,6 @@ export class TokenStorage {
   public clear() {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
+    localStorage.removeItem('userdata');
   }
 }

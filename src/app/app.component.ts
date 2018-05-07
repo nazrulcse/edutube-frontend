@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {EventService} from '../services/event_service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  app_data = {
+  	auth: false
+  }
+
+  constructor(public events: EventService) {
+     this.events.dispatcher.subscribe(auth => {
+       this.app_data.auth = auth;
+     });
+  }
 }
