@@ -22,72 +22,79 @@
   <div class='col-sm-9'>
     <div class="tab-content" id="v-pills-tabContent">
 	  <div class="tab-pane fade show active" id="basic-info-tab" role="tabpanel">
-        <div class='edu-panel-default'>
-      <div class='panel-header'> Basic Information </div>
-      <div class='panel-body'>
-      	<div class='col-sm-12'>
-      	  <div class='row'>
-      	  	<div class='col-sm-3 profile-avatar-wrapper'>
-      	  		<div class='profile-avatar'></div>
-      	  		<a class='edu-link-default' href='#'> Upload Photo </a>
-      	  	</div>
-      	  	<div class='col-sm-9'>
-      	  	  <div class='row'>
-      	  	  	<div class='col-sm-6'>
-      	  	  	  <div class='form-group'>
-                    <label class='edu-label-default'> First Name </label>
-                    <input type="text" name='first_name' [(ngModel)]="user.first_name" class='form-control-default'> 
-      	  	  	  </div>
-      	  	  	</div>
-      	  	  	<div class='col-sm-6'>
-      	  	  	<div class='form-group'>
-                    <label class='edu-label-default'> Last Name </label>
-                    <input type="text" name='last_name' [(ngModel)]="user.last_name" class='form-control-default'> 
-      	  	  	  </div>
-      	  	  	</div>
-      	  	  </div>
-      	  	  <div class='row'>
-      	  	  	<div class='col-sm-5'>
-      	  	  	  <div class='form-group'>
-                    <label class='edu-label-default'> Class/Level/Degree </label>
-                    <input type="text" name='degree' [(ngModel)]="user.degree" class='form-control-default'> 
-      	  	  	  </div>
-      	  	  	</div>
-      	  	  	<div class='col-sm-7'>
-      	  	  	  <div class='form-group'>
-                    <label class='edu-label-default'> School/College/University </label>
-                    <input type="text" name='institution' [(ngModel)]="user.institution" class='form-control-default'> 
-      	  	  	  </div>
-      	  	  	</div>
-      	  	  </div>
-      	  	  <div class='upload-avatar'>
-      	  	  	<label class='edu-label-default'> Location </label>
-      	  	  </div>
-      	  	  <div class='row'>
-      	  	  	<div class='col-sm-4'>
-      	  	  	  <div class='form-group'>
-                    <select name='country' [(ngModel)]="user.country" class='form-control-default'>
-                      <option value='Bangladesh'> Bangladesh </option>
-                      <option value='India'> India </option>
-                      <option value='Nepal'> Nepal </option>
-                      <option value='Others'> Others </option>
-                    </select> 
-      	  	  	  </div>
-      	  	  	</div>
-      	  	  	<div class='col-sm-8'>
-      	  	  	  <div class='form-group'>
-                    <input type="text" name='city' [(ngModel)]="user.city" class='form-control-default'> 
-      	  	  	  </div>
-      	  	  	</div>
-      	  	  </div>
-      	  	  <div class='row text-center'>
-      	  	   <input type="submit" value='Save' (click)="update_profile()" class='btn primary-btn btn-size-2x mr-auto'>
-      	  	  </div>
-      	  	</div>
-      	  </div>
-      	</div>
-      </div>
-    </div>
+		  <div class='edu-panel-default'>
+			  <div class='panel-header'> Basic Information</div>
+			  <div class='panel-body'>
+				  <div class='col-sm-12'>
+					  <div class='row'>
+						  <div class='col-sm-3 profile-avatar-wrapper'>
+							  <div class='profile-avatar'></div>
+							  <a class='edu-link-default' href='#'> Upload Photo </a>
+						  </div>
+						  <div class='col-sm-9'>
+							  <div class='row'>
+								  <div class='col-sm-6'>
+									  <div class='form-group'>
+										  <label class='edu-label-default'> First Name </label>
+										  <input type="text" name='first_name' [(ngModel)]="user.first_name"
+												 class='form-control-default'>
+									  </div>
+								  </div>
+								  <div class='col-sm-6'>
+									  <div class='form-group'>
+										  <label class='edu-label-default'> Last Name </label>
+										  <input type="text" name='last_name' [(ngModel)]="user.last_name"
+												 class='form-control-default'>
+									  </div>
+								  </div>
+							  </div>
+							  <div class='row'>
+								  <div class='col-sm-5'>
+									  <div class='form-group'>
+										  <label class='edu-label-default'> Class/Level/Degree </label>
+										  <input type="text" name='degree' [(ngModel)]="user.degree"
+												 class='form-control-default'>
+									  </div>
+								  </div>
+								  <div class='col-sm-7'>
+									  <div class='form-group'>
+										  <label class='edu-label-default'> School/College/University </label>
+										  <input type="text" name='institution' [(ngModel)]="user.institution"
+												 class='form-control-default'>
+									  </div>
+								  </div>
+							  </div>
+							  <div class='upload-avatar'>
+								  <label class='edu-label-default'> Location </label>
+							  </div>
+							  <div class='row'>
+								  <div class='col-sm-4'>
+									  <div class='form-group'>
+										  <select name='country' [(ngModel)]="user.country"
+												  class='form-control-default'>
+											  <option value='Bangladesh'> Bangladesh</option>
+											  <option value='India'> India</option>
+											  <option value='Nepal'> Nepal</option>
+											  <option value='Others'> Others</option>
+										  </select>
+									  </div>
+								  </div>
+								  <div class='col-sm-8'>
+									  <div class='form-group'>
+										  <input type="text" name='city' [(ngModel)]="user.city"
+												 class='form-control-default'>
+									  </div>
+								  </div>
+							  </div>
+							  <div class='row text-center'>
+								  <input type="submit" value='Save' (click)="update_profile()"
+										 class='btn primary-btn btn-size-2x mr-auto'>
+							  </div>
+						  </div>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
 	  </div>
 	  <div class="tab-pane fade" id="contact-info-tab" role="tabpanel">
         <div class='edu-panel-default'>
