@@ -26,6 +26,8 @@ import { StudentSettingsComponent } from './users/student/student-settings/stude
 import { ReportComponent } from './users/student/report/report.component';
 import { PurchaseHistoryComponent } from './users/student/purchase-history/purchase-history.component';
 import { PurchaseReportComponent } from './users/student/purchase-report/purchase-report.component';
+import { NewCourseComponent } from './instructor/new-course/new-course.component';
+import { EditCourseComponent } from './instructor/edit-course/edit-course.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { PurchaseReportComponent } from './users/student/purchase-report/purchas
     StudentSettingsComponent,
     ReportComponent,
     PurchaseHistoryComponent,
-    PurchaseReportComponent
+    PurchaseReportComponent,
+    NewCourseComponent,
+    EditCourseComponent
   ],
   imports: [
     BrowserModule,

@@ -10,16 +10,20 @@ import { StudentSettingsComponent } from './users/student/student-settings/stude
 import { ReportComponent } from './users/student/report/report.component';
 import { PurchaseHistoryComponent } from './users/student/purchase-history/purchase-history.component';
 import { PurchaseReportComponent } from './users/student/purchase-report/purchase-report.component';
+import { NewCourseComponent } from './instructor/new-course/new-course.component';
+import { EditCourseComponent } from './instructor/edit-course/edit-course.component';
 
 // Route Configuration
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent // Remember to import the Home Component
+    component: HomeComponent
   },
   { path: 'profile/edit', component: EditComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'logout', component: LogoutComponent },
+  { path: 'new-course', component: NewCourseComponent },
+  { path: 'edit-course', component: EditCourseComponent },
   { 
   	 path: 'home', 
      component: StudentHomeComponent,
