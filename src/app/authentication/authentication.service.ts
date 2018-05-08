@@ -125,6 +125,15 @@ export class AuthenticationService {
   }
 
   /**
+  * Social login
+  *
+  */
+
+  public socialLogin(data): Observable<any> {
+    return this.http.post("http://localhost:8000/api/auth/social_login", data);
+  }
+
+  /**
    * recover password
    */
 

@@ -28,6 +28,23 @@ import { PurchaseHistoryComponent } from './users/student/purchase-history/purch
 import { PurchaseReportComponent } from './users/student/purchase-report/purchase-report.component';
 import { NewCourseComponent } from './instructor/new-course/new-course.component';
 import { EditCourseComponent } from './instructor/edit-course/edit-course.component';
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider} from "angularx-social-login";
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("620483118272-k5rlaq5b5ae80d3jqqfr525kn338lsm3.apps.googleusercontent.com")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("Facebook-App-Id")
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -57,9 +74,13 @@ import { EditCourseComponent } from './instructor/edit-course/edit-course.compon
     BrowserModule,
     Routing,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SocialLoginModule.initialize(config)
   ],
-  providers: [AuthenticationService, TokenStorage, HttpClient, EventService, UserService],
+  providers: [AuthenticationService, TokenStorage, HttpClient, EventService, UserService, {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
