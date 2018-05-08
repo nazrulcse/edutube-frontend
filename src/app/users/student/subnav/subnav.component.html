@@ -1,0 +1,30 @@
+<div class="dropdown-menu custom-nav-dropdown show" aria-labelledby="navbarDropdown">
+  <a class="dropdown-item" routerLink="/home"> 
+    <i class="fa fa-rss gray-icon mr5"></i> &nbsp; My Timeline
+  </a>
+  <a class="dropdown-item" routerLink="/home"> 
+    <i class="fa fa-heart-o gray-icon mr5"></i> &nbsp; My Wishlist
+  </a>
+  <a class="dropdown-item" routerLink="/profile"> 
+    <i class="fa fa-envelope-open-o gray-icon mr5"></i> &nbsp; My Messages
+  </a>
+  <a class="dropdown-item" routerLink="/profile"> 
+    <i class="fa fa-bell-o gray-icon mr5"></i> &nbsp; My Notification
+  </a>
+  <a class="dropdown-item" [routerLink]="[{outlets: {student: 'reports'}}]" [routerLinkActive]="['active']"> 
+    <i class="fa fa-codiepie gray-icon mr5"></i> &nbsp; My Report
+  </a>
+  <a class="dropdown-item" [routerLink]="[{outlets: {student: 'purchase-history'}}]" [routerLinkActive]="['active']"> 
+    <i class="fa fa-money gray-icon mr5"></i> &nbsp; My Purchase History
+  </a>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" [routerLink]="[{outlets: {student: 'settings'}}]" [routerLinkActive]="['active']"> 
+    <i class="fa fa-cog gray-icon mid-size-icon mr5"></i> &nbsp; Settings
+  </a>
+  <a class="dropdown-item" routerLink="/settings"> 
+    <i class="fa fa-info-circle gray-icon mid-size-icon mr5"></i> &nbsp; Help
+  </a>
+  <a style="margin-top: 5px" routerLink="/logout" class="dropdown-item">
+    <i class="fa fa-power-off gray-icon mid-size-icon mr5"></i> &nbsp; Logout
+  </a>
+</div>

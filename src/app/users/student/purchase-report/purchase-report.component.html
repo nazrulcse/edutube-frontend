@@ -1,0 +1,47 @@
+<section>
+	<h2 class='report-header row'>
+		My Purchase History > Receipt
+	</h2>
+	<table class='table'>
+		<thead>
+			<tr>
+				<th></th>
+				<th>Date</th>
+				<th>Price</th>
+				<th>Payment Type</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+				  <ul class='list-default report-items'>
+					<li>
+					  <div class='image-box'>
+					    <img src='assets/images/community.png'/>
+					  </div>
+					  <div class='info-box'>
+						<h4> Taigonal 1st Chapter - Class Six </h4>
+						<p>
+							Lorem ipsum.....................................
+						</p>
+					  </div>
+					</li>
+				  </ul>
+				</td>
+				<td>
+					Jan 15, 2018
+				</td>
+				<td>
+					$ 200
+				</td>
+				<td>
+					Visa ***0000
+				</td>
+				<td>
+					<a [routerLink]="[{outlets: {student: 'purchase-receipt'}}]" class='btn default-btn'> Receipt </a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

@@ -20,6 +20,12 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import {EventService} from '../services/event_service';
 import {UserService} from '../services/user_service';
 import { LogoutComponent } from './logout/logout.component';
+import { SubnavComponent } from './users/student/subnav/subnav.component';
+import { StudentHomeComponent } from './users/student/home/home.component';
+import { StudentSettingsComponent } from './users/student/student-settings/student-settings.component';
+import { ReportComponent } from './users/student/report/report.component';
+import { PurchaseHistoryComponent } from './users/student/purchase-history/purchase-history.component';
+import { PurchaseReportComponent } from './users/student/purchase-report/purchase-report.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,13 @@ import { LogoutComponent } from './logout/logout.component';
     StudentComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    LogoutComponent
+    LogoutComponent,
+    StudentHomeComponent,
+    SubnavComponent,
+    StudentSettingsComponent,
+    ReportComponent,
+    PurchaseHistoryComponent,
+    PurchaseReportComponent
   ],
   imports: [
     BrowserModule,

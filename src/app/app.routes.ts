@@ -5,6 +5,11 @@ import { EditComponent } from './users/profile/edit/edit.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './users/profile/profile.component';
 import { LogoutComponent } from './logout/logout.component';
+import { StudentHomeComponent } from './users/student/home/home.component';
+import { StudentSettingsComponent } from './users/student/student-settings/student-settings.component';
+import { ReportComponent } from './users/student/report/report.component';
+import { PurchaseHistoryComponent } from './users/student/purchase-history/purchase-history.component';
+import { PurchaseReportComponent } from './users/student/purchase-report/purchase-report.component';
 
 // Route Configuration
 export const routes: Routes = [
@@ -14,7 +19,33 @@ export const routes: Routes = [
   },
   { path: 'profile/edit', component: EditComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'logout', component: LogoutComponent }
+  { path: 'logout', component: LogoutComponent },
+  { 
+  	 path: 'home', 
+     component: StudentHomeComponent,
+     children: [
+       {
+       	 path: 'settings',
+         component: StudentSettingsComponent,
+         outlet: 'student'
+       },
+       {
+       	 path: 'reports',
+         component: ReportComponent,
+         outlet: 'student'
+       },
+       {
+       	 path: 'purchase-history',
+         component: PurchaseHistoryComponent,
+         outlet: 'student'
+       },
+       {
+       	 path: 'purchase-receipt',
+         component: PurchaseReportComponent,
+         outlet: 'student'
+       }
+     ]
+  }
 ];
 
 export const Routing: ModuleWithProviders = RouterModule.forRoot(routes);

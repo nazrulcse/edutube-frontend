@@ -1,0 +1,57 @@
+#student-home {
+	background: #F8F9F2;
+	padding: 25px 0;
+}
+
+.student-home-body {
+  section {
+  	z-index: 1000;
+    padding: 15px;
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    color: #333333;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    h3 {
+    	color: #444444;
+    	margin-bottom: 10px;
+    	font-weight: bold;
+    	font-size: 14px;
+    }
+    h4 {
+    	color: #333333;
+    	margin-bottom: 10px;
+    	font-weight:normal;
+    	font-size: 13px;
+    }
+    .info-text {
+    	color: #666666;
+    	font-size: 13px;
+    }
+    .report-header {
+    	padding: 10px 20px;
+    	border-bottom: solid 1px #cccccc;
+    	margin-top: -15px;
+    	font-weight: bold;
+    	font-size: 20px;
+    }
+    .report-items {
+      li {
+      	padding: 10px;
+      	border-bottom: solid 1px #cccccc;
+      	.image-box {
+          float: left;
+          width: 70px;
+          height: auto;
+      	}
+      	.info-box {
+      		margin-left: 85px;
+      	}
+      }
+    }
+  }
+}

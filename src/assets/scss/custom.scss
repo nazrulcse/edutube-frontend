@@ -1,0 +1,21 @@
+.custom-dropdown {
+  min-width: 16rem !important;
+  border-radius: 0 !important;	
+  padding-top: 0 !important;
+}
+
+.custom-nav-dropdown {
+	position: relative !important;
+	min-width: 100% !important;
+	top: 0;
+	a {
+		cursor: pointer;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		&.active {
+		  color: #16181b;
+          text-decoration: none;
+          background-color: #f8f9fa;
+		}
+	}
+}
