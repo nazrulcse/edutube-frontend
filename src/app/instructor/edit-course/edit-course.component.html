@@ -13,37 +13,72 @@
         </div>
         <div class='col-sm-9'>
           <div class='edit-course-dashboard'>
-            <section>
-              <h2 class='report-header row'>
-                My Dashboard
-              </h2>
-              <div class="dashboard-container">
-                <h2>Update a New Course</h2>
-                <div class="course-panel">
-                  <div class="panel-header">Let's get started</div>
-                  <div class="panel-body">
-                    <div class="course-form-wrap">
-                      <div class='form-group custom-group'>
-                        <div class="form-group">
-                          <label class="default-label"> Enter a Course Title </label>
-                          <input type="text" name='course_title' [(ngModel)]="user.course_title"
-                                 class='form-control-default'>
-                        </div>
-                        <div class="form-group">
-                          <label for="remember-me">
-                            <input type="checkbox" id='remember-me' name='remember_me' value='1'>
-                            <span class='default-radio-label'> This is a practice test-only course </span>
-                          </label>
-                        </div>
-                        <div class="form-group">
-                          <a href="#" class="btn guest-default-btn">Update & Go</a>
-                        </div>
+            <div class="sub-top-nav">
+              <ul class="common-ul-style">
+                <li>
+                  <a href="#">My Dashboard</a><span class="fa fa-arrow-right"></span>
+                </li>
+                <li>
+                  <a href="#">Courses</a><span class="fa fa-arrow-right"></span>
+                </li>
+                <li>
+                  <a href="#" class="active">Course Management</a><span class="fa fa-arrow-right"></span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="edit-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="/assets/images/envelope-large.png" class="img-responsive" alt="">
+                </div>
+                <div class="col-sm-6">
+                  <strong>Lorem ipsum doalar set</strong>
+                  <p>Draft</p>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <a href="#" class="settings-default-btn">Course Settings</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inner-tab">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <ul>
+                      <li><a href="">Course Goals</a></li>
+                      <li><a href="">Curriculum</a></li>
+                      <li><a href="">Course Details</a></li>
+                      <li><a href="">Price</a></li>
+                      <li><a href="">Captions</a></li>
+                      <li><a href="">Tutor Message</a></li>
+                      <li><a href="">Exam</a></li>
+                    </ul>
+                    <div class="form-group">
+                      <a href="" class="guest-default-btn">Submit for Review</a>
+                    </div>
+                  </div>
+                  <div class="col-sm-9">
+                    <div class="inner-tab-header">
+                      <h3>Curriculum</h3>
+                      <a href="" class="settings-default-btn">Upload Multiple Files</a>
+                      <a href="" class="settings-default-btn">Preview</a>
+                    </div>
+                    <div class="inner-tab-body">
+                      <p>Create curriculum by adding lecture and resource.</p>
+                      <div class="curriculum-table">
+
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </section>
+
+
+            </div>
+
+
           </div>
         </div>
       </div>

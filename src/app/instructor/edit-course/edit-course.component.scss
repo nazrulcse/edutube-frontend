@@ -1,59 +1,94 @@
+/* Variable call */
+
+// Body
+$body-bg: #f5f8fa;
+
+/* Google fonts */
+$primary-font: 'Open Sans', sans-serif;
+
+// Typography
+$font-family-sans-serif: "Raleway", sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// EduTube Theme
+$primary-color: #fff;
+$secondary-color: #f1f1f1;
+//$tertiary-color: #000;
+$icon-color: #333333;
+$ash-shadow: #a3a3a3;
+$primary-btn: #ef294a;
+$pink-shadow: #d01e3c;
+$boder-color: #e3e3e3;
+
+/* Color name declaration */
+$white: $primary-color;
+$off-white: $secondary-color;
+$ash: $ash-shadow;
+$pink: $primary-btn;
+$deep-pink: $pink-shadow;
+$off-black: $icon-color;
+
+/* Social icon color */
+$facebook: #3b5998;
+$twitter: #1da1f2;
+$youtube: #ff0000;
+$linkedin: #007bb5;
+
+/* Variable call end */
+
+
+
 #edit-course {
   background: #F8F9F2;
   padding: 25px 0;
 }
 
 .edit-course-dashboard {
-  section {
-    z-index: 1000;
-    padding: 15px;
-    margin: 0 0 15px 0;
-    font-size: 14px;
-    color: #333333;
-    text-align: left;
-    list-style: none;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,.15);
-    border-radius: .25rem;
-    h3 {
-      color: #444444;
-      margin-bottom: 10px;
-      font-weight: bold;
-      font-size: 14px;
-    }
-    h4 {
-      color: #333333;
-      margin-bottom: 10px;
-      font-weight:normal;
-      font-size: 13px;
-    }
-    .info-text {
-      color: #666666;
-      font-size: 13px;
-    }
-    .report-header {
-      padding: 10px 20px;
-      border-bottom: solid 1px #cccccc;
-      margin-top: -15px;
-      font-weight: bold;
-      font-size: 20px;
-    }
-    .report-items {
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+  background-color: $white;
+  color: $icon-color;
+  text-align: left;
+  font-family: $primary-font;
+  font-size: 14px;
+  .sub-top-nav {
+    border-bottom: 1px solid $boder-color;
+    ul {
+      padding: 15px 20px;
       li {
-        padding: 10px;
-        border-bottom: solid 1px #cccccc;
-        .image-box {
-          float: left;
-          width: 70px;
-          height: auto;
+        display: inline-block;
+        a {
+          color: $icon-color;
+          display: inline-block;
+          cursor: pointer;
+          &:hover {
+            color: $icon-color;
+            text-decoration: none;
+          }
         }
-        .info-box {
-          margin-left: 85px;
+        .active {
+          position: relative;
+          &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2px;
+            background-color: $icon-color;
+          }
+        }
+        span {
+          margin: 0 20px;
         }
       }
     }
   }
+  .edit-body {
+    padding: 30px 25px;
+  }
+
 }
 
 
