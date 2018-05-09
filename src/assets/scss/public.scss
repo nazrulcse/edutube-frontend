@@ -69,6 +69,39 @@
   }
 }
 
+.guest-default-btn, .settings-default-btn {
+  border: 1px solid $boder-color;
+  background-color: $secondary-color;
+  font-family: $primary-font;
+  color: $icon-color;
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: $primary-color;
+    color: $icon-color;
+  }
+}
+
+.guest-default-btn {
+  padding: 5px 25px;
+}
+
+.settings-default-btn {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  padding: 5px 20px;
+}
+
+/* Radio label design */
+.default-radio-label {
+  font-family: $primary-font;
+  font-size: 11px;
+  font-weight: lighter;
+  color: $icon-color;
+  vertical-align: top;
+}
+
 .facebook-btn {
   color: #ffffff !important;
   background-color: #494492;
@@ -229,4 +262,11 @@
     color: #333333 !important;
     margin: 2px 0;
   }
+}
+
+/* Common ul style */
+.common-ul-style {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
