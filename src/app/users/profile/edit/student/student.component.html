@@ -3,11 +3,11 @@
  <div class='profile-top-bar'>
    <a class='edu-link-default' routerLink="/profile"> Back to Profile </a>
  </div>
- <div class="alert alert-danger" *ngIf="error"> 
-   {{error}} 
+ <div class="alert alert-danger" *ngIf="error">
+   {{error}}
  </div>
- <div class="alert alert-info text-center" *ngIf="info"> 
-   {{info}} 
+ <div class="alert alert-info text-center" *ngIf="info">
+   {{info}}
  </div>
  <div class='row'>
   <div class='col-sm-3'>
@@ -106,17 +106,17 @@
 		  	  	<div class='col-sm-6'>
 		  	  	  	<div class='edu-form-group'>
 			          <label class='edu-label-default'> Email Address </label>
-			          <input type="text" name='email' [(ngModel)]="user.email" class='form-control-default'> 
-		  	  	    </div> 
+			          <input type="text" name='email' [(ngModel)]="user.email" class='form-control-default'>
+		  	  	    </div>
 		  	  	</div>
 		  	  	<div class='col-sm-6'>
 			  	  	<div class='edu-form-group'>
 				        <label class='edu-label-default'> Phone Number </label>
-				        <input type="text" name='phone' [(ngModel)]="user.phone" class='form-control-default'> 
+				        <input type="text" name='phone' [(ngModel)]="user.phone" class='form-control-default'>
 			  	  	  </div>
 			  	</div>
 		  	  </div>
-		  	  
+
 		  	  <div class='row text-center'>
 		  	   <input type="submit" value='Save' (click)="update_profile()" class='btn primary-btn btn-size-2x mr-auto'>
 		  	  </div>
@@ -153,13 +153,13 @@
 		      	  	  	<div class='col-sm-6'>
 		      	  	  	  <div class='form-group'>
 		                    <label class='edu-label-default'> School/Collage/University </label>
-		                    <input type="text" name='first_name' class='form-control-default'> 
+		                    <input type="text" name='first_name' class='form-control-default'>
 		      	  	  	  </div>
 		      	  	  	</div>
 		      	  	  	<div class='col-sm-6'>
 		      	  	  	<div class='form-group'>
 		                    <label class='edu-label-default'> Website </label>
-		                    <input type="text" name='last_name' class='form-control-default'> 
+		                    <input type="text" name='last_name' class='form-control-default'>
 		      	  	  	  </div>
 		      	  	  	</div>
 		      	  	  </div>
@@ -167,13 +167,13 @@
 		      	  	  	<div class='col-sm-6'>
 		      	  	  	  <div class='form-group'>
 		                    <label class='edu-label-default'> Class/Level/Degree </label>
-		                    <input type="text" name='degree' class='form-control-default'> 
+		                    <input type="text" name='degree' class='form-control-default'>
 		      	  	  	  </div>
 		      	  	  	</div>
 		      	  	  	<div class='col-sm-6'>
 		      	  	  	  <div class='form-group'>
 		                    <label class='edu-label-default'> Subject </label>
-		                    <input type="text" name='college' class='form-control-default'> 
+		                    <input type="text" name='college' class='form-control-default'>
 		      	  	  	  </div>
 		      	  	  	</div>
 		      	  	  </div>
@@ -186,12 +186,12 @@
 		                    <select name='country' class='form-control-default'>
 		                      <option value='BD'> Bangladesh </option>
 		                      <option value='BD'> Others </option>
-		                    </select> 
+		                    </select>
 		      	  	  	  </div>
 		      	  	  	</div>
 		      	  	  	<div class='col-sm-5'>
 		      	  	  	  <div class='form-group'>
-		                    <input type="text" name='city' class='form-control-default'> 
+		                    <input type="text" name='city' class='form-control-default'>
 		      	  	  	  </div>
 		      	  	  	</div>
 		      	  	  </div>
