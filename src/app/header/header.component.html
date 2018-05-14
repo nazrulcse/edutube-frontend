@@ -10,15 +10,102 @@
         <div  class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item dropdown thumb-dropdown">
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Categories <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li role="presentation" class="dropdown-header"> Head 1</li>
+              <a href="#" class="nav-link dropdown-togglex" data-toggle="dropdown">Categories <i class="edu-caret down"></i></a>
+              <ul class="dropdown-menu edu-dropdown-menu" role="menu">
+                <li role="presentation" class="dropdown-header">
+                  <div class="dropdown-li-head">
+                    <strong>Academic Courses</strong>
+                    <p>See All</p>
+                  </div>
+                </li>
+                <li class="nav-item dropdown thumb-dropdown nav-item-nested">
+                  <a href="#" class="nav-link dropdown-togglex" data-toggle="dropdown">
+                    PSC
+                    <span class="edu-caret right"></span>
+                  </a>
+                  <ul class="dropdown-menu edu-dropdown-menu custom-place" role="menu">
+                    <li role="presentation" class="dropdown-header">
+                      <a href="">Bangla</a>
+                    </li>
+                    <li role="presentation" class="dropdown-header">
+                      <a href="">English</a>
+                    </li>
+                    <li role="presentation" class="dropdown-header">
+                      <a href="">Mathematics</a>
+                    </li>
+                    <li role="presentation" class="dropdown-header">
+                      <a href="">Religion</a>
+                    </li>
+                    <li role="presentation" class="dropdown-header">
+                      <a href="">Science</a>
+                    </li>
+                  </ul>
+                </li>
                 <li>
                   <a href="#">
-                    <!--Preview carousel indicators-->
-                    <div class="thumbnail">
-                      <!-- <img class="img-responsive" src="http://krowdly.co/snippets/thumbnails/1.jpg"> -->
-                    </div>
+                    Secondary
+                    <span class="edu-caret right"></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    JSC
+                    <span class="edu-caret right"></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    SSC
+                    <span class="edu-caret right"></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    HSC
+                    <span class="edu-caret right"></span>
+                  </a>
+                </li>
+
+                <li role="presentation" class="dropdown-header">
+                  <div class="dropdown-li-head">
+                    <strong>Special Courses</strong>
+                    <p>See All</p>
+                  </div>
+                </li>
+                <li>
+                  <a href="#">
+                    Development
+                    <span class="edu-caret right"></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    Design
+                    <span class="edu-caret right"></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    IT & Software
+                    <span class="edu-caret right"></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    Business
+                    <span class="edu-caret right"></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    Marketing
+                    <span class="edu-caret right"></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    HRMS
+                    <span class="edu-caret right"></span>
                   </a>
                 </li>
               </ul>
@@ -42,7 +129,7 @@
                 <div class="dropdown-menu dropdown-menu-right custom-dropdown" aria-labelledby="navbarDropdown">
                   <div class="nav-dropdown-profile">
                     <div class='avatar'>
-                      <img src="{{env.assets_host}}{{user.avatar}}" alt="profile image" *ngIf="user.avatar"/> 
+                      <img src="{{env.assets_host}}{{user.avatar}}" alt="profile image" *ngIf="user.avatar"/>
                       <img src="/assets/images/no_profile.png" *ngIf="!user.avatar"/>
                     </div>
                     <div class='info-section'>
@@ -50,23 +137,23 @@
                       <div class='email'> {{user.email}} </div>
                     </div>
                   </div>
-                  <a class="dropdown-item" routerLink="/profile"> 
+                  <a class="dropdown-item" routerLink="/profile">
                     <i class="fa fa-user-circle-o gray-icon mid-size-icon mr20"></i> &nbsp; My Profile
                   </a>
-                  <a class="dropdown-item" routerLink="/home" *ngIf="user.user_type=='student'"> 
+                  <a class="dropdown-item" routerLink="/home" *ngIf="user.user_type=='student'">
                     <i class="fa fa-home gray-icon mid-size-icon mr20"></i> &nbsp; My Home
                   </a>
-                  <a class="dropdown-item" routerLink="/instructor/dashboard" *ngIf="user.user_type=='teacher'"> 
+                  <a class="dropdown-item" routerLink="/instructor/dashboard" *ngIf="user.user_type=='teacher'">
                     <i class="fa fa-home gray-icon mid-size-icon mr20"></i> &nbsp; My Home
                   </a>
-                  <a class="dropdown-item" routerLink="/profile"> 
+                  <a class="dropdown-item" routerLink="/profile">
                     <i class="fa fa-envelope gray-icon mr20"></i> &nbsp; My Messages
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" routerLink="/settings"> 
+                  <a class="dropdown-item" routerLink="/settings">
                     <i class="fa fa-cog gray-icon mid-size-icon mr20"></i> &nbsp; Settings
                   </a>
-                  <a class="dropdown-item" routerLink="/settings"> 
+                  <a class="dropdown-item" routerLink="/settings">
                     <i class="fa fa-info-circle gray-icon mid-size-icon mr20"></i> &nbsp; Help
                   </a>
                   <a style="margin-top: 5px" routerLink="/logout" class="dropdown-item">

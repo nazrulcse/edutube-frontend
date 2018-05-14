@@ -1,0 +1,85 @@
+.up {
+  background-image: url("/assets/images/arrow-up.png");
+}
+
+.down {
+  background-image: url("/assets/images/arrow-down.png");
+}
+
+.left {
+  background-image: url("/assets/images/arrow-left.png");
+}
+
+.right {
+  background-image: url("/assets/images/arrow-right.png");
+}
+
+.edu-caret {
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0px 20px;
+}
+
+.edu-dropdown-menu {
+  width: 270px;
+  min-height: 150px;
+  li {
+    .dropdown-li-head {
+      clear: both;
+      overflow: hidden;
+      color: #333333;
+      strong {
+        float: left;
+      }
+      p {
+        float: right;
+        margin: 0;
+      }
+    }
+    a {
+      display: block;
+      cursor: pointer;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      position: relative;
+      padding: 6px 24px;
+      &:hover {
+        background-color: #f1f1f1;
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 2px;
+          background-color: #ED003D;
+        }
+      }
+      span {
+        position: absolute;
+        right: 0;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+.nav-item-nested:hover .custom-place {
+  display: block;
+  right: 0;
+  top: 0;
+  left: 267px;
+  bottom: 0;
+  background-color: #f1f1f1;
+  li {
+    a {
+      &:before {
+        position: inherit;
+        opacity: 0;
+      }
+    }
+  }
+}
+
