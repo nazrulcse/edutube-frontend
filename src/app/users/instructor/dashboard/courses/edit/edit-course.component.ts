@@ -24,7 +24,6 @@ export class EditCourseComponent implements OnInit {
 
   public loadCourse(id) {
   	this.courseService.getCourse(id).subscribe(response => {
-  		console.log(response);
       if(response.success) {
         this.course = response.course;
       }

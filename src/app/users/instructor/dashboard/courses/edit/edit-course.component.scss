@@ -91,67 +91,6 @@ $linkedin: #007bb5;
   .edit-body {
     padding: 30px 25px;
   }
-
-}
-
-.inner-tab {
-  border: 1px solid $boder-color;
-  border-radius: 5px;
-  margin-top: 15px;
-  .tab-row {
-    clear: both;
-    overflow: hidden;
-    .tab-left-col {
-      float: left;
-      width: 25%;
-      border-right: 1px solid $boder-color;
-      .tab-ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 10px 0 0 0;
-        li {
-          a {
-            color: $icon-color;
-            display: block;
-            cursor: pointer;
-            padding: 8px 25px;
-            &:hover {
-              background-color: $secondary-color;
-              text-decoration: none;
-              color: $icon-color;
-          }
-          }
-        }
-      }
-    }
-    .tab-right-col {
-      width: 75%;
-      float: left;
-      .inner-tab-header {
-        clear: both;
-        overflow: hidden;
-        border-bottom: 1px solid $boder-color;
-        padding: 10px;
-        h3 {
-          margin: 0;
-          font-size: 18px;
-          padding-left: 20px;
-          display: inline-block;
-        }
-        a {
-          float: right;
-        }
-      }
-      .inner-tab-body {
-        padding: 20px;
-        .curriculum-table {
-          border: 2px solid $boder-color;
-          padding: 10px;
-          margin-bottom: 20px;
-        }
-      }
-    }
-  }
 }
 
 
