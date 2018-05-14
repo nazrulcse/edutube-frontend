@@ -16,13 +16,13 @@
             <div class="sub-top-nav">
               <ul class="common-ul-style">
                 <li>
-                  <a href="#">My Dashboard</a><span class=""></span>
+                  <a routerLink="/instructor/dashboard">My Dashboard</a><span class=""></span>
                 </li>
                 <li>
-                  <a href="#">Courses</a><span class=""></span>
+                  <a routerLink="/instructor/dashboard/courses">Courses</a><span class=""></span>
                 </li>
                 <li>
-                  <a href="#" class="active">Course Management</a><span class=""></span>
+                  <a href="javascript:void(0);" class="active">Course Management</a><span class=""></span>
                 </li>
               </ul>
             </div>
@@ -39,49 +39,240 @@
                 </div>
                 <div class="col-sm-3">
                   <div class="form-group">
-                    <a href="#" class="settings-default-btn">Course Settings</a>
+                    <a href="#" class="btn round-btn-default"> <i class="fa fa-cog"></i> Course Settings</a>
                   </div>
                 </div>
               </div>
-              <div class="inner-tab">
-                <div class="tab-row">
-                  <div class="col-sm-3x tab-left-col">
-                    <ul class="tab-ul mb15">
-                      <li><a class="active" >Course Goals</a></li>
-                      <li><a href="">Curriculum</a></li>
-                      <li><a href="">Course Details</a></li>
-                      <li><a href="">Price</a></li>
-                      <li><a href="">Captions</a></li>
-                      <li><a href="">Tutor Message</a></li>
-                      <li><a href="">Exam</a></li>
-                    </ul>
-                    <div class="form-group text-center">
-                      <a href="" class="btn guest-default-btn p5">Submit for Review</a>
-                    </div>
-                  </div>
-                  <div class="col-sm-9x tab-right-col">
-                    <div class="inner-tab-header">
-                      <h3>Curriculum</h3>
-                      <a href="" class="settings-default-btn">Upload Multiple Files</a>
-                      <a href="" class="settings-default-btn mr15">Preview</a>
-                    </div>
-                    <div class="inner-tab-body">
-                      <p>Create curriculum by adding lecture and resource.</p>
-                      <div class="curriculum-table">
-                        <div class="table-head"></div>
-                        <div class="table-body"></div>
-                      </div>
-                      <div class="form-group text-left">
-                        <a href="" class="btn guest-default-btn mr15">+Add Lecture</a>
-                        <a href="" class="btn guest-default-btn">+Add Quiz</a>
-                      </div>
+                <div class='edit-course-container'>
+                <div class='col-lg-12'>
+                  <div class='row'>
+                  <div class='col-sm-3 right-border'>
+                    <div class='row'>
+                    <div class="nav flex-column nav-pills left-pill-nav edu-pill-wrapper" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                      <a class="nav-link active" data-toggle="pill" href="#course-goals-tab" role="tab" aria-selected="true">
+                        Course Goals
+                      </a>
+                      <a class="nav-link" data-toggle="pill" href="#course-curriculum-tab" role="tab" aria-selected="true">
+                        Curriculum
+                      </a>
+                      <a class="nav-link" data-toggle="pill" href="#course-details-tab" role="tab" aria-selected="true">
+                        Course Details
+                      </a>
+                      <a class="nav-link" data-toggle="pill" href="#course-price-tab" role="tab" aria-selected="true">
+                        Price
+                      </a>
+                      <a class="nav-link" data-toggle="pill" href="#course-captions-tab" role="tab" aria-selected="true">
+                        Captions
+                      </a>
+                      <a class="nav-link" data-toggle="pill" href="#course-tutor-message-tab" role="tab" aria-selected="true">
+                        Tutor Message
+                      </a>
+                      <a class="nav-link" data-toggle="pill" href="#course-exam-tab" role="tab" aria-selected="true">
+                        Exam
+                      </a>
                     </div>
                   </div>
                 </div>
+                
+                <div class='col-sm-9'>
+                  <div class='row'>
+                  <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="course-goals-tab" role="tabpanel">
+                      <form #courseGoalForm="ngForm" (ngSubmit)="submitCourseGoal()">
+                        <div class='inner-tab-header clearfix'>
+                          <h3>Course Goal</h3>
+                          <button class="round-btn-default pull-right" type="submit"> Save </button>
+                        </div>
+                        <div class='inner-body'>
+                          <div class='form-group'>
+                            <label class='edu-label-default'> What knowledge and tools are required? </label>
+                            <input type="text" name="tools_required" class='form-control-default'>
+                          </div>
+                          <div class='form-group'>
+                            <label class='edu-label-default'> Who should take this course? </label>
+                            <input type="text" name="who_can_take" class='form-control-default'>
+                          </div>
+                          <div class='form-group'>
+                            <label class='edu-label-default'> What will students achive or be able to do after taking this course? </label>
+                            <input type="text" name="achivement" class='form-control-default'>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="course-curriculum-tab" role="tabpanel">
+                      <form #curriculumForm="ngForm" (ngSubmit)="submitCourseCurriculum()">
+                        <div class='inner-tab-header clearfix'>
+                          <h3>Curriculum</h3>
+                          <button class="round-btn-default pull-right"> Preview </button>
+                          <button class="round-btn-default pull-right mr15"> Upload Multiple Files </button>
+                        </div>
+                        <div class="inner-body">
+                          <p> Create curriculum by adding lecture and resourse. </p>
+                          <div class='curriculum-containers mb15'>
+                            <div class='curriculum-header'> Lecture 1: Intruduction </div>
+                            <div class='curriculum-tabs'>
+                              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                  <a class="nav-link active" data-toggle="tab" href="#content-tab" role="tab" aria-controls="home" aria-selected="true">
+                                    Add Content
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" data-toggle="tab" href="#description-tab" role="tab" aria-controls="profile" aria-selected="false">Add Description</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" data-toggle="tab" href="#resource-tab" role="tab" aria-controls="contact" aria-selected="false">Add Resources</a>
+                                </li>
+                              </ul>
+                              <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade show active" id="content-tab">
+                                  <div class='inner-body'>
+                                    <p> Upload main type of content </p>
+                                  </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="description-tab">
+                                  <div class='inner-body'>
+                                    <p> Curriculum Descriptions </p>
+                                  </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="resource-tab">
+                                  <div class='inner-body'>
+                                    <p> Add your resources </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <button type="button" class='btn defaul-btn mr10'> + Add Lecture </button>
+                          <button type="button" class='btn defaul-btn mr10'> + Add Quiz </button>
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="tab-pane fade" role="tabpanel" id="course-details-tab">
+                      <form #detailsForm="ngForm" (ngSubmit)="submitCourseDetails()">
+                        <div class='inner-tab-header clearfix'>
+                          <h3>Course Details</h3>
+                          <button class="round-btn-default pull-right" type="submit"> Save </button>
+                          <button class="round-btn-default pull-right mr15"> Preview </button>
+                        </div>
+                        <div class="inner-body">
+                          <p> Your Course Details is the first thing students see when they find your course in the marketplace and will influence student entrollments. Fill in the details bellow and click 'Preview' to see how it will appear to students in the marketplace. </p>
+
+                          <div class='form-group'>
+                            <label class='edu-label-default'> Course Title </label>
+                            <input type="text" name="tools_required" class='form-control-default'>
+                          </div>
+
+                          <div class='form-group'>
+                            <label class='edu-label-default'> Course Sub-title </label>
+                            <input type="text" name="tools_required" class='form-control-default'>
+                          </div>
+
+                          <div class='form-group'>
+                            <label class='edu-label-default'> Course Description </label>
+                            <textarea type="text" name="tools_required" class='form-control-default'></textarea>
+                          </div>
+
+                          <div class='form-group'>
+                            <label class='edu-label-default'> Category </label>
+                            <input type="text" name="tools_required" class='form-control-default'>
+                          </div>
+
+                          <div class='form-group'>
+                            <label class='edu-label-default'> Language </label>
+                            <select type="text" name="tools_required" class='form-control-default'>
+                              <option value="English"> English </option>
+                            </select>
+                          </div>
+
+                          <div class='form-group'>
+                            <label class='edu-label-default'> Course Image </label>
+                          </div>
+
+                          <div class='form-group'>
+                            <label class='edu-label-default'> Promotional video </label>
+                          </div>
+
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="tab-pane fade" role="tabpanel" id="course-price-tab">
+                      <form #priceForm="ngForm" (ngSubmit)="submitCoursePrice()">
+                        <div class='inner-tab-header clearfix'>
+                          <h3>Price</h3>
+                          <button class="round-btn-default pull-right" type="submit"> Save </button>
+                        </div>
+                        <div class='inner-body'> 
+                          <p> Please select the price tier for your course bellow and click 'Save'. The list price that students will see in other currencies is calculated using the price tier matrix, based on the tier that is corresponds to. </p>
+                          <select name='currency' class='mr10'>
+                            <option value="BDT"> BDT </option>
+                            <option value="BDT"> USD </option>
+                          </select>
+                          <input type="text" placeholder="Enter price">
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="tab-pane fade" role="tabpanel" id="course-captions-tab">
+                      <form #captionForm="ngForm" (ngSubmit)="submitCourseCaptions()">
+                        <div class='inner-tab-header clearfix'>
+                          <h3>Captions</h3>
+                          <button class="round-btn-default pull-right" type="submit"> Disabled </button>
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="tab-pane fade" role="tabpanel" id="course-tutor-message-tab">
+                      <form #captionForm="ngForm" (ngSubmit)="submitCourseCaptions()">
+                        <div class='inner-tab-header clearfix'>
+                          <h3>Tutor Message</h3>
+                          <button class="round-btn-default pull-right" type="submit"> Save </button>
+                        </div>
+                        <div class='inner-body'>
+                          <p> Write messages to your students (optional) that will be sent automatically when they join or complete your course to encourage students to engage with course content. If you do not wish to send a welcome or congruatulations message, leave the text box blank. </p>
+                          <div class=form-group>
+                            <label class='edu-label-default'> Welcome Message </label>
+                            <textarea name="welcome_message" class='form-control-default'></textarea>
+                          </div>
+                          <div class=form-group>
+                            <label class='edu-label-default'> Congratuations Message </label>
+                            <textarea name="welcome_message" class='form-control-default'></textarea>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="tab-pane fade" role="tabpanel" id="course-exam-tab">
+                      <form #captionForm="ngForm" (ngSubmit)="submitCourseCaptions()">
+                        <div class='inner-tab-header clearfix'>
+                          <h3>Exam</h3>
+                          <button class="round-btn-default pull-right" type="submit"> Save </button>
+                        </div>
+                        <div class='inner-body'>
+                          <div class='form-group'>
+                            <label> Question </label>
+                            <input type="text" class='form-control-default'>
+                          </div>
+                          <div class='form-group'>
+                            <label> Answers Hints </label>
+                            <input type="text" class='form-control-default mb5'>
+                            <input type="text" class='form-control-default mb5'>
+                            <input type="text" class='form-control-default mb5'>
+                            <input type="text" class='form-control-default'>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+
+                  </div>
+                  </div>
+                </div>
+                </div>
+                </div>
               </div>
-
-
-            </div>
 
 
           </div>
