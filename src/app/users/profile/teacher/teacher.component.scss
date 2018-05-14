@@ -1,0 +1,54 @@
+.get-assistance-section {
+	padding: 20px 10px 10px 10px;
+}
+
+.com-contact-section {
+	background: #f1f1f1;
+	text-align: center;
+	padding: 7px;
+}
+
+.teacher-profile-info {
+	.small-text {
+		font-size: 13px;
+	}
+	h3 {
+		font-weight: bold;
+		font-size: 16px;
+	}
+
+	.ratting-section {
+		margin: 20px 0;
+		i {
+			margin-right: 3px;
+			color: #ffcd03;
+			font-size: 16px;
+		}
+	}
+
+	.teaching-assistance-section {
+		h3 {
+			font-weight: bold;
+			font-size: 18px;
+		}
+	}
+	.user-stats-section {
+		section {
+			border-bottom: none;
+            text-align: center;
+			padding: 4px 15px;
+			border-right: solid 1px #cccccc;
+			font-size: 14px;
+			color: #333333;
+			display: inline-block;
+			max-width: 200px;
+			&:last-child {
+				margin-right: none;
+			}
+			span {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+}

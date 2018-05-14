@@ -41,7 +41,10 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right custom-dropdown" aria-labelledby="navbarDropdown">
                   <div class="nav-dropdown-profile">
-                    <div class='avatar' style="background: url('assets/images/community.png');"> </div>
+                    <div class='avatar'>
+                      <img src="{{env.assets_host}}{{user.avatar}}" alt="profile image" *ngIf="user.avatar"/> 
+                      <img src="/assets/images/no_profile.png" *ngIf="!user.avatar"/>
+                    </div>
                     <div class='info-section'>
                       <b> {{user.name}} </b>
                       <div class='email'> {{user.email}} </div>
@@ -50,7 +53,10 @@
                   <a class="dropdown-item" routerLink="/profile"> 
                     <i class="fa fa-user-circle-o gray-icon mid-size-icon mr20"></i> &nbsp; My Profile
                   </a>
-                  <a class="dropdown-item" routerLink="/home"> 
+                  <a class="dropdown-item" routerLink="/home" *ngIf="user.user_type=='student'"> 
+                    <i class="fa fa-home gray-icon mid-size-icon mr20"></i> &nbsp; My Home
+                  </a>
+                  <a class="dropdown-item" routerLink="/instructor/dashboard" *ngIf="user.user_type=='teacher'"> 
                     <i class="fa fa-home gray-icon mid-size-icon mr20"></i> &nbsp; My Home
                   </a>
                   <a class="dropdown-item" routerLink="/profile"> 

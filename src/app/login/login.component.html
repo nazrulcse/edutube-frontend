@@ -11,6 +11,9 @@
         <div class='alert alert-danger' *ngIf="message">
           {{message}}
         </div>
+        <div class='alert alert-success' *ngIf="success">
+          {{success}}
+        </div>
         <div id="edutube-register-form" class="form-wrapper sign-in-wrap">
             <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class='form-horizontal edutube-auth-form'>
 
@@ -32,7 +35,7 @@
                    </span>
                  </label>
                  <div class="group-input">
-                  <span class='input-icon'> <i class='fa fa-lock'></i></span>
+                  <span class='input-icon'> <img src="/assets/images/pad-lock.png"/> </span>
                   <input type="password" [(ngModel)]="credential.password" class="input-inner" name="password" required>
                   </div>
                 </div>
@@ -50,14 +53,14 @@
                 </div>
 
                 <div class="form-group">
-                  <a (click)="signInWithFB()" class="btn btn-block facebook-btn">
+                  <a (click)="signInWithSocial('facebook')" class="btn btn-block facebook-btn">
                     <i class="fa fa-facebook-f icon"></i> Sign in with Facebook
                   </a>
                 </div>
 
                 <div class="form-groupx">
-                  <a (click)="signInWithGoogle()" class="btn btn-block google-btn">
-                    <i class="fa fa-google icon"></i> Sign in with Google
+                  <a (click)="signInWithSocial('google')" class="btn btn-block google-btn">
+                    <img src="/assets/images/google_icon.png" class='mr20' style="height: 16px;"/> Sign in with Google
                   </a>
                 </div>
              </form>

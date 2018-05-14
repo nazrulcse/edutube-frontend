@@ -1,3 +1,4 @@
+<div id="profile-edit-page">
 <div class='profile-container container'>
 	<div class='col-lg-12'>
  <div class='profile-top-bar'>
@@ -28,8 +29,17 @@
 				  <div class='col-sm-12'>
 					  <div class='row'>
 						  <div class='col-sm-3 profile-avatar-wrapper'>
-							  <div class='profile-avatar'></div>
-							  <a class='edu-link-default' href='#'> Upload Photo </a>
+							  <div class='profile-avatar'>
+                                <img src="{{env.assets_host}}{{user.avatar}}" *ngIf="user.avatar"/>
+                                <img src="/assets/images/no_profile.png" *ngIf="!user.avatar"/>
+							  </div>
+							  <div class="upload-btn-wrapper">
+							    <button class="btn-text">Upload/Change</button>
+							    <input type="file" name="file" id="file" (change)="onFileChanged($event)" />
+							  </div>
+							  <div *ngIf="uploading" class='loader'>
+							  	<i class='fa fa-spinner fa-spin'></i> Uploading...
+							  </div>
 						  </div>
 						  <div class='col-sm-9'>
 							  <div class='row'>
@@ -37,14 +47,14 @@
 									  <div class='form-group'>
 										  <label class='edu-label-default'> First Name </label>
 										  <input type="text" name='first_name' [(ngModel)]="user.first_name"
-												 class='form-control-default'>
+												 class='form-control-gray'>
 									  </div>
 								  </div>
 								  <div class='col-sm-6'>
 									  <div class='form-group'>
 										  <label class='edu-label-default'> Last Name </label>
 										  <input type="text" name='last_name' [(ngModel)]="user.last_name"
-												 class='form-control-default'>
+												 class='form-control-gray'>
 									  </div>
 								  </div>
 							  </div>
@@ -53,14 +63,14 @@
 									  <div class='form-group'>
 										  <label class='edu-label-default'> Class/Level/Degree </label>
 										  <input type="text" name='degree' [(ngModel)]="user.degree"
-												 class='form-control-default'>
+												 class='form-control-gray'>
 									  </div>
 								  </div>
 								  <div class='col-sm-7'>
 									  <div class='form-group'>
 										  <label class='edu-label-default'> School/College/University </label>
 										  <input type="text" name='institution' [(ngModel)]="user.institution"
-												 class='form-control-default'>
+												 class='form-control-gray'>
 									  </div>
 								  </div>
 							  </div>
@@ -71,7 +81,7 @@
 								  <div class='col-sm-4'>
 									  <div class='form-group'>
 										  <select name='country' [(ngModel)]="user.country"
-												  class='form-control-default'>
+												  class='form-control-gray'>
 											  <option value='Bangladesh'> Bangladesh</option>
 											  <option value='India'> India</option>
 											  <option value='Nepal'> Nepal</option>
@@ -82,13 +92,13 @@
 								  <div class='col-sm-8'>
 									  <div class='form-group'>
 										  <input type="text" name='city' [(ngModel)]="user.city"
-												 class='form-control-default'>
+												 class='form-control-gray'>
 									  </div>
 								  </div>
 							  </div>
-							  <div class='row text-center'>
+							  <div class='text-right'>
 								  <input type="submit" value='Save' (click)="update_profile()"
-										 class='btn primary-btn btn-size-2x mr-auto'>
+										 class='btn primary-btn btn-size-2x edu-btn-default-width'>
 							  </div>
 						  </div>
 					  </div>
@@ -106,19 +116,19 @@
 		  	  	<div class='col-sm-6'>
 		  	  	  	<div class='edu-form-group'>
 			          <label class='edu-label-default'> Email Address </label>
-			          <input type="text" name='email' [(ngModel)]="user.email" class='form-control-default'>
+			          <input type="text" name='email' [(ngModel)]="user.email" class='form-control-gray'>
 		  	  	    </div>
 		  	  	</div>
 		  	  	<div class='col-sm-6'>
 			  	  	<div class='edu-form-group'>
 				        <label class='edu-label-default'> Phone Number </label>
-				        <input type="text" name='phone' [(ngModel)]="user.phone" class='form-control-default'>
+				        <input type="text" name='phone' [(ngModel)]="user.phone" class='form-control-gray'>
 			  	  	  </div>
 			  	</div>
 		  	  </div>
 
-		  	  <div class='row text-center'>
-		  	   <input type="submit" value='Save' (click)="update_profile()" class='btn primary-btn btn-size-2x mr-auto'>
+		  	  <div class='text-right'>
+		  	   <input type="submit" value='Save' (click)="update_profile()" class='btn primary-btn btn-size-2x edu-btn-default-width'>
 		  	  </div>
 		  	</div>
 		  </div>
@@ -132,12 +142,11 @@
 		    <div class='col-lg-12'>
 		    <div class='row'>
 			    <div class='form-group' style='width: 100%;'>
-			    <label class='edu-label-default'> Description </label>
-			      <textarea name="about_me" [(ngModel)]="user.about_me" class='form-control-default'></textarea>
+			        <textarea name="about_me" [(ngModel)]="user.about_me" class='form-control-gray'></textarea>
 			    </div>
 		    </div>
-		    <div class='row text-center'>
-		      <input type="submit" (click)="update_profile()" value='Save' class='btn primary-btn btn-size-2x mr-auto'>
+		    <div class='text-right'>
+		      <input type="submit" (click)="update_profile()" value='Save' class='btn primary-btn btn-size-2x edu-btn-default-width'>
 		    </div>
 		    </div>
 		  </div>
@@ -146,20 +155,31 @@
 	  <div class="tab-pane fade" id="education-info-tab" role="tabpanel">
         <div class='edu-panel-default'>
 		  <div class='panel-header'> Education </div>
-		  <div class='panel-body'>
+		  <div class='edit-education-display-panel' *ngFor="let edu of educations; let ind = index;">
+		    <a href="javascript:void(0);" (click)="initEducation(ind)" class='edit-education-link'> 
+		      <i class="fa fa-pencil-square-o"></i> 
+		    </a>
+		  	<h3> {{edu.institution}} </h3>
+		  	<p> {{edu.degree}} </p>
+		  	<p> 
+		  	  <span> {{edu.from_month}} {{edu.from_year}} - </span> <span *ngIf="edu.is_continue"> present </span>
+		  	  <span *ngIf="!edu.is_continue"> {{edu.to_month}} {{edu.to_year}} </span> | {{edu.city}}, {{edu.country}} 
+		  	</p>
+		  </div>
+		  <div class='panel-body' *ngIf="education">
 			  <div class='inner-panel'>
 			  <div class='col-lg-12'>
 		      	  	  <div class='row'>
 		      	  	  	<div class='col-sm-6'>
 		      	  	  	  <div class='form-group'>
 		                    <label class='edu-label-default'> School/Collage/University </label>
-		                    <input type="text" name='first_name' class='form-control-default'>
+		                    <input type="text" name='institution' [(ngModel)]="education.institution" class='form-control-gray'>
 		      	  	  	  </div>
 		      	  	  	</div>
 		      	  	  	<div class='col-sm-6'>
 		      	  	  	<div class='form-group'>
 		                    <label class='edu-label-default'> Website </label>
-		                    <input type="text" name='last_name' class='form-control-default'>
+		                    <input type="text" name='website' [(ngModel)]="education.website" class='form-control-gray'>
 		      	  	  	  </div>
 		      	  	  	</div>
 		      	  	  </div>
@@ -167,13 +187,13 @@
 		      	  	  	<div class='col-sm-6'>
 		      	  	  	  <div class='form-group'>
 		                    <label class='edu-label-default'> Class/Level/Degree </label>
-		                    <input type="text" name='degree' class='form-control-default'>
+		                    <input type="text" name='degree' [(ngModel)]="education.degree" class='form-control-gray'>
 		      	  	  	  </div>
 		      	  	  	</div>
 		      	  	  	<div class='col-sm-6'>
 		      	  	  	  <div class='form-group'>
 		                    <label class='edu-label-default'> Subject </label>
-		                    <input type="text" name='college' class='form-control-default'>
+		                    <input type="text" name='subject' [(ngModel)]="education.subject" class='form-control-gray'>
 		      	  	  	  </div>
 		      	  	  	</div>
 		      	  	  </div>
@@ -183,29 +203,74 @@
 		      	  	  <div class='row'>
 		      	  	  	<div class='col-sm-5'>
 		      	  	  	  <div class='form-group'>
-		                    <select name='country' class='form-control-default'>
-		                      <option value='BD'> Bangladesh </option>
-		                      <option value='BD'> Others </option>
+		                    <select name='country' [(ngModel)]="education.country" class='form-control-gray'>
+		                      <option value='Bangladesh'> Bangladesh</option>
+							  <option value='India'> India</option>
+							  <option value='Nepal'> Nepal</option>
+							  <option value='Others'> Others</option>
 		                    </select>
 		      	  	  	  </div>
 		      	  	  	</div>
 		      	  	  	<div class='col-sm-5'>
 		      	  	  	  <div class='form-group'>
-		                    <input type="text" name='city' class='form-control-default'>
+		                    <input type="text" name='city' [(ngModel)]="education.city" class='form-control-gray'>
 		      	  	  	  </div>
 		      	  	  	</div>
 		      	  	  </div>
-		      	  	  <div class='edu-form-group'>
-		      	  	    <label class='edu-label-default'> Details </label>
-		      	  	    <textarea name="details" class='form-control-default'></textarea>
+		      	  	  <div class='row'>
+		      	  	  	<div class='col-sm-6'> 
+		      	  	  	    <label class='edu-label-default'> Starting From </label>
+		      	  	  	    <div class='row'>
+		      	  	  			<div class='col-sm-6'>
+		      	  	  				<select name='country' [(ngModel)]="education.from_month" class='form-control-gray'>
+				                      <option [ngValue]="null"> Month </option>
+				                      <option *ngFor="let month of months" [ngValue]="month"> {{month}} </option>
+				                    </select>
+		      	  	  			</div>
+		      	  	  			<div class='col-sm-6'>
+		      	  	  				<select name='country' [(ngModel)]="education.from_year" class='form-control-gray'>
+				                      <option [ngValue]="null"> Year </option>
+				                      <option *ngFor="let year of years" [ngValue]="year"> {{year}} </option>
+				                    </select>
+		      	  	  			</div>
+		      	  	  		</div>
+		      	  	  	</div>
+		      	  	  	<div class='col-sm-6'> 
+                            <label class='edu-label-default'> Ending In </label>
+                            <div class='row' *ngIf="!education.is_continue">
+                               <div class='col-sm-6'>
+		      	  	  				<select name='country' [(ngModel)]="education.to_month" class='form-control-gray'>
+				                      <option [ngValue]="null"> Month </option>
+				                      <option *ngFor="let month of months" [ngValue]="month"> {{month}} </option>
+				                    </select>
+		      	  	  			</div>
+		      	  	  			<div class='col-sm-6'>
+		      	  	  				<select name='country' [(ngModel)]="education.to_year" class='form-control-gray'>
+				                      <option [ngValue]="null"> Year </option>
+				                      <option *ngFor="let year of years" [ngValue]="year"> {{year}} </option>
+				                    </select>
+		      	  	  			</div>
+		      	  	  		</div>
+		      	  	  		<div>
+		      	  	  		    <label style='font-size: 12px;'>
+		      	  	  		    	<input type="checkbox" class='mb0' name="is_continue" [(ngModel)]="education.is_continue"/> Continue
+		      	  	  		    </label>
+		      	  	  		</div>
+		      	  	  	</div>
 		      	  	  </div>
-		      	  	  <div class='actions'>
-		      	  	    <input type="submit" (click)="not_implemented()" value='Add Language' class='btn default-btn btn-size-2x mr10'>
-		      	  	    <input type="submit" (click)="not_implemented()" value='Cancel' class='btn default-btn btn-size-2x'>
+		      	  	  <div class='edu-form-group mt5'>
+		      	  	    <label class='edu-label-default'> Details </label>
+		      	  	    <textarea name="details" [(ngModel)]="education.details" class='form-control-gray'></textarea>
+		      	  	  </div>
+		      	  	  <div class='actions text-right'>
+		      	  	    <input *ngIf="!education.id" type="submit" (click)="addEducation()" value='Add Education' class='btn default-btn btn-size-2x mr10 edu-btn-default-width'>
+		      	  	    <input *ngIf="education.id" type="submit" (click)="updateEducation()" value='Update Education' class='btn default-btn btn-size-2x mr10 edu-btn-default-width'>
+		      	  	    <input type="submit" (click)="cancelEducation()" value='Cancel' class='btn default-btn btn-size-2x edu-btn-default-width'>
 		      	  	  </div>
 		      	  	</div>
 			  </div>
 		  </div>
+		  <a class='edu-link-default edu-font-sx' (click)="initEducation()" href="javascript:void(0);"> + Add Education </a>
 		</div>
 	  </div>
 	  <div id='language-info-tab' class="tab-pane fade" role="tabpanel">
@@ -219,13 +284,13 @@
 		    	      <div class='col-sm-7'>
 			    	      <div class='edu-form-group'>
 			    	      	<label class='edu-label-default'> Language </label>
-			    	        <input type="text" name='language' class='form-control-default'>
+			    	        <input type="text" name='language' class='form-control-gray'>
 			    	      </div>
 		    	      </div>
 		    	      <div class='col-sm-5'>
 		    	        <div class='edu-form-group'>
 			    	      <label class='edu-label-default'> Proficiency Lavel </label>
-			    	      <select name='proficiency_level' class='form-control-default'>
+			    	      <select name='proficiency_level' class='form-control-gray'>
 		                    <option value="nativ"> Native </option>
 		                    <option value="other"> Others </option>
 			    	      </select>
@@ -234,9 +299,9 @@
 		    	    </div>
 		    	  </div>
 		    	</div>
-		    	<div class='actions'>
-		    	  <input type="submit" (click)="not_implemented()" value="Add Language" class='btn default-btn btn-size-2x mr10'>
-		    	  <input type="submit" (click)="not_implemented()" value="Cancel" class='btn default-btn btn-size-2x'>
+		    	<div class='actions text-right'>
+		    	  <input type="submit" (click)="not_implemented()" value="Add Language" class='btn default-btn btn-size-2x mr10 edu-btn-default-width'>
+		    	  <input type="submit" (click)="not_implemented()" value="Cancel" class='btn default-btn btn-size-2x edu-btn-default-width'>
 		    	</div>
 		    </div>
 		    <a class='edu-link-default edu-font-sx' (click)="not_implemented()" href='#'> + Add Language </a>
@@ -246,5 +311,6 @@
 	</div>
   </div>
  </div>
+</div>
 </div>
 </div>

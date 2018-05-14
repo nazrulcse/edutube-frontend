@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   }
   errors = [];
   message = "";
+  success = '';
   sub: any;
   user = {}
   
@@ -31,8 +32,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() { }
 
-  signInWithGoogle(): void {
-    this._sauth.signIn(GoogleLoginProvider.PROVIDER_ID).then(user => {
+  signInWithSocial(provider): void {
+    var app_provider = FacebookLoginProvider.PROVIDER_ID
+    if (provider == 'google') {
+      app_provider = GoogleLoginProvider.PROVIDER_ID
+    }
+    this._sauth.signIn(app_provider).then(user => {
       console.log(user);
       let data = {
         name: user.name,
@@ -47,7 +52,7 @@ export class LoginComponent implements OnInit {
            this.authService.saveAccessData(response.token, "", response.user);
            this.events.emitAuthEvent(true);
            $('#login-modal').modal('hide');
-           this.router.navigateByUrl('/profile');
+           this.router.navigateByUrl('/profile')
         }
         else {
          this.message = "Unable to login! Please try after sometimes" 
@@ -72,10 +77,13 @@ export class LoginComponent implements OnInit {
       .login(credential).subscribe(
         data => {
           if(data.success) {
-            this.authService.saveAccessData(data.token, "", data.user);
-            this.events.emitAuthEvent(true);
-            $('#login-modal').modal('hide');
-            this.router.navigateByUrl('/profile');
+            this.success = "SignIn Success!";
+            setTimeout(() => { 
+              this.authService.saveAccessData(data.token, "", data.user);
+              this.events.emitAuthEvent(true);
+              $('#login-modal').modal('hide');
+              this.router.navigateByUrl('/profile');
+            }, 2000);
           }
           else {
             this.message = data.message;

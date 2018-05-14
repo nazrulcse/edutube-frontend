@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
@@ -17,8 +18,9 @@ import { AuthenticationService, TokenStorage } from './authentication';
 import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import {EventService} from '../services/event_service';
-import {UserService} from '../services/user_service';
+import { EventService} from '../services/event_service';
+import { UserService} from '../services/user_service';
+import { CourseService} from '../services/course_service';
 import { LogoutComponent } from './logout/logout.component';
 import { SubnavComponent } from './users/student/subnav/subnav.component';
 import { StudentHomeComponent } from './users/student/home/home.component';
@@ -26,10 +28,13 @@ import { StudentSettingsComponent } from './users/student/student-settings/stude
 import { ReportComponent } from './users/student/report/report.component';
 import { PurchaseHistoryComponent } from './users/student/purchase-history/purchase-history.component';
 import { PurchaseReportComponent } from './users/student/purchase-report/purchase-report.component';
-import { NewCourseComponent } from './instructor/new-course/new-course.component';
-import { EditCourseComponent } from './instructor/edit-course/edit-course.component';
+import { InstructorDashboardComponent } from './users/instructor/dashboard/dashboard.component';
+import { EditCourseComponent } from './users/instructor/dashboard/courses/edit/edit-course.component';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider} from "angularx-social-login";
+import { TeacherProfileComponent } from './users/profile/teacher/teacher.component';
+import { InstructorCoursesComponent } from './users/instructor/dashboard/courses/courses.component';
+import { InstructorSidenavComponent } from './users/instructor/sidenav/sidenav.component';
 
 let config = new AuthServiceConfig([
   {
@@ -38,7 +43,7 @@ let config = new AuthServiceConfig([
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider("Facebook-App-Id")
+    provider: new FacebookLoginProvider("1399450506848052")
   }
 ]);
 
@@ -67,17 +72,21 @@ export function provideConfig() {
     ReportComponent,
     PurchaseHistoryComponent,
     PurchaseReportComponent,
-    NewCourseComponent,
-    EditCourseComponent
+    InstructorDashboardComponent,
+    EditCourseComponent,
+    TeacherProfileComponent,
+    InstructorCoursesComponent,
+    InstructorSidenavComponent
   ],
   imports: [
     BrowserModule,
     Routing,
     HttpClientModule,
     FormsModule,
-    SocialLoginModule.initialize(config)
+    BrowserAnimationsModule,
+    SocialLoginModule //.initialize(config)
   ],
-  providers: [AuthenticationService, TokenStorage, HttpClient, EventService, UserService, {
+  providers: [AuthenticationService, TokenStorage, HttpClient, EventService, UserService, CourseService, {
       provide: AuthServiceConfig,
       useFactory: provideConfig
     }],

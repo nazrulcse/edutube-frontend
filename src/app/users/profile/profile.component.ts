@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../authentication';
+import { environment } from '../../../environments/environment';
+import { UserService } from '../../../services/user_service';
 
 @Component({
   selector: 'app-profile',
@@ -9,11 +11,15 @@ import { AuthenticationService } from '../../authentication';
 })
 export class ProfileComponent implements OnInit {
 
-  user = {first_name: '', last_name: ''};
+  user:any = {};
   error = "";
   info = "";
+  env = {}
+  educations: any;
   constructor(private authService: AuthenticationService,
-  	private route: Router) { 
+  	private route: Router,
+    private userService: UserService) { 
+    this.env = environment;
     if(this.authService.isAuthorized()) {
       this.authService.me().subscribe(response => {
         this.user = response;
@@ -30,7 +36,17 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  public loadEducation() {
+    this.userService.getEducations().subscribe(response => {
+      this.educations = response.educations;
+    },
+    err => {
+      this.error = "Unable to load some profile data!";
+    });
+  }
+
   ngOnInit() {
+    this.loadEducation();
   }
 
 }

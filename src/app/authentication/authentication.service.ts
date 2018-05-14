@@ -4,14 +4,18 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
 import { TokenStorage } from './token-storage.service';
+import { environment } from "../../environments/environment";
 
 @Injectable()
 export class AuthenticationService {
 
+  base_url = "";
   constructor(
     private http: HttpClient,
     private tokenStorage: TokenStorage
-  ) {}
+  ) {
+    this.base_url = environment.api_url;
+  }
 
   /**
    * Check, if user already authorized.
@@ -58,13 +62,23 @@ export class AuthenticationService {
   }
 
   /**
+   * Get user data
+   * @description Should return user data stored during signin.
+   * localStorage
+   * @returns {UserData<JSON>}
+   */
+  public setAuthUser(user): any {
+    return this.tokenStorage.setUserData(user);
+  }
+
+  /**
    * Get auth user data
    * @description Should return user data from API.
    * localStorage
    * @returns {UserData<JSON>}
    */
   public me(): Observable<any> {
-    return this.http.get("http://localhost:8000/api/auth/me", {headers: this.getAuthHeader()});
+    return this.http.get(this.base_url + "/api/auth/me", {headers: this.getAuthHeader()});
   }
 
   /**
@@ -113,7 +127,7 @@ export class AuthenticationService {
    */
 
   public registration(data): Observable<any> {
-    return this.http.post("http://localhost:8000/api/auth/register", data);
+    return this.http.post(this.base_url + "/api/auth/register", data);
   }
 
   /**
@@ -121,7 +135,7 @@ export class AuthenticationService {
    */
 
   public login(credential): Observable<any> {
-    return this.http.post("http://localhost:8000/api/auth/login", credential);
+    return this.http.post(this.base_url + "/api/auth/login", credential);
   }
 
   /**
@@ -130,7 +144,7 @@ export class AuthenticationService {
   */
 
   public socialLogin(data): Observable<any> {
-    return this.http.post("http://localhost:8000/api/auth/social_login", data);
+    return this.http.post(this.base_url + "/api/auth/social_login", data);
   }
 
   /**
@@ -138,7 +152,7 @@ export class AuthenticationService {
    */
 
   public recover(email): Observable<any> {
-    return this.http.post("http://localhost:8000/api/auth/recover", {email: email});
+    return this.http.post(this.base_url + "/api/auth/recover", {email: email});
   }
 
   /**
@@ -146,7 +160,7 @@ export class AuthenticationService {
    */
   public logout(): void {
     this.tokenStorage.clear();
-    location.reload(true);
+    // location.reload(true);
   }
 
   /**

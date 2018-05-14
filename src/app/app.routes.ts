@@ -10,8 +10,9 @@ import { StudentSettingsComponent } from './users/student/student-settings/stude
 import { ReportComponent } from './users/student/report/report.component';
 import { PurchaseHistoryComponent } from './users/student/purchase-history/purchase-history.component';
 import { PurchaseReportComponent } from './users/student/purchase-report/purchase-report.component';
-import { NewCourseComponent } from './instructor/new-course/new-course.component';
-import { EditCourseComponent } from './instructor/edit-course/edit-course.component';
+import { InstructorDashboardComponent } from './users/instructor/dashboard/dashboard.component';
+import { EditCourseComponent } from './users/instructor/dashboard/courses/edit/edit-course.component';
+import { InstructorCoursesComponent } from './users/instructor/dashboard/courses/courses.component';
 
 // Route Configuration
 export const routes: Routes = [
@@ -22,8 +23,9 @@ export const routes: Routes = [
   { path: 'profile/edit', component: EditComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: 'new-course', component: NewCourseComponent },
-  { path: 'edit-course', component: EditCourseComponent },
+  { path: 'instructor/dashboard', component: InstructorDashboardComponent },
+  { path: 'instructor/dashboard/courses', component: InstructorCoursesComponent },
+  { path: 'instructor/dashboard/courses/:id/edit', component: EditCourseComponent },
   { 
   	 path: 'home', 
      component: StudentHomeComponent,

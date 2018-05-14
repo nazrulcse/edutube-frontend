@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  assets_host: 'http://localhost:8000',
-  api_url: 'http://localhost:8000'
-  //assets_host: 'http://apiedutube.xyz'
+  // assets_host: 'http://localhost:8000'
+  assets_host: 'http://apiedutube.xyz',
+  api_url: 'https://apiedutube.xyz'
 };
 
 /*

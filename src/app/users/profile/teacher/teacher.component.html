@@ -1,0 +1,135 @@
+<section id="profile-sub-nav">
+  <div class="sub-nav">
+    <ul class="sub-nav-ul-style">
+      <li><a href="#" class="active">Profile</a></li>
+    </ul>
+  </div>
+</section>
+<section id="profile-page">
+  <div class="profile-wrap">
+    <div class="profile-container container">
+      <div class='profile-top-bar'>
+        <a class='edu-link-default' routerLink="/profile/edit"> Edit Profile </a>
+      </div>
+      <div class="profile row">
+        <div class="col-sm-3">
+          <div class="side-panel-default" style="height: 99%;">
+            <section class='clearfix' style="border: none;">
+              <div class="profile-avatar text-center">
+                <div class='avatar'>
+                  <img src="{{env.assets_host}}{{user.avatar}}" alt="profile image" *ngIf="user.avatar"/>
+                  <img src="/assets/images/no_profile.png" *ngIf="!user.avatar"/>
+                  <br/>
+                  <small class='mt5 mb5'> Online </small>
+                </div>
+              </div>
+              <div class='profile-basic-information text-center'>
+                <h3> $ 350/hr </h3>
+                <p>
+                  Hello! This is Javed Karim. Math tutor for you.
+                </p>
+              </div>
+            </section>
+            <div class='com-contact-section'>
+                <img src="/assets/images/bell.png"/>
+                <img src="/assets/images/envelope.png" class='mr35 ml35'/>
+                <img src="/assets/images/love.png"/>
+            </div>
+            <div class='get-assistance-section'>
+              <a href='#' class='btn primary-btn btn-block'> Get Assistance </a>
+              <a href='#' class='btn default-btn btn-block'> Follow Me </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <div class="side-panel-default">
+            <div class="panel-space-body">
+              <div class='teacher-profile-info'>
+                <h3> Javed Karim </h3>
+                <div class='ratting-section'>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <span> 4.5(7,000 rattings) </span>
+                </div>
+                <p>
+                  Mathemetics <br/>
+                  Ideal School and College, Dhaka
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse congue risus non magna ornare, sed imperdiet felis dignissim. Proin quis iaculis odio. Pellentesque elementum et sem eu vulputate. Pellentesque sagittis quam vitae lectus tempor, quis rhoncus enim gravida. Cras nec venenatis sapien, id pharetra ipsum. Aliquam vitae varius tellus. Praesent condimentum iaculis ante, eu lacinia mi porta id. Ut imperdiet ultricies eros. Aliquam ac libero sed dolor facilisis volutpat at vel sapien. Duis molestie aliquet hendrerit. Duis aliquam nisl quam, at viverra lorem hendrerit non. Vivamus pellentesque dolor velit, a fringilla augue ullamcorper sed. Proin vel lacus vel augue tincidunt laoreet convallis in sapien. Mauris dictum vitae ex bibendum mattis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin eget urna et mauris congue tempor vitae sit amet diam.
+                </p>
+                <div class='user-stats-section'>
+                  <section>
+                    <span> Online Students </span>
+                    40,000  
+                  </section>
+                  <section>
+                    <span> Courses </span>
+                    7 
+                  </section>
+                  <section>
+                    <span> Live Clases </span>
+                    5
+                  </section>
+                  <section>
+                    <span> Followers </span>
+                    55,000 
+                  </section>
+                  <section>
+                    <span> Following </span>
+                    73 
+                  </section>
+                </div>
+                <hr/>
+                <div class='teaching-assistance-section'>
+                  <div class='profile-education-list'>
+                    <h3> Teaching Assistance: </h3>
+                    <ul class='list-default ml20'>
+                      <li>
+                        <b> Senior Teacher, Mathematics </b>
+                        <div>
+                          Ideal School and College, Dhaka
+                        </div>
+                        Dhaka, Bangladesh
+                      </li>
+                      <li>
+                        <b> Senior Teacher, Mathematics </b>
+                        <div>
+                          Ideal School and College, Dhaka
+                        </div>
+                        Dhaka, Bangladesh
+                      </li>
+                    </ul>
+                  </div>
+                  <hr/>
+                   <div class='profile-education-list'>
+                    <h3> Education: </h3>
+                    <ul class='list-default ml20'>
+                      <li>
+                        <b> Hons in Mathematics </b>
+                        <div>
+                          University of Dhaka
+                        </div>
+                        2008-2011
+                      </li>
+                      <li>
+                        <b> HSC </b>
+                        <div>
+                          BAF Shaheen College, Dhaka
+                        </div>
+                        2005-2006
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>

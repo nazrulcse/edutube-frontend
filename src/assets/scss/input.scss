@@ -1,4 +1,5 @@
-.form-control-default {
+.form-control-default,
+.form-control-gray {
 	width: 100%;
 	padding: 7px 10px;
 	border-radius: 6px;
@@ -7,15 +8,26 @@
 	color: #888888;
 }
 
+.form-control-gray {
+	background: $secondary-color;
+	padding: 5px 10px;
+}
+
 select.form-control-default {
 	padding: 9px;
+	border: solid 1px #cccccc;
+}
+
+select.form-control-gray {
+	padding: 7px;
+	border: solid 1px #cccccc;
 }
 
 .edu-label-default {
-	color: #aaaaaa;
+	color: #555555;
 	margin-bottom: 5px;
-	font-size: 15px;
-	font-weight: bold;
+	font-size: 13px;
+	// font-weight: bold;
 	display: block;
 }
 
@@ -32,4 +44,9 @@ select.form-control-default {
 	width: 100%;
 	display: block;
 	margin-bottom: 10px;
+}
+
+.edu-btn-default-width {
+	min-width: 80px !important;
+	text-align: center !important;
 }

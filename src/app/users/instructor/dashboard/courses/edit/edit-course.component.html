@@ -9,7 +9,7 @@
     <div class='col-sm-12'>
       <div class='row'>
         <div class='col-sm-3'>
-          <app-subnav></app-subnav>
+          <app-instructor-sidenav></app-instructor-sidenav>
         </div>
         <div class='col-sm-9'>
           <div class='edit-course-dashboard'>
@@ -28,12 +28,13 @@
             </div>
 
             <div class="edit-body">
+              <div class='alert alert-danger' *ngIf="error"> {{error}} </div>
               <div class="row">
                 <div class="col-sm-3">
                   <img src="/assets/images/envelope-large.png" class="img-responsive" alt="">
                 </div>
                 <div class="col-sm-6">
-                  <strong>Lorem ipsum doalar set</strong>
+                  <strong> {{course.title}} </strong>
                   <p>Draft</p>
                 </div>
                 <div class="col-sm-3">

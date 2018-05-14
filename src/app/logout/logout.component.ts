@@ -13,13 +13,13 @@ export class LogoutComponent implements OnInit {
   constructor(private authService: AuthenticationService, 
   	private route: Router,
   	private events: EventService) {
-      this.authService.logout();
-      this.events.emitAuthEvent(false);
-      this.route.navigateByUrl('/');
+
   	}
 
   ngOnInit() {
-  	
+  	this.authService.logout();
+    this.events.emitAuthEvent(false);
+    this.route.navigateByUrl('');
   }
 
 }

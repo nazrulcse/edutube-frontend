@@ -338,7 +338,10 @@
         padding: 10px;
         margin: 0 5px 0 10px;
         float: left;
-        background: #ffffff;
+        // background: #ffffff;
+        img {
+          border-radius: 100%;
+        }
       }
       .information {
         font-family: $primary-font;

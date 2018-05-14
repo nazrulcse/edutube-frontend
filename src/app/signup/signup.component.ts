@@ -16,7 +16,8 @@ export class SignupComponent implements OnInit {
     email: '',
     password: '',
     password_confirmation: '',
-    user_type: false
+    is_teacher: false,
+    user_type: 'student'
   }
   errors = [];
   message = '';
@@ -26,6 +27,12 @@ export class SignupComponent implements OnInit {
     private events: EventService) { }
 
   public registration() {
+    if(this.user_info.is_teacher) {
+      this.user_info.user_type = 'teacher';
+    }
+    else {
+     this.user_info.user_type = 'student'; 
+    }
     this.authService
       .registration(this.user_info).subscribe(
         data => {
@@ -33,13 +40,11 @@ export class SignupComponent implements OnInit {
             this.authService.saveAccessData(data.token, "", data.user);
             this.events.emitAuthEvent(true);
             $('#registration-modal').modal('hide');
-            this.router.navigateByUrl('/profile');
+            this.router.navigateByUrl('/profile/edit');
           }
           else {
-            console.log(data.errors);
             this.errors = Object.values(data.errors);
           }
-          console.log(data);
         },
         err =>  { 
           this.message = "Something wrong! Please try after sometimes";
