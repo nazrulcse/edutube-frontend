@@ -29,11 +29,16 @@
 		width: 100%;
 		.inner-body {
 			padding: 10px 15px;
-			input[type='text'] {
+			input[type='text'], select {
 				padding-top: 5px;
 				padding-bottom: 5px;
 				color: #333333;
 			}
+      label {
+        color: #333333;
+        font-size: 14px;
+        font-weight: 400;
+      }
 		}
 	}
       .inner-tab-header {
@@ -71,7 +76,21 @@
       		border-bottom: solid 1px #cccccc;
       	}
       	.curriculum-tabs {
-
+          .nav-tabs {
+            a {
+              border-radius: 0;
+              border-top: none;
+              color: #333333;
+              font-size: 14px;
+            }
+            .nav-item {
+              &:first-child {
+                a {
+                  border-left: none;
+                }
+              }
+            }
+          }
       	}
       }
 }

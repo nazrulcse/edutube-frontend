@@ -56,4 +56,14 @@ export class CourseService {
   public updateCourse(data): Observable<any> {
     return this.http.post(this.base_url + "/api/auth/course/" + data.id + "/update", data, {headers: this.authService.getAuthHeader()});
   }
+
+  /**
+   * Upload course file image or video
+   * @description Should return user upload avatar data from API.
+   * localStorage
+   * @returns {UploadAvarat<JSON>}
+   */
+  public uploadFile(course_id, formData): Observable<any> {
+    return this.http.post(this.base_url + "/api/auth/courses/" + course_id + "/upload_file", formData, {headers: this.authService.getAuthHeader()});
+  }
 }

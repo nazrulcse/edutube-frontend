@@ -124,3 +124,39 @@ $linkedin: #007bb5;
     }
   }
 }
+
+.course-captions-table {
+  table, tbody {
+    border: none;
+    tr {
+      td {
+        border-bottom: solid 1px #cccccc;
+        color: #777777;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.course-upload-file {
+  img {
+    float: left;
+    width: 100px;
+  }
+  .context {
+    margin-left: 120px;
+  }
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+}

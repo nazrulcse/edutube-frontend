@@ -31,7 +31,8 @@
               <div class='alert alert-danger' *ngIf="error"> {{error}} </div>
               <div class="row">
                 <div class="col-sm-3">
-                  <img src="/assets/images/envelope-large.png" class="img-responsive" alt="">
+                  <img style='max-width: 100%;' *ngIf="!course.image" src='/assets/images/envelope-large.png' class="img-responsive"/>
+                  <img style='max-width: 100%;' *ngIf="course.image" src='{{env.assets_host}}{{course.image}}' class="img-responsive"/>
                 </div>
                 <div class="col-sm-6">
                   <strong> {{course.title}} </strong>
@@ -39,7 +40,11 @@
                 </div>
                 <div class="col-sm-3">
                   <div class="form-group">
-                    <a href="#" class="btn round-btn-default"> <i class="fa fa-cog"></i> Course Settings</a>
+                    <div class="nav nav-pills" id="myCourseTab" role="tablist">
+                      <a class="nav-link round-btn-default btn" data-toggle="tab" href="#course-settings-tab" role="tab" aria-selected="true">
+                        <i class="fa fa-cog"></i> Course Settings
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -78,7 +83,7 @@
                   <div class='row'>
                   <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="course-goals-tab" role="tabpanel">
-                      <form #courseGoalForm="ngForm" (ngSubmit)="submitCourseGoal()">
+                      <form #courseGoalForm="ngForm" (ngSubmit)="submitCourseUpdate()">
                         <div class='inner-tab-header clearfix'>
                           <h3>Course Goal</h3>
                           <button class="round-btn-default pull-right" type="submit"> Save </button>
@@ -86,15 +91,15 @@
                         <div class='inner-body'>
                           <div class='form-group'>
                             <label class='edu-label-default'> What knowledge and tools are required? </label>
-                            <input type="text" name="tools_required" class='form-control-default'>
+                            <input type="text" [(ngModel)]="course.tools_required" name="tools_required" class='form-control-default'>
                           </div>
                           <div class='form-group'>
                             <label class='edu-label-default'> Who should take this course? </label>
-                            <input type="text" name="who_can_take" class='form-control-default'>
+                            <input type="text" [(ngModel)]="course.who_can_take" name="who_can_take" class='form-control-default'>
                           </div>
                           <div class='form-group'>
                             <label class='edu-label-default'> What will students achive or be able to do after taking this course? </label>
-                            <input type="text" name="achivement" class='form-control-default'>
+                            <input type="text" [(ngModel)]="course.achivement" name="achivement" class='form-control-default'>
                           </div>
                         </div>
                       </form>
@@ -151,7 +156,7 @@
                     </div>
 
                     <div class="tab-pane fade" role="tabpanel" id="course-details-tab">
-                      <form #detailsForm="ngForm" (ngSubmit)="submitCourseDetails()">
+                      <form #detailsForm="ngForm" (ngSubmit)="submitCourseUpdate()">
                         <div class='inner-tab-header clearfix'>
                           <h3>Course Details</h3>
                           <button class="round-btn-default pull-right" type="submit"> Save </button>
@@ -162,17 +167,17 @@
 
                           <div class='form-group'>
                             <label class='edu-label-default'> Course Title </label>
-                            <input type="text" name="tools_required" class='form-control-default'>
+                            <input type="text" [(ngModel)]="course.title" name="title" class='form-control-default'>
                           </div>
 
                           <div class='form-group'>
                             <label class='edu-label-default'> Course Sub-title </label>
-                            <input type="text" name="tools_required" class='form-control-default'>
+                            <input type="text" [(ngModel)]="course.sub_title" name="sub_title" class='form-control-default'>
                           </div>
 
                           <div class='form-group'>
                             <label class='edu-label-default'> Course Description </label>
-                            <textarea type="text" name="tools_required" class='form-control-default'></textarea>
+                            <textarea [(ngModel)]="course.description" name="description" class='form-control-default'></textarea>
                           </div>
 
                           <div class='form-group'>
@@ -182,17 +187,47 @@
 
                           <div class='form-group'>
                             <label class='edu-label-default'> Language </label>
-                            <select type="text" name="tools_required" class='form-control-default'>
+                            <select [(ngModel)]="course.language" name="language" class='form-control-default'>
                               <option value="English"> English </option>
+                              <option value="Bangoli"> Bangoli </option>
+                              <option value="Other"> Other </option>
                             </select>
                           </div>
 
                           <div class='form-group'>
                             <label class='edu-label-default'> Course Image </label>
+                            <div class='course-upload-file'>
+                              <img *ngIf="!course.image" src='/assets/images/envelope-large.png'/>
+                              <img *ngIf="course.image" src='{{env.assets_host}}{{course.image}}'/>
+                              <div class='context'>
+                                <p class='mb5'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper ante eget augue malesuada pretium. Sed aliquam convallis tempor. Fusce quis gravida diam. Etiam viverra</p>
+                                <div class="upload-btn-wrapper">
+                                  <button class="btn btn-sm btn-light">
+                                    <span *ngIf="uploading_image"> <i class='fa fa-spinner fa-spin'></i> Uploading... </span>
+                                    <span *ngIf="!uploading_image"> Upload Image </span>
+                                  </button>
+                                  <input type="file" name="file" id="file" (change)="onFileChanged($event, 'image')" />
+                                </div>
+                              </div>
+                            </div>
                           </div>
 
                           <div class='form-group'>
                             <label class='edu-label-default'> Promotional video </label>
+                            <div class='course-upload-file'>
+                              <img *ngIf="!course.promo_video" src='/assets/images/envelope-large.png'/>
+                              <img *ngIf="course.promo_video" src='{{env.assets_host}}{{course.promo_video}}'/>
+                              <div class='context'>
+                                <p class='mb5'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper ante eget augue malesuada pretium. Sed aliquam convallis tempor. Fusce quis gravida diam. Etiam viverra</p>
+                                <div class="upload-btn-wrapper">
+                                  <button class="btn btn-sm btn-light">
+                                    <span *ngIf="uploading_video"> <i class='fa fa-spinner fa-spin'></i> Uploading... </span>
+                                    <span *ngIf="!uploading_video"> Upload Video </span>
+                                  </button>
+                                  <input type="file" name="file" id="video_file" (change)="onFileChanged($event, 'video')" />
+                                </div>
+                              </div>
+                            </div>
                           </div>
 
                         </div>
@@ -200,18 +235,32 @@
                     </div>
 
                     <div class="tab-pane fade" role="tabpanel" id="course-price-tab">
-                      <form #priceForm="ngForm" (ngSubmit)="submitCoursePrice()">
+                      <form #priceForm="ngForm" (ngSubmit)="submitCourseUpdate()">
                         <div class='inner-tab-header clearfix'>
                           <h3>Price</h3>
                           <button class="round-btn-default pull-right" type="submit"> Save </button>
                         </div>
                         <div class='inner-body'> 
                           <p> Please select the price tier for your course bellow and click 'Save'. The list price that students will see in other currencies is calculated using the price tier matrix, based on the tier that is corresponds to. </p>
-                          <select name='currency' class='mr10'>
-                            <option value="BDT"> BDT </option>
-                            <option value="BDT"> USD </option>
-                          </select>
-                          <input type="text" placeholder="Enter price">
+                          <div class='form-group'>
+                            <select name='currency' [(ngModel)]="course.price_currency" style="max-width: 80px;" class='form-control-gray mr10'>
+                              <option value="BDT"> BDT </option>
+                              <option value="BDT"> USD </option>
+                            </select>
+                            <input type="text" [(ngModel)]="course.price" name='price' style="max-width: 170px;" class="form-control-gray text-center" placeholder="Enter price">
+                          </div>
+                          <p>
+                            <a (click)="addDiscountPrice();" href="javascript:void(0);" class='edu-link-default'> 
+                              + Discount Price 
+                            </a>
+                          </p>
+                          <div class='form-group' *ngIf="showDiscount()">
+                            <select [(ngModel)]="course.discount_currency" name='discount_currency' style="max-width: 80px;" class='form-control-gray mr10'>
+                              <option value="BDT"> BDT </option>
+                              <option value="BDT"> USD </option>
+                            </select>
+                            <input type="text" name="discount_price" [(ngModel)]="course.discount_price" style="max-width: 170px;" class="form-control-gray text-center" placeholder="Enter New price">
+                          </div>
                         </div>
                       </form>
                     </div>
@@ -222,11 +271,29 @@
                           <h3>Captions</h3>
                           <button class="round-btn-default pull-right" type="submit"> Disabled </button>
                         </div>
+                        <div class='inner-tab-header clearfix'>
+                          <select style="max-width: 100px;" class='form-control-gray pt5 pb5'>
+                              <option value="English"> English </option>
+                              <option value="Bangoli"> Bangoli </option>
+                              <option value="Other"> Other </option>
+                            </select>
+                            <span class='ml15' style='color: #777777;'> 0/1 published course captioned </span>
+                        </div>
+                        <table class='table course-captions-table'>
+                          <tbody>
+                            <tr>
+                              <td> <i class="fa fa-times-rectangle-o"></i> </td>
+                              <td> Lecture 1: Introduction </td>
+                              <td> Uncaptioned </td>
+                              <td> Upload </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </form>
                     </div>
 
                     <div class="tab-pane fade" role="tabpanel" id="course-tutor-message-tab">
-                      <form #captionForm="ngForm" (ngSubmit)="submitCourseCaptions()">
+                      <form #captionForm="ngForm" (ngSubmit)="submitCourseUpdate()">
                         <div class='inner-tab-header clearfix'>
                           <h3>Tutor Message</h3>
                           <button class="round-btn-default pull-right" type="submit"> Save </button>
@@ -235,11 +302,11 @@
                           <p> Write messages to your students (optional) that will be sent automatically when they join or complete your course to encourage students to engage with course content. If you do not wish to send a welcome or congruatulations message, leave the text box blank. </p>
                           <div class=form-group>
                             <label class='edu-label-default'> Welcome Message </label>
-                            <textarea name="welcome_message" class='form-control-default'></textarea>
+                            <textarea name="welcome_message" [(ngModel)]="course.welcome_message" class='form-control-default'></textarea>
                           </div>
                           <div class=form-group>
                             <label class='edu-label-default'> Congratuations Message </label>
-                            <textarea name="welcome_message" class='form-control-default'></textarea>
+                            <textarea name="congratulation_message" [(ngModel)]="course.congratulation_message" class='form-control-default'></textarea>
                           </div>
                         </div>
                       </form>
@@ -263,7 +330,41 @@
                             <input type="text" class='form-control-default mb5'>
                             <input type="text" class='form-control-default'>
                           </div>
+                          <button type="button" class='round-btn-default'> Add </button>
                         </div>
+                      </form>
+                    </div>
+
+                    <div class="tab-pane fade" role="tabpanel" id="course-settings-tab">
+                      <form #captionForm="ngForm" (ngSubmit)="submitCourseUpdate()">
+                        <div class='inner-tab-header clearfix'>
+                          <h3>Course Settings</h3>
+                          <button class="round-btn-default pull-right" type="submit"> Save </button>
+                        </div>
+                        <div class='inner-tab-header clearfix'>
+                          <label> Privacy </label>
+                          <select style="max-width: 150px;" class='form-control-default pt5 pb5'>
+                            <option value="Public"> Public </option>
+                            <option value="Private"> Private </option>
+                            <option value="Other"> Other </option>
+                          </select>
+                          </div>
+                          <div class='inner-tab-header clearfix'>
+                          <h3> Third Party Integration </h3>
+                          <div class='form-group'>
+                            <span> Google Analytics Tracking ID </span>
+                            <input type="text" style="max-width: 150px;" class='form-control-default' placeholder="Enter ID">
+                          </div>
+                          <div class='form-group'>
+                            <span> Google Adwards </span>
+                            <input type="text" style="max-width: 150px;" class='form-control-default' placeholder="Enter ID">
+                          </div>
+                        </div>
+                        <div class='inner-body'>
+                            <h3> Course Satus </h3>
+                            <button type="button"> Publish </button>
+                            <button type="button" class='btn btn-danger'> Delete </button>
+                          </div>
                       </form>
                     </div>
 
@@ -273,8 +374,6 @@
                 </div>
                 </div>
               </div>
-
-
           </div>
         </div>
       </div>
