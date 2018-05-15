@@ -22,6 +22,26 @@ export class EditCourseComponent implements OnInit {
   	this.loadCourse(course_id);
   }
 
+  public submitCourseGoal() {
+
+  }
+
+  public submitCoursePrice() {
+
+  }
+
+  public submitCourseDetails() {
+
+  }
+
+  public submitCourseCurriculum() {
+
+  }
+
+  public submitCourseCaptions() {
+    
+  }
+
   public loadCourse(id) {
   	this.courseService.getCourse(id).subscribe(response => {
       if(response.success) {

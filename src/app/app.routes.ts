@@ -13,6 +13,7 @@ import { PurchaseReportComponent } from './users/student/purchase-report/purchas
 import { InstructorDashboardComponent } from './users/instructor/dashboard/dashboard.component';
 import { EditCourseComponent } from './users/instructor/dashboard/courses/edit/edit-course.component';
 import { InstructorCoursesComponent } from './users/instructor/dashboard/courses/courses.component';
+import { CoursesComponent } from './courses/courses.component';
 
 // Route Configuration
 export const routes: Routes = [
@@ -22,6 +23,7 @@ export const routes: Routes = [
   },
   { path: 'profile/edit', component: EditComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'courses', component: CoursesComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'instructor/dashboard', component: InstructorDashboardComponent },
   { path: 'instructor/dashboard/courses', component: InstructorCoursesComponent },

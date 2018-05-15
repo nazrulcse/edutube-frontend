@@ -35,6 +35,7 @@ import { GoogleLoginProvider, FacebookLoginProvider} from "angularx-social-login
 import { TeacherProfileComponent } from './users/profile/teacher/teacher.component';
 import { InstructorCoursesComponent } from './users/instructor/dashboard/courses/courses.component';
 import { InstructorSidenavComponent } from './users/instructor/sidenav/sidenav.component';
+import { CoursesComponent } from './courses/courses.component';
 
 let config = new AuthServiceConfig([
   {
@@ -76,7 +77,8 @@ export function provideConfig() {
     EditCourseComponent,
     TeacherProfileComponent,
     InstructorCoursesComponent,
-    InstructorSidenavComponent
+    InstructorSidenavComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
