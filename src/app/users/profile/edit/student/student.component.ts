@@ -5,6 +5,7 @@ import { UserService } from '../../../../../services/user_service';
 import { EventService } from '../../../../../services/event_service';
 import { environment } from '../../../../../environments/environment';
 import { Education } from '../../../../models/education';
+import { Experience } from '../../../../models/experience';
 
 @Component({
   selector: 'app-student',
@@ -19,7 +20,10 @@ export class StudentComponent implements OnInit {
   uploading = false;
   education: Education;
   reset_edu: Education;
+  experience: Experience;
+  reset_exp: Experience;
   educations: Array<Education>;
+  experiences: Array<Experience>
   env = {}
   months = ['January', 'February', 'March', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   years = ['2000','2001','2002','2003','2004','2005','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018']
@@ -34,6 +38,9 @@ export class StudentComponent implements OnInit {
         let name_devider = response.name.split(" ", 2);
         this.user.first_name = name_devider[0];
         this.user.last_name = name_devider[1];
+        if(this.user.user_type == 'teacher') {
+          this.loadExperiences();
+        }
       },
       err => {
         this.error = "Something wrong! Please try after sometimes.";
@@ -96,8 +103,14 @@ export class StudentComponent implements OnInit {
 
   public addEducation() {
     this.userService.createEducation(this.education).subscribe(response => {
-      this.educations.push(response.education);
-      this.education = this.reset_edu;
+      if(response.success) {
+        this.educations.push(response.education);
+        this.education = this.reset_edu;
+        this.updateStatus(true, "Education information updated");
+      }
+      else {
+        this.updateStatus(false, response.message);
+      }      
     },
     err => {
       this.error = "Unable to add education"
@@ -106,9 +119,14 @@ export class StudentComponent implements OnInit {
 
   public updateEducation() {
     this.userService.updateEducation(this.education).subscribe(response => {
-      this.educations[this.education.index] = response.education;
-      this.education = this.reset_edu;
-      this.updateStatus(true, "Education information updated");
+      if(response.success) {
+        this.educations[this.education.index] = response.education;
+        this.education = this.reset_edu;
+        this.updateStatus(true, "Education information updated");
+      }
+      else {
+        this.updateStatus(false, response.message);
+      } 
     },
     err => {
       this.updateStatus(false, "Unable to update education");
@@ -118,6 +136,56 @@ export class StudentComponent implements OnInit {
   public cancelEducation() {
     this.education = this.reset_edu;
   }
+
+  //##################### EXPERIENCE SECTION ############################// 
+
+  public initExperience(index = null) {
+    if(index == null) {
+      this.experience = new Experience();
+    }
+    else {
+      this.experience = this.experiences[index];
+      this.experience.index = index;
+    }
+  }
+
+  public addExperience() {
+    this.userService.createExperience(this.experience).subscribe(response => {
+      if(response.success) {
+        this.experiences.push(response.experience);
+        this.experience = this.reset_exp;
+        this.updateStatus(true, "Experience information added");
+      }
+      else {
+        this.updateStatus(false, response.message);
+      }   
+    },
+    err => {
+      this.error = "Unable to add experience"
+    });
+  }
+
+  public updateExperience() {
+    this.userService.updateExperience(this.experience).subscribe(response => {
+      if(response.success) {
+        this.experiences[this.experience.index] = response.experience;
+        this.experience = this.reset_exp;
+        this.updateStatus(true, "Experience information updated");
+      }
+      else {
+        this.updateStatus(false, response.message);
+      }  
+    },
+    err => {
+      this.updateStatus(false, "Unable to update experience");
+    })
+  }
+
+  public cancelExperience() {
+    this.experience = this.reset_exp;
+  }
+
+  //##################### END EXPERIENCE SECTION ############################// 
 
   ngOnInit() {
     this.loadEducation();
@@ -137,6 +205,15 @@ export class StudentComponent implements OnInit {
   public loadEducation() {
     this.userService.getEducations().subscribe(response => {
       this.educations = response.educations;
+    },
+    err => {
+      this.error = "Unable to load some profile data!";
+    });
+  }
+
+  public loadExperiences() {
+    this.userService.getExperiences().subscribe(response => {
+      this.experiences = response.experiences;
     },
     err => {
       this.error = "Unable to load some profile data!";

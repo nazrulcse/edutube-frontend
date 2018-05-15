@@ -66,4 +66,34 @@ export class UserService {
   public updateEducation(data): Observable<any> {
     return this.http.post(this.base_url + "/api/auth/education/" + data.id + "/update", data, {headers: this.authService.getAuthHeader()});
   }
+
+  /**
+   * get user experience list
+   * @description Should return experience as json array from API.
+   * 
+   * @returns {Educations<JSON>}
+   */
+  public getExperiences(): Observable<any> {
+    return this.http.get(this.base_url + "/api/auth/experiences", {headers: this.authService.getAuthHeader()});
+  }
+
+  /**
+   * create user experience
+   * @description Should return experience as json from API.
+   * 
+   * @returns {Education<JSON>}
+   */
+  public createExperience(data): Observable<any> {
+    return this.http.post(this.base_url + "/api/auth/experience/create", data, {headers: this.authService.getAuthHeader()});
+  }
+
+  /**
+   * update user experience
+   * @description Should return experience as json from API.
+   * 
+   * @returns {Education<JSON>}
+   */
+  public updateExperience(data): Observable<any> {
+    return this.http.post(this.base_url + "/api/auth/experience/" + data.id + "/update", data, {headers: this.authService.getAuthHeader()});
+  }
 }

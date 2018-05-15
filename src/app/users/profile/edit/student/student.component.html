@@ -17,6 +17,9 @@
 	  <a class="nav-link" data-toggle="pill" href="#contact-info-tab" role="tab" aria-selected="true">Contact Information</a>
 	  <a class="nav-link" data-toggle="pill" href="#about-info-tab" role="tab" aria-selected="true">About Me</a>
 	  <a class="nav-link" data-toggle="pill" href="#education-info-tab" role="tab" aria-selected="true">Education</a>
+	  <a *ngIf="user.user_type == 'teacher'" class="nav-link" data-toggle="pill" href="#skill-info-tab" role="tab" aria-selected="true">
+	    Work Experiences
+	  </a>
 	  <a class="nav-link" data-toggle="pill" href="#language-info-tab" role="tab" aria-selected="true">Language</a>
 	</div>
   </div>
@@ -60,15 +63,23 @@
 							  </div>
 							  <div class='row'>
 								  <div class='col-sm-5'>
-									  <div class='form-group'>
+									  <div class='form-group' *ngIf="user.user_type=='student'">
 										  <label class='edu-label-default'> Class/Level/Degree </label>
 										  <input type="text" name='degree' [(ngModel)]="user.degree"
+												 class='form-control-gray'>
+									  </div>
+									  <div class='form-group' *ngIf="user.user_type=='teacher'">
+										  <label class='edu-label-default'> Occupation </label>
+										  <input type="text" name='occupation' [(ngModel)]="user.occupation"
 												 class='form-control-gray'>
 									  </div>
 								  </div>
 								  <div class='col-sm-7'>
 									  <div class='form-group'>
-										  <label class='edu-label-default'> School/College/University </label>
+										  <label class='edu-label-default' *ngIf="user.user_type=='student'"> 
+										    School/College/University 
+										  </label>
+										  <label class='edu-label-default' *ngIf="user.user_type=='teacher'"> Institution </label>
 										  <input type="text" name='institution' [(ngModel)]="user.institution"
 												 class='form-control-gray'>
 									  </div>
@@ -271,6 +282,121 @@
 			  </div>
 		  </div>
 		  <a class='edu-link-default edu-font-sx' (click)="initEducation()" href="javascript:void(0);"> + Add Education </a>
+		</div>
+	  </div>
+	  <div *ngIf="user.user_type=='teacher'" class="tab-pane fade" id="skill-info-tab" role="tabpanel">
+        <div class='edu-panel-default'>
+		  <div class='panel-header'> Work Experiences </div>
+		  <div class='edit-education-display-panel' *ngFor="let exp of experiences; let ind = index;">
+		    <a href="javascript:void(0);" (click)="initExperience(ind)" class='edit-education-link'> 
+		      <i class="fa fa-pencil-square-o"></i> 
+		    </a>
+		  	<h3> {{exp.designation}} </h3>
+		  	<p> {{exp.institution}} </p>
+		  	<p> 
+		  	  <span> {{exp.from_month}} {{exp.from_year}} - </span> <span *ngIf="exp.is_continue"> present </span>
+		  	  <span *ngIf="!exp.is_continue"> {{exp.to_month}} {{exp.to_year}} </span> | {{exp.city}}, {{exp.country}} 
+		  	</p>
+		  </div>
+		  <div class='panel-body' *ngIf="experience">
+			  <div class='inner-panel'>
+			  <div class='col-lg-12'>
+		      	  	  <div class='row'>
+		      	  	  	<div class='col-sm-12'>
+		      	  	  	  <div class='form-group'>
+		                    <label class='edu-label-default'> Designation/Experience About </label>
+		                    <input type="text" name='designation' [(ngModel)]="experience.designation" class='form-control-gray'>
+		      	  	  	  </div>
+		      	  	  	</div>
+		      	  	  </div>
+		      	  	  <div class='row'>
+		      	  	  	<div class='col-sm-6'>
+		      	  	  	  <div class='form-group'>
+		                    <label class='edu-label-default'> Institution </label>
+		                    <input type="text" name='institution' [(ngModel)]="experience.institution" class='form-control-gray'>
+		      	  	  	  </div>
+		      	  	  	</div>
+		      	  	  	<div class='col-sm-6'>
+		      	  	  	  <div class='form-group'>
+		                    <label class='edu-label-default'> Subject </label>
+		                    <input type="text" name='subject' [(ngModel)]="experience.subject" class='form-control-gray'>
+		      	  	  	  </div>
+		      	  	  	</div>
+		      	  	  </div>
+		      	  	  <div class='upload-avatar'>
+		      	  	  	<label class='edu-label-default'> Location </label>
+		      	  	  </div>
+		      	  	  <div class='row'>
+		      	  	  	<div class='col-sm-5'>
+		      	  	  	  <div class='form-group'>
+		                    <select name='country' [(ngModel)]="experience.country" class='form-control-gray'>
+		                      <option value='Bangladesh'> Bangladesh</option>
+							  <option value='India'> India</option>
+							  <option value='Nepal'> Nepal</option>
+							  <option value='Others'> Others</option>
+		                    </select>
+		      	  	  	  </div>
+		      	  	  	</div>
+		      	  	  	<div class='col-sm-5'>
+		      	  	  	  <div class='form-group'>
+		                    <input type="text" name='city' [(ngModel)]="experience.city" class='form-control-gray'>
+		      	  	  	  </div>
+		      	  	  	</div>
+		      	  	  </div>
+		      	  	  <div class='row'>
+		      	  	  	<div class='col-sm-6'> 
+		      	  	  	    <label class='edu-label-default'> Starting From </label>
+		      	  	  	    <div class='row'>
+		      	  	  			<div class='col-sm-6'>
+		      	  	  				<select name='country' [(ngModel)]="experience.from_month" class='form-control-gray'>
+				                      <option [ngValue]="null"> Month </option>
+				                      <option *ngFor="let month of months" [ngValue]="month"> {{month}} </option>
+				                    </select>
+		      	  	  			</div>
+		      	  	  			<div class='col-sm-6'>
+		      	  	  				<select name='country' [(ngModel)]="experience.from_year" class='form-control-gray'>
+				                      <option [ngValue]="null"> Year </option>
+				                      <option *ngFor="let year of years" [ngValue]="year"> {{year}} </option>
+				                    </select>
+		      	  	  			</div>
+		      	  	  		</div>
+		      	  	  	</div>
+		      	  	  	<div class='col-sm-6'> 
+                            <label class='edu-label-default'> Ending In </label>
+                            <div class='row' *ngIf="!experience.is_continue">
+                               <div class='col-sm-6'>
+		      	  	  				<select name='country' [(ngModel)]="experience.to_month" class='form-control-gray'>
+				                      <option [ngValue]="null"> Month </option>
+				                      <option *ngFor="let month of months" [ngValue]="month"> {{month}} </option>
+				                    </select>
+		      	  	  			</div>
+		      	  	  			<div class='col-sm-6'>
+		      	  	  				<select name='country' [(ngModel)]="experience.to_year" class='form-control-gray'>
+				                      <option [ngValue]="null"> Year </option>
+				                      <option *ngFor="let year of years" [ngValue]="year"> {{year}} </option>
+				                    </select>
+		      	  	  			</div>
+		      	  	  		</div>
+		      	  	  		<div>
+		      	  	  		    <label style='font-size: 12px;'>
+		      	  	  		    	<input type="checkbox" class='mb0' name="is_continue" [(ngModel)]="experience.is_continue"/> Continue
+		      	  	  		    </label>
+		      	  	  		</div>
+		      	  	  	</div>
+		      	  	  </div>
+		      	  	  <div class='edu-form-group mt5'>
+		      	  	    <label class='edu-label-default'> Details </label>
+		      	  	    <textarea name="details" [(ngModel)]="experience.details" class='form-control-gray'></textarea>
+		      	  	  </div>
+		      	  	  <div class='actions text-right'>
+		      	  	    <input *ngIf="!experience.id" type="submit" (click)="addExperience()" value='Add Experience' class='btn default-btn btn-size-2x mr10 edu-btn-default-width'>
+		      	  	    <input *ngIf="experience.id" type="submit" (click)="updateExperience()" value='Update Experience' class='btn default-btn btn-size-2x mr10 edu-btn-default-width'>
+		      	  	    <input type="submit" (click)="cancelExperience()" value='Cancel' class='btn default-btn btn-size-2x edu-btn-default-width'>
+		      	  	  </div>
+		      	  	</div>
+			  </div>
+		  </div>
+		  <a class='edu-link-default edu-font-sx' (click)="initExperience()" href="javascript:void(0);"> + Add Experience </a>
 		</div>
 	  </div>
 	  <div id='language-info-tab' class="tab-pane fade" role="tabpanel">

@@ -14,6 +14,7 @@ import { InstructorDashboardComponent } from './users/instructor/dashboard/dashb
 import { EditCourseComponent } from './users/instructor/dashboard/courses/edit/edit-course.component';
 import { InstructorCoursesComponent } from './users/instructor/dashboard/courses/courses.component';
 import { CoursesComponent } from './courses/courses.component';
+import { CourseDetailsComponent } from './courses/course-details/course-details.component';
 
 // Route Configuration
 export const routes: Routes = [
@@ -24,6 +25,7 @@ export const routes: Routes = [
   { path: 'profile/edit', component: EditComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'courses', component: CoursesComponent },
+  { path: 'courses/:id', component: CourseDetailsComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'instructor/dashboard', component: InstructorDashboardComponent },
   { path: 'instructor/dashboard/courses', component: InstructorCoursesComponent },

@@ -36,6 +36,7 @@ import { TeacherProfileComponent } from './users/profile/teacher/teacher.compone
 import { InstructorCoursesComponent } from './users/instructor/dashboard/courses/courses.component';
 import { InstructorSidenavComponent } from './users/instructor/sidenav/sidenav.component';
 import { CoursesComponent } from './courses/courses.component';
+import { CourseDetailsComponent } from './courses/course-details/course-details.component';
 
 let config = new AuthServiceConfig([
   {
@@ -78,7 +79,8 @@ export function provideConfig() {
     TeacherProfileComponent,
     InstructorCoursesComponent,
     InstructorSidenavComponent,
-    CoursesComponent
+    CoursesComponent,
+    CourseDetailsComponent
   ],
   imports: [
     BrowserModule,
