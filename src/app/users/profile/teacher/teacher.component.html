@@ -24,9 +24,9 @@
                 </div>
               </div>
               <div class='profile-basic-information text-center'>
-                <h3> $ 350/hr </h3>
+                <h3> $ {{user.charge}}/hr </h3>
                 <p>
-                  Hello! This is Javed Karim. Math tutor for you.
+                  Hello! This is {{user.name}}. Math tutor for you.
                 </p>
               </div>
             </section>
@@ -44,8 +44,9 @@
         <div class="col-sm-9">
           <div class="side-panel-default">
             <div class="panel-space-body">
+              <div class='alert alert-danger' *ngIf="error"> {{error}} </div>
               <div class='teacher-profile-info'>
-                <h3> Javed Karim </h3>
+                <h3> {{user.name}} </h3>
                 <div class='ratting-section'>
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
@@ -55,11 +56,11 @@
                   <span> 4.5(7,000 rattings) </span>
                 </div>
                 <p>
-                  Mathemetics <br/>
-                  Ideal School and College, Dhaka
+                  {{user.occupation}} <br/>
+                  {{user.institution}}, {{user.city}}
                 </p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse congue risus non magna ornare, sed imperdiet felis dignissim. Proin quis iaculis odio. Pellentesque elementum et sem eu vulputate. Pellentesque sagittis quam vitae lectus tempor, quis rhoncus enim gravida. Cras nec venenatis sapien, id pharetra ipsum. Aliquam vitae varius tellus. Praesent condimentum iaculis ante, eu lacinia mi porta id. Ut imperdiet ultricies eros. Aliquam ac libero sed dolor facilisis volutpat at vel sapien. Duis molestie aliquet hendrerit. Duis aliquam nisl quam, at viverra lorem hendrerit non. Vivamus pellentesque dolor velit, a fringilla augue ullamcorper sed. Proin vel lacus vel augue tincidunt laoreet convallis in sapien. Mauris dictum vitae ex bibendum mattis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin eget urna et mauris congue tempor vitae sit amet diam.
+                  {{user.about_me}}
                 </p>
                 <div class='user-stats-section'>
                   <section>
@@ -88,19 +89,12 @@
                   <div class='profile-education-list'>
                     <h3> Teaching Assistance: </h3>
                     <ul class='list-default ml20'>
-                      <li>
-                        <b> Senior Teacher, Mathematics </b>
+                      <li *ngFor="let exp of experiences">
+                        <b> {{exp.designation}}, {{exp.subject}} </b>
                         <div>
-                          Ideal School and College, Dhaka
+                          {{exp.institution}}, {{exp.city}}
                         </div>
-                        Dhaka, Bangladesh
-                      </li>
-                      <li>
-                        <b> Senior Teacher, Mathematics </b>
-                        <div>
-                          Ideal School and College, Dhaka
-                        </div>
-                        Dhaka, Bangladesh
+                        {{exp.city}}, {{exp.country}}
                       </li>
                     </ul>
                   </div>
@@ -108,19 +102,12 @@
                    <div class='profile-education-list'>
                     <h3> Education: </h3>
                     <ul class='list-default ml20'>
-                      <li>
-                        <b> Hons in Mathematics </b>
+                      <li *ngFor="let edu of educations">
+                        <b> {{edu.subject}} </b>
                         <div>
-                          University of Dhaka
+                          {{edu.institution}}
                         </div>
-                        2008-2011
-                      </li>
-                      <li>
-                        <b> HSC </b>
-                        <div>
-                          BAF Shaheen College, Dhaka
-                        </div>
-                        2005-2006
+                        {{edu.from_year}} - {{edu.to_year}}
                       </li>
                     </ul>
                   </div>
