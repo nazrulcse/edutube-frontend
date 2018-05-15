@@ -29,6 +29,15 @@
 }
 
 /* Button design for edutube */
+/*
+*primary-btn
+*primary-btn-sm
+*default-btn
+*default-btn-sm
+*settings-default-btn
+*guest-default-btn
+*block-default-btn
+*/
 .primary-btn, .default-btn {
   min-width: 180px;
   min-height: 40px;
@@ -82,8 +91,8 @@
   }
 }
 
-.guest-default-btn {
-  padding: 3px 25px;
+.guest-default-btn, .view-more-btn-size {
+  padding: 3px 25px !important;
 }
 
 .settings-default-btn {
@@ -91,6 +100,31 @@
   -moz-border-radius: 15px;
   border-radius: 15px;
   padding: 3px 20px;
+}
+
+/* Edutube caret design */
+.up {
+  background-image: url("/assets/images/arrow-up.png");
+}
+
+.down {
+  background-image: url("/assets/images/arrow-down.png");
+}
+
+.left {
+  background-image: url("/assets/images/arrow-left.png");
+}
+
+.right {
+  background-image: url("/assets/images/arrow-right.png");
+}
+
+.edu-caret {
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 5px 10px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* Radio label design */
@@ -163,6 +197,19 @@
     font-weight: bold;
     outline: none;
     padding: 0 15px;
+  }
+}
+
+.sidebar-input-group {
+  position: relative;
+  &:before {
+    content: "\F002";
+    font-family: 'FontAwesome';
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    font-size: 14px;
+    cursor: pointer;
   }
 }
 
