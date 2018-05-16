@@ -322,3 +322,129 @@
 .image-circle {
   border-radius: 100%;
 }
+
+.width-100 {
+  width: 100%;
+}
+
+
+/* Ratings star design */
+.ratings-star {
+  margin: 50px 0;
+  position: relative;
+  display: block;
+  color: $star;
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid $star;
+  border-left: 100px solid transparent;
+  -moz-transform: rotate(35deg);
+  -webkit-transform: rotate(35deg);
+  -ms-transform: rotate(35deg);
+  -o-transform: rotate(35deg);
+  &:before {
+    border-bottom: 80px solid $star;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -45px;
+    left: -65px;
+    display: block;
+    content: '';
+    -webkit-transform: rotate(-35deg);
+    -moz-transform: rotate(-35deg);
+    -ms-transform: rotate(-35deg);
+    -o-transform: rotate(-35deg);
+  }
+  &:after {
+    position: absolute;
+    display: block;
+    color: $star;
+    top: 3px;
+    left: -105px;
+    width: 0px;
+    height: 0px;
+    border-right: 100px solid transparent;
+    border-bottom: 70px solid $star;
+    border-left: 100px solid transparent;
+    -webkit-transform: rotate(-70deg);
+    -moz-transform: rotate(-70deg);
+    -ms-transform: rotate(-70deg);
+    -o-transform: rotate(-70deg);
+    content: '';
+  }
+}
+
+/* Youtube video container responsive design */
+.video-container {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  iframe, object, embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+/* Collapse table wrap */
+.collapse-table-wrap {
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  .collapse-item {
+    a {
+      display: block;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 10px 20px;
+      .c-table-row {
+        clear: both;
+        overflow: hidden;
+        color: #333;
+        .c-icon {
+          width: 5%;
+          float: left;
+        }
+        .c-content {
+          width: 75%;
+          float: left;
+        }
+        .c-lecture {
+          width: 10%;
+          float: left;
+        }
+        .c-time {
+          width: 10%;
+          float: left;
+        }
+      }
+    }
+    .collapse-body {
+      background-color: #fff;
+      .body-item {
+        border-bottom: 1px solid #f1f1f1;
+        padding: 10px 60px;
+        .item-left {
+          i {
+            display: inline-block;
+            font-size: 15px;
+            padding-right: 20px;
+          }
+        }
+      }
+    }
+  }
+
+}
