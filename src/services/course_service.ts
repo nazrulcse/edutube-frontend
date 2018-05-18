@@ -65,5 +65,35 @@ export class CourseService {
    */
   public uploadFile(course_id, formData): Observable<any> {
     return this.http.post(this.base_url + "/api/auth/courses/" + course_id + "/upload_file", formData, {headers: this.authService.getAuthHeader()});
+  } 
+
+  /**
+   * Add category to a course
+   * @description Should return category from API as JSON.
+   * localStorage
+   * @returns {Category}
+   */
+  public addCategory(course_id, category_id): Observable<any> {
+    return this.http.post(this.base_url + "/api/auth/courses/" + course_id + "/add_category", category_id, {headers: this.authService.getAuthHeader()});
+  }
+
+  /**
+   * remove category to a course
+   * @description Should return success response.
+   * localStorage
+   * @returns {Void}
+   */
+  public removeCategory(course_id, category_id): Observable<any> {
+    return this.http.post(this.base_url + "/api/auth/courses/" + course_id + "/remove_category", category_id, {headers: this.authService.getAuthHeader()});
+  }
+
+  /**
+   * Load categories of a course
+   * @description Should return categories from API JSON array.
+   * localStorage
+   * @returns {Category<JSON>}
+   */
+  public loadCourseCategory(course_id): Observable<any> {
+    return this.http.get(this.base_url + "/api/auth/courses/" + course_id + "/categories/", {headers: this.authService.getAuthHeader()});
   }
 }

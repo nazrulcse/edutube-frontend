@@ -44,56 +44,6 @@ $linkedin: #007bb5;
   padding: 25px 0;
 }
 
-.edit-course-dashboard {
-  border: 1px solid rgba(0,0,0,.15);
-  border-radius: .25rem;
-  background-color: $white;
-  color: $icon-color;
-  text-align: left;
-  font-family: $primary-font;
-  font-size: 14px;
-  .sub-top-nav {
-    border-bottom: 1px solid $boder-color;
-    ul {
-      padding: 15px 20px;
-      li {
-        display: inline-block;
-        a {
-          color: $icon-color;
-          display: inline-block;
-          cursor: pointer;
-          &:hover {
-            color: $icon-color;
-            text-decoration: none;
-          }
-        }
-        .active, a:hover {
-          position: relative;
-          &:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -16px;
-            height: 2px;
-            background-color: $icon-color;
-          }
-        }
-        span {
-          background-image: url("/assets/images/arrow-right.png");
-          background-repeat: no-repeat;
-          background-position: center;
-          padding: 0px 20px;
-        }
-      }
-    }
-  }
-  .edit-body {
-    padding: 30px 25px;
-  }
-}
-
-
 .dashboard-container {
   margin: auto 10%;
   h2 {
@@ -158,5 +108,29 @@ $linkedin: #007bb5;
     left: 0;
     top: 0;
     opacity: 0;
+  }
+}
+
+.course-category-item {
+  border-radius: 5px;
+  border: solid 1px #cccccc;
+  display: inline-block;
+  margin-bottom: 8px;
+  margin-right: 5px;
+  span.text {
+    padding: 3px 3px 3px 10px;
+    display: inline-block;
+  }
+  span.action {
+    float: right;
+    padding: 3px 8px 3px 8px;
+    cursor: pointer;
+    margin-left: 5px;
+    border-left: solid 1px #cccccc;
+    &:hover {
+      background: #ff0000;
+      color: #ffffff;
+      border-radius: 0 5px 5px 0;
+    }
   }
 }

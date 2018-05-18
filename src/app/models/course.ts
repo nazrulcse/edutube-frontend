@@ -15,4 +15,8 @@ export class Course {
 	price: number;
 	welcome_message: string;
 	congratulation_message: string;
+	price_currency: string;
+	privacy: string;
+	google_adwards: string;
+	google_tracking_id: string;
 }

@@ -52,3 +52,18 @@
 		}
 	}
 }
+
+.teacher-profile-avatar {
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
+	margin: auto;
+	img {
+		max-width: 100%;
+		min-width: 100px;
+		height: 100px;
+		width: auto;
+		border-radius: 100%;
+		margin: auto;
+	}
+}

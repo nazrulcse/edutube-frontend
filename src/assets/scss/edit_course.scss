@@ -1,3 +1,52 @@
+.edit-course-dashboard {
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+  background-color: $white;
+  color: $icon-color;
+  text-align: left;
+  font-family: $primary-font;
+  font-size: 14px;
+  .sub-top-nav {
+    border-bottom: 1px solid $boder-color;
+    ul {
+      padding: 15px 20px;
+      li {
+        display: inline-block;
+        a {
+          color: $icon-color;
+          display: inline-block;
+          cursor: pointer;
+          &:hover {
+            color: $icon-color;
+            text-decoration: none;
+          }
+        }
+        .active, a:hover {
+          position: relative;
+          &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -16px;
+            height: 2px;
+            background-color: $icon-color;
+          }
+        }
+        span {
+          background-image: url("/assets/images/arrow-right.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          padding: 0px 20px;
+        }
+      }
+    }
+  }
+  .edit-body {
+    padding: 30px 25px;
+  }
+}
+
 .edit-course-container {
 	border: solid 1px #cccccc;
 	border-radius: 6px;
@@ -93,6 +142,19 @@
           }
       	}
       }
+
+      .third-party-integration {
+        .text-label {
+          width: 200px;
+          display: inline-block;
+        }
+        input[type="text"] {
+          max-width: 200px;
+          border-radius: 2px;   
+          padding-top: 5px;
+          padding-bottom: 5px;
+        }
+      }
 }
 
 .round-btn-default {
@@ -107,4 +169,11 @@
 		border-color: #cccccc;
 		color: #444444;
 	}
+}
+
+.course-settings-btn {
+  &.active {
+    background: $secondary-color !important;
+    color: #333333 !important;
+  }
 }

@@ -28,7 +28,14 @@
             </div>
 
             <div class="edit-body">
-              <div class='alert alert-danger' *ngIf="error"> {{error}} </div>
+              <div class='alert alert-danger' *ngIf="error"> 
+                {{error}} 
+                <i class="fa fa-times pull-right" (click)="error=''"></i> 
+              </div>
+              <div class='alert alert-info' *ngIf="message"> 
+                {{message}} 
+                <i class="fa fa-times pull-right" (click)="message=''"></i>
+              </div>
               <div class="row">
                 <div class="col-sm-3">
                   <img style='max-width: 100%;' *ngIf="!course.image" src='/assets/images/envelope-large.png' class="img-responsive"/>
@@ -41,7 +48,7 @@
                 <div class="col-sm-3">
                   <div class="form-group">
                     <div class="nav nav-pills" id="myCourseTab" role="tablist">
-                      <a class="nav-link round-btn-default btn" data-toggle="tab" href="#course-settings-tab" role="tab" aria-selected="true">
+                      <a class="nav-link round-btn-default btn {{klass}} course-settings-btn" (click)="klass = (klass != 'show' ? 'show' : '')" data-toggle="tab" href="#course-settings-tab" role="tab" aria-selected="true">
                         <i class="fa fa-cog"></i> Course Settings
                       </a>
                     </div>
@@ -54,25 +61,25 @@
                   <div class='col-sm-3 right-border'>
                     <div class='row'>
                     <div class="nav flex-column nav-pills left-pill-nav edu-pill-wrapper" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                      <a class="nav-link active" data-toggle="pill" href="#course-goals-tab" role="tab" aria-selected="true">
+                      <a class="nav-link active" (click)="hideNotification()" data-toggle="pill" href="#course-goals-tab" role="tab" aria-selected="true">
                         Course Goals
                       </a>
-                      <a class="nav-link" data-toggle="pill" href="#course-curriculum-tab" role="tab" aria-selected="true">
+                      <a class="nav-link" (click)="hideNotification()" data-toggle="pill" href="#course-curriculum-tab" role="tab" aria-selected="true">
                         Curriculum
                       </a>
-                      <a class="nav-link" data-toggle="pill" href="#course-details-tab" role="tab" aria-selected="true">
+                      <a class="nav-link" (click)="hideNotification()" data-toggle="pill" href="#course-details-tab" role="tab" aria-selected="true">
                         Course Details
                       </a>
-                      <a class="nav-link" data-toggle="pill" href="#course-price-tab" role="tab" aria-selected="true">
+                      <a class="nav-link" (click)="hideNotification()" data-toggle="pill" href="#course-price-tab" role="tab" aria-selected="true">
                         Price
                       </a>
-                      <a class="nav-link" data-toggle="pill" href="#course-captions-tab" role="tab" aria-selected="true">
+                      <a class="nav-link" (click)="hideNotification()" data-toggle="pill" href="#course-captions-tab" role="tab" aria-selected="true">
                         Captions
                       </a>
-                      <a class="nav-link" data-toggle="pill" href="#course-tutor-message-tab" role="tab" aria-selected="true">
+                      <a class="nav-link" (click)="hideNotification()" data-toggle="pill" href="#course-tutor-message-tab" role="tab" aria-selected="true">
                         Tutor Message
                       </a>
-                      <a class="nav-link" data-toggle="pill" href="#course-exam-tab" role="tab" aria-selected="true">
+                      <a class="nav-link" (click)="hideNotification()" data-toggle="pill" href="#course-exam-tab" role="tab" aria-selected="true">
                         Exam
                       </a>
                     </div>
@@ -83,7 +90,7 @@
                   <div class='row'>
                   <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="course-goals-tab" role="tabpanel">
-                      <form #courseGoalForm="ngForm" (ngSubmit)="submitCourseUpdate()">
+                      <form #courseGoalForm="ngForm" (ngSubmit)="submitCourseGoals()">
                         <div class='inner-tab-header clearfix'>
                           <h3>Course Goal</h3>
                           <button class="round-btn-default pull-right" type="submit"> Save </button>
@@ -91,15 +98,24 @@
                         <div class='inner-body'>
                           <div class='form-group'>
                             <label class='edu-label-default'> What knowledge and tools are required? </label>
-                            <input type="text" [(ngModel)]="course.tools_required" name="tools_required" class='form-control-default'>
+                            <input name='tools[{{i}}]' type="text" *ngFor="let goal of tools_requires; let i = index" class='form-control-default mb5' [(ngModel)]="goal.name">
+                            <a (click)="addMoreGoal('tools');" href="javascript:void(0);" class='edu-link-default'> 
+                              + Add More
+                            </a>
                           </div>
                           <div class='form-group'>
                             <label class='edu-label-default'> Who should take this course? </label>
-                            <input type="text" [(ngModel)]="course.who_can_take" name="who_can_take" class='form-control-default'>
+                            <input name='who_can[{{i}}]' type="text" *ngFor="let goal of who_can_takes; let i = index" class='form-control-default mb5' [(ngModel)]="goal.name">
+                            <a (click)="addMoreGoal('who');" href="javascript:void(0);" class='edu-link-default'> 
+                              + Add More
+                            </a>
                           </div>
                           <div class='form-group'>
                             <label class='edu-label-default'> What will students achive or be able to do after taking this course? </label>
-                            <input type="text" [(ngModel)]="course.achivement" name="achivement" class='form-control-default'>
+                            <input name='achive[{{i}}]' type="text" *ngFor="let goal of achivements; let i = index" class='form-control-default mb5' [(ngModel)]="goal.name">
+                            <a (click)="addMoreGoal('achivement');" href="javascript:void(0);" class='edu-link-default'> 
+                              + Add More
+                            </a>
                           </div>
                         </div>
                       </form>
@@ -112,46 +128,7 @@
                           <button class="round-btn-default pull-right"> Preview </button>
                           <button class="round-btn-default pull-right mr15"> Upload Multiple Files </button>
                         </div>
-                        <div class="inner-body">
-                          <p> Create curriculum by adding lecture and resourse. </p>
-                          <div class='curriculum-containers mb15'>
-                            <div class='curriculum-header'> Lecture 1: Intruduction </div>
-                            <div class='curriculum-tabs'>
-                              <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                  <a class="nav-link active" data-toggle="tab" href="#content-tab" role="tab" aria-controls="home" aria-selected="true">
-                                    Add Content
-                                  </a>
-                                </li>
-                                <li class="nav-item">
-                                  <a class="nav-link" data-toggle="tab" href="#description-tab" role="tab" aria-controls="profile" aria-selected="false">Add Description</a>
-                                </li>
-                                <li class="nav-item">
-                                  <a class="nav-link" data-toggle="tab" href="#resource-tab" role="tab" aria-controls="contact" aria-selected="false">Add Resources</a>
-                                </li>
-                              </ul>
-                              <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade show active" id="content-tab">
-                                  <div class='inner-body'>
-                                    <p> Upload main type of content </p>
-                                  </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="description-tab">
-                                  <div class='inner-body'>
-                                    <p> Curriculum Descriptions </p>
-                                  </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="resource-tab">
-                                  <div class='inner-body'>
-                                    <p> Add your resources </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <button type="button" class='btn defaul-btn mr10'> + Add Lecture </button>
-                          <button type="button" class='btn defaul-btn mr10'> + Add Quiz </button>
-                        </div>
+                        <app-course-curriculum [course]="course"></app-course-curriculum>
                       </form>
                     </div>
 
@@ -180,14 +157,27 @@
                             <textarea [(ngModel)]="course.description" name="description" class='form-control-default'></textarea>
                           </div>
 
-                          <div class='form-group'>
+                          <div class='form-group' style='position: relative;'>
                             <label class='edu-label-default'> Category </label>
-                            <input type="text" name="tools_required" class='form-control-default'>
+                            <div>
+                              <ul class='list-default'>
+                                <li *ngFor="let c_cat of course_categories; let i = index" class='course-category-item'> 
+                                 <span class='text'> {{c_cat.title}} </span> 
+                                 <span class='remove action' (click)="removeCategory(c_cat, i)"> <i class="fa fa-times"></i> </span> 
+                                </li>
+                              </ul>
+                            </div>
+                            <input type="text" placeholder="Search Category..." name="input_category" (blur)="hideCategorySelection($event)" (keyup)="categorySelect($event)" class='form-control-default' [(ngModel)]="input_category">
+                            <div class="dropdown-menu {{category_result}}" aria-labelledby="navbarDropdown" style="width: 100%;">
+                              <a class='dropdown-item pt5 pb5' *ngFor="let cat of category_search_results" (click)="addCategoryToCourse(cat)" href="javascript:void(0);">
+                                {{cat.title}}
+                              </a>
+                            </div>
                           </div>
 
                           <div class='form-group'>
                             <label class='edu-label-default'> Language </label>
-                            <select [(ngModel)]="course.language" name="language" class='form-control-default'>
+                            <select [(ngModel)]="course.language" name="language" class='form-control-default reset-br mx-w120'>
                               <option value="English"> English </option>
                               <option value="Bangoli"> Bangoli </option>
                               <option value="Other"> Other </option>
@@ -336,34 +326,36 @@
                     </div>
 
                     <div class="tab-pane fade" role="tabpanel" id="course-settings-tab">
-                      <form #captionForm="ngForm" (ngSubmit)="submitCourseUpdate()">
+                      <form #settingsForm="ngForm" (ngSubmit)="submitCourseUpdate()">
                         <div class='inner-tab-header clearfix'>
                           <h3>Course Settings</h3>
                           <button class="round-btn-default pull-right" type="submit"> Save </button>
                         </div>
                         <div class='inner-tab-header clearfix'>
-                          <label> Privacy </label>
-                          <select style="max-width: 150px;" class='form-control-default pt5 pb5'>
+                          <p class='mb8'> Privacy </p>
+                          <select [(ngModel)]="course.privacy" name='privacy' style="max-width: 150px;" class='form-control-default pt5 pb5 reset-br'>
                             <option value="Public"> Public </option>
                             <option value="Private"> Private </option>
                             <option value="Other"> Other </option>
                           </select>
                           </div>
                           <div class='inner-tab-header clearfix'>
-                          <h3> Third Party Integration </h3>
-                          <div class='form-group'>
-                            <span> Google Analytics Tracking ID </span>
-                            <input type="text" style="max-width: 150px;" class='form-control-default' placeholder="Enter ID">
+                            <p class='mb8'> <b> Third Party Integration </b> </p>
+                            <div class='third-party-integration'>
+                              <div class='form-group'>
+                                <span class='text-label'> Google Analytics Tracking ID </span>
+                                <input type="text" [(ngModel)]="course.google_tracking_id" name='google_tracking_id' class='form-control-default' placeholder="Enter ID">
+                              </div>
+                              <div class='form-group'>
+                                <span class='text-label'> Google Adwards </span>
+                                <input type="text" [(ngModel)]="course.google_adwards" name='google_adwards' class='form-control-default' placeholder="Enter ID">
+                              </div>
+                            </div>
                           </div>
-                          <div class='form-group'>
-                            <span> Google Adwards </span>
-                            <input type="text" style="max-width: 150px;" class='form-control-default' placeholder="Enter ID">
-                          </div>
-                        </div>
                         <div class='inner-body'>
-                            <h3> Course Satus </h3>
-                            <button type="button"> Publish </button>
-                            <button type="button" class='btn btn-danger'> Delete </button>
+                            <p class='mb8'> <b> Course Satus </b> </p>
+                            <button type="button" class='btn default-btn pt2 pb2 mb10'> {{course.status}} </button> <br/>
+                            <button type="button" class='btn primary-btn  pt2 pb2'> Delete </button>
                           </div>
                       </form>
                     </div>

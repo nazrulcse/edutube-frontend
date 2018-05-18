@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from "../../../../../services/course_service";
 import { Course } from "../../../../models/course";
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-courses',
@@ -11,8 +12,10 @@ export class InstructorCoursesComponent implements OnInit {
 
   courses: Array<Course>;
   error: '';
+  env: any;
   constructor(private courseService: CourseService) {
     this.loadCourse();
+    this.env = environment;
   }
 
   ngOnInit() {

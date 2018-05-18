@@ -6,21 +6,23 @@
  </div>
  <div class="alert alert-danger" *ngIf="error">
    {{error}}
+   <i class="fa fa-times pull-right" (click)="error=''"></i>
  </div>
  <div class="alert alert-info text-center" *ngIf="info">
    {{info}}
+   <i class="fa fa-times pull-right" (click)="info=''"></i>
  </div>
  <div class='row'>
   <div class='col-sm-3'>
     <div class="nav flex-column nav-pills edu-pill-wrapper" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-	  <a class="nav-link active" data-toggle="pill" href="#basic-info-tab" role="tab" aria-selected="true">Basic Information</a>
-	  <a class="nav-link" data-toggle="pill" href="#contact-info-tab" role="tab" aria-selected="true">Contact Information</a>
-	  <a class="nav-link" data-toggle="pill" href="#about-info-tab" role="tab" aria-selected="true">About Me</a>
-	  <a class="nav-link" data-toggle="pill" href="#education-info-tab" role="tab" aria-selected="true">Education</a>
-	  <a *ngIf="user.user_type == 'teacher'" class="nav-link" data-toggle="pill" href="#skill-info-tab" role="tab" aria-selected="true">
+	  <a class="nav-link active" (click)="hideNotification()" data-toggle="pill" href="#basic-info-tab" role="tab" aria-selected="true">Basic Information</a>
+	  <a class="nav-link" (click)="hideNotification()" data-toggle="pill" href="#contact-info-tab" role="tab" aria-selected="true">Contact Information</a>
+	  <a class="nav-link" (click)="hideNotification()" data-toggle="pill" href="#about-info-tab" role="tab" aria-selected="true">About Me</a>
+	  <a class="nav-link" (click)="hideNotification()" data-toggle="pill" href="#education-info-tab" role="tab" aria-selected="true">Education</a>
+	  <a *ngIf="user.user_type == 'teacher'" class="nav-link" (click)="hideNotification()" data-toggle="pill" href="#skill-info-tab" role="tab" aria-selected="true">
 	    Work Experiences
 	  </a>
-	  <a class="nav-link" data-toggle="pill" href="#language-info-tab" role="tab" aria-selected="true">Language</a>
+	  <a class="nav-link" data-toggle="pill" href="#language-info-tab" (click)="hideNotification()" role="tab" aria-selected="true">Language</a>
 	</div>
   </div>
   <div class='col-sm-9'>
@@ -102,7 +104,7 @@
 								  </div>
 								  <div class='col-sm-8'>
 									  <div class='form-group'>
-										  <input type="text" name='city' [(ngModel)]="user.city"
+										  <input type="text" name='city' placeholder="City" [(ngModel)]="user.city"
 												 class='form-control-gray'>
 									  </div>
 								  </div>

@@ -219,5 +219,9 @@ export class StudentComponent implements OnInit {
       this.error = "Unable to load some profile data!";
     });
   }
-
+ 
+  public hideNotification() {
+    this.error = '';
+    this.info = '';
+  }
 }

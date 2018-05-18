@@ -37,6 +37,7 @@ import { InstructorCoursesComponent } from './users/instructor/dashboard/courses
 import { InstructorSidenavComponent } from './users/instructor/sidenav/sidenav.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailsComponent } from './courses/course-details/course-details.component';
+import { CurriculumComponent } from './users/instructor/dashboard/courses/edit/curriculum/curriculum.component';
 
 let config = new AuthServiceConfig([
   {
@@ -80,7 +81,8 @@ export function provideConfig() {
     InstructorCoursesComponent,
     InstructorSidenavComponent,
     CoursesComponent,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    CurriculumComponent
   ],
   imports: [
     BrowserModule,

@@ -40,6 +40,12 @@
       border: none;
       height: 135px;
       width: 100%;
+      overflow: hidden;
+      img {
+        border-radius: 4px 4px 0 0;
+        min-height: 100%;
+        width: 100%;
+      }
   	}
   }
 }

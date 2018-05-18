@@ -1,0 +1,40 @@
+<div class="inner-body">
+  <p> Create curriculum by adding lecture and resourse. </p>
+  <div class='curriculum-containers mb15' *ngFor="let lectue of lectures; let i = index">
+    <div class='curriculum-header'> Lecture 1: Intruduction </div>
+    <div class='curriculum-tabs'>
+      <ul class="nav nav-tabs" id="myTab{{i}}" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#content-tab{{i}}" role="tab" aria-controls="home" aria-selected="true">
+            Add Content
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#description-tab{{i}}" role="tab" aria-controls="profile" aria-selected="false">Add Description</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#resource-tab{{i}}" role="tab" aria-controls="contact" aria-selected="false">Add Resources</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade show active" id="content-tab{{i}}">
+          <div class='inner-body'>
+            <p> Upload main type of content </p>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="description-tab{{i}}">
+          <div class='inner-body'>
+            <p> Curriculum Descriptions </p>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="resource-tab{{i}}">
+          <div class='inner-body'>
+            <p> Add your resources </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" class='btn defaul-btn mr10' (click)="addLecture()"> + Add Lecture </button>
+  <button type="button" class='btn defaul-btn mr10'> + Add Quiz </button>
+</div>
