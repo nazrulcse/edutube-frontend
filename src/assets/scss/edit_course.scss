@@ -59,7 +59,7 @@
 	.left-pill-nav {
       border: none;
       display: block;
-      border-radius: 6px 0 0 6px; 
+      border-radius: 6px 0 0 6px;
       width: 100%;
       height: 100%;
       margin-bottom: 0 !important;
@@ -176,4 +176,12 @@
     background: $secondary-color !important;
     color: #333333 !important;
   }
+}
+
+/* Tab content default */
+.tab-content-default {
+  background-color: #ffffff;
+  padding: 25px;
+  border-top: inherit;
+  border-bottom: 1px solid #ddd;
 }
