@@ -1,6 +1,6 @@
 <section id="profile-sub-nav">
-  <div class="sub-nav">
-    <ul class="sub-nav-ul-style">
+  <div class="sub-nav-fluid">
+    <ul class="sub-nav-ul-style text-center">
       <li>
         <a routerLink="/profile">Profile</a>
       </li>
@@ -32,21 +32,21 @@
                       </li>
                     </ul>
                   </div>
-                
+
                   <div class="dashboard-container edit-body">
                     <div class='col-lg-12'>
                       <div class='alert alert-danger' *ngIf="error"> {{error}} </div>
                       <div class='row course-listing'>
                         <div *ngFor="let course of courses" class='course-block col-sm-4'>
                            <div class='image-header'>
-                             <img src="{{env.assets_host}}{{course.image}}" *ngIf="course.image"/>  
-                             <img src="/assets/images/envelope-large.png" *ngIf="!course.image"/>  
+                             <img src="{{env.assets_host}}{{course.image}}" *ngIf="course.image"/>
+                             <img src="/assets/images/envelope-large.png" *ngIf="!course.image"/>
                            </div>
                            <div class='course-body'>
                              <h3> {{course.title}} </h3>
                              <div>
                                Draft
-                               <a class='edu-link-default ml10' routerLink="/instructor/dashboard/courses/{{course.id}}/edit"> 
+                               <a class='edu-link-default ml10' routerLink="/instructor/dashboard/courses/{{course.id}}/edit">
                                  <i class="fa fa-pencil-square-o"></i>
                                </a>
                              </div>
@@ -61,6 +61,6 @@
           </div>
         </div>
       </div>
-    </div>  
+    </div>
   </div>
 </div>

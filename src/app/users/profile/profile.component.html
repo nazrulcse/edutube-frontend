@@ -1,8 +1,8 @@
 <app-teacher-profile *ngIf="user.user_type=='teacher'" [user]="user"></app-teacher-profile>
-<div id="student-profile-page" *ngIf="user.user_type=='student'"> 
+<div id="student-profile-page" *ngIf="user.user_type=='student'">
 <section id="profile-sub-nav">
-  <div class="sub-nav">
-    <ul class="sub-nav-ul-style">
+  <div class="sub-nav-fluid">
+    <ul class="sub-nav-ul-style text-center">
       <li><a href="#" class="active">Profile</a></li>
     </ul>
   </div>
@@ -29,7 +29,7 @@
                   {{user.institution}}
                 </div>
                 <div class='info-text'>
-                  {{user.degree}} 
+                  {{user.degree}}
                 </div>
                 <span class='info-text'>
                  <i class="fa fa-map-marker"></i>  {{user.city}}, {{user.country}}
@@ -77,8 +77,8 @@
         <div class="col-sm-9">
           <div class="side-panel-default">
             <div class="panel-header">
-              <div class="sub-nav" style="border: none;">
-                <ul class="sub-nav-ul-style">
+              <div class="sub-nav-fluid" style="border: none;">
+                <ul class="sub-nav-ul-style text-center">
                   <li><a href="#" class="active">Courses</a></li>
                 </ul>
               </div>

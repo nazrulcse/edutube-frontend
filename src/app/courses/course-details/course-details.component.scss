@@ -255,6 +255,11 @@ $box-shadow: 0px 2px 1px #ccc;
   }
 }
 
+.subscription-nav {
+  border-top: 1px solid #e3e3e3;
+  border-bottom: 1px solid #e3e3e3;
+}
+
 /* Collapse table design */
 
 .ratings-wrap {
@@ -386,11 +391,11 @@ $box-shadow: 0px 2px 1px #ccc;
 /* Responsive design */
 //Desktop
 @media all and (max-width: 1199px) {
-  .learn-item {
-    h3 {
-      color: green !important;
-    }
-  }
+  //.learn-item {
+  //  h3 {
+  //    color: green !important;
+  //  }
+  //}
 
   .course-details-wrap {
     .what-learn {
@@ -410,11 +415,11 @@ $box-shadow: 0px 2px 1px #ccc;
 
 //Medium
 @media all and (max-width: 991px) {
-  .learn-item {
-    h3 {
-      color: yellow !important;
-    }
-  }
+  //.learn-item {
+  //  h3 {
+  //    color: yellow !important;
+  //  }
+  //}
 
   .course-details-wrap {
     .what-learn {
@@ -460,11 +465,11 @@ $box-shadow: 0px 2px 1px #ccc;
 
 //Tab
 @media all and (max-width: 768px) {
-  .learn-item {
-    h3 {
-      color: red !important;
-    }
-  }
+  //.learn-item {
+  //  h3 {
+  //    color: red !important;
+  //  }
+  //}
 
   .grid-wrap {
     grid-template-columns: auto auto;
@@ -474,11 +479,11 @@ $box-shadow: 0px 2px 1px #ccc;
 
 //Mobile
 @media all and (max-width: 575px) {
-  .learn-item {
-    h3 {
-      color: greenyellow !important;
-    }
-  }
+  //.learn-item {
+  //  h3 {
+  //    color: greenyellow !important;
+  //  }
+  //}
 
   .grid-wrap {
     grid-template-columns: auto;

@@ -1,5 +1,5 @@
-<div class="sub-nav">
-  <ul class="sub-nav-ul-style">
+<div class="sub-nav-fluid">
+  <ul class="sub-nav-ul-style text-center">
     <li><a href="#">Profile</a></li>
     <li><a href="#" class="active">Home</a></li>
   </ul>
@@ -28,12 +28,12 @@
             </div>
 
             <div class="edit-body">
-              <div class='alert alert-danger' *ngIf="error"> 
-                {{error}} 
-                <i class="fa fa-times pull-right" (click)="error=''"></i> 
+              <div class='alert alert-danger' *ngIf="error">
+                {{error}}
+                <i class="fa fa-times pull-right" (click)="error=''"></i>
               </div>
-              <div class='alert alert-info' *ngIf="message"> 
-                {{message}} 
+              <div class='alert alert-info' *ngIf="message">
+                {{message}}
                 <i class="fa fa-times pull-right" (click)="message=''"></i>
               </div>
               <div class="row">
@@ -85,7 +85,7 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <div class='col-sm-9'>
                   <div class='row'>
                   <div class="tab-content" id="v-pills-tabContent">
@@ -99,21 +99,21 @@
                           <div class='form-group'>
                             <label class='edu-label-default'> What knowledge and tools are required? </label>
                             <input name='tools[{{i}}]' type="text" *ngFor="let goal of tools_requires; let i = index" class='form-control-default mb5' [(ngModel)]="goal.name">
-                            <a (click)="addMoreGoal('tools');" href="javascript:void(0);" class='edu-link-default'> 
+                            <a (click)="addMoreGoal('tools');" href="javascript:void(0);" class='edu-link-default'>
                               + Add More
                             </a>
                           </div>
                           <div class='form-group'>
                             <label class='edu-label-default'> Who should take this course? </label>
                             <input name='who_can[{{i}}]' type="text" *ngFor="let goal of who_can_takes; let i = index" class='form-control-default mb5' [(ngModel)]="goal.name">
-                            <a (click)="addMoreGoal('who');" href="javascript:void(0);" class='edu-link-default'> 
+                            <a (click)="addMoreGoal('who');" href="javascript:void(0);" class='edu-link-default'>
                               + Add More
                             </a>
                           </div>
                           <div class='form-group'>
                             <label class='edu-label-default'> What will students achive or be able to do after taking this course? </label>
                             <input name='achive[{{i}}]' type="text" *ngFor="let goal of achivements; let i = index" class='form-control-default mb5' [(ngModel)]="goal.name">
-                            <a (click)="addMoreGoal('achivement');" href="javascript:void(0);" class='edu-link-default'> 
+                            <a (click)="addMoreGoal('achivement');" href="javascript:void(0);" class='edu-link-default'>
                               + Add More
                             </a>
                           </div>
@@ -161,9 +161,9 @@
                             <label class='edu-label-default'> Category </label>
                             <div>
                               <ul class='list-default'>
-                                <li *ngFor="let c_cat of course_categories; let i = index" class='course-category-item'> 
-                                 <span class='text'> {{c_cat.title}} </span> 
-                                 <span class='remove action' (click)="removeCategory(c_cat, i)"> <i class="fa fa-times"></i> </span> 
+                                <li *ngFor="let c_cat of course_categories; let i = index" class='course-category-item'>
+                                 <span class='text'> {{c_cat.title}} </span>
+                                 <span class='remove action' (click)="removeCategory(c_cat, i)"> <i class="fa fa-times"></i> </span>
                                 </li>
                               </ul>
                             </div>
@@ -230,7 +230,7 @@
                           <h3>Price</h3>
                           <button class="round-btn-default pull-right" type="submit"> Save </button>
                         </div>
-                        <div class='inner-body'> 
+                        <div class='inner-body'>
                           <p> Please select the price tier for your course bellow and click 'Save'. The list price that students will see in other currencies is calculated using the price tier matrix, based on the tier that is corresponds to. </p>
                           <div class='form-group'>
                             <select name='currency' [(ngModel)]="course.price_currency" style="max-width: 80px;" class='form-control-gray mr10'>
@@ -240,8 +240,8 @@
                             <input type="text" [(ngModel)]="course.price" name='price' style="max-width: 170px;" class="form-control-gray text-center" placeholder="Enter price">
                           </div>
                           <p>
-                            <a (click)="addDiscountPrice();" href="javascript:void(0);" class='edu-link-default'> 
-                              + Discount Price 
+                            <a (click)="addDiscountPrice();" href="javascript:void(0);" class='edu-link-default'>
+                              + Discount Price
                             </a>
                           </p>
                           <div class='form-group' *ngIf="showDiscount()">
