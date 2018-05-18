@@ -69,31 +69,33 @@
 
   <div class="subscription-nav white-bg">
     <div class="sub-nav-container container">
-      <ul class="sub-nav-ul-style">
+      <ul class="sub-nav-ul-style nav nav-tabs" role="tablist">
         <li>
-          <a routerLink="/profile" data-toggle="tab" href="#content-tab" role="tab">Overview</a>
+          <a class="active" data-toggle="tab" href="#overview-tab" role="tab" aria-controls="overview-tab" aria-selected="true">Overview</a>
         </li>
         <li>
-          <a routerLink="/home" class="active">Course Content</a>
+          <a data-toggle="tab" href="#course-content-tab" role="tab" aria-controls="course-content-tab" aria-selected="false">Course Content</a>
         </li>
         <li>
-          <a routerLink="/home" class="">Announcement</a>
+          <a data-toggle="tab" href="#announcement-tab" role="tab" aria-controls="announcement-tab" aria-selected="false">Announcement</a>
         </li>
         <li>
-          <a routerLink="/home" class="">Q&A</a>
+          <a data-toggle="tab" href="#q-a-tab" role="tab" aria-controls="q-a-tab" aria-selected="false">Q&A</a>
         </li>
         <li>
-          <a routerLink="/home" class="">Exam</a>
+          <a data-toggle="tab" href="#exam-tab" role="tab" aria-controls="exam-tab" aria-selected="false">Exam</a>
         </li>
         <li>
-          <a routerLink="/home" class="">More <span class="edu-caret down"></span></a>
+          <a data-toggle="tab" href="#more-tab" role="tab" aria-controls="more-tab" aria-selected="false">
+            More <span class="edu-caret down"></span>
+          </a>
         </li>
       </ul>
     </div>
   </div><!-- Subscription nav menu -->
 
-  <div class="what-learn">
-    <div class="wl-container container">
+  <div class="tab-content what-learn">
+    <div class="tab-pane fade show active wl-container container" id="overview-tab" role="tabpanel">
       <div class="wl-row row">
         <div class="wl-left-col col-md-9 col-sm-6 col-xs-12">
           <div class="learn-item">
@@ -521,5 +523,10 @@
         </div>
       </div>
     </div>
+    <div class="custom-note tab-pane fade" id="course-content-tab" role="tabpanel">We are working here....</div>
+    <div class="custom-note tab-pane fade" id="announcement-tab" role="tabpanel">We are working here....</div>
+    <div class="custom-note tab-pane fade" id="q-a-tab" role="tabpanel">We are working here....</div>
+    <div class="custom-note tab-pane fade" id="exam-tab" role="tabpanel">We are working here....</div>
+    <div class="custom-note tab-pane fade" id="more-tab" role="tabpanel">We are working here....</div>
   </div><!-- What will learn -->
 </div>

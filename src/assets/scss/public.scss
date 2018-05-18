@@ -307,6 +307,9 @@
 .sub-nav-container {
   font-family: $primary-font;
   background-color: $primary-color;
+  .nav-tabs {
+    border-bottom: inherit;
+  }
   .sub-nav-ul-style {
     list-style-type: none;
     padding: 0;
