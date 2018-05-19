@@ -8,6 +8,7 @@ $user-active: #00a654;
 $border-color: #d5d3d4;
 $thin-border-color: #f8f9f7;
 $box-shadow: 0px 2px 1px #ccc;
+$primary-font: 'Open Sans', sans-serif;
 
 
 .main-title {
@@ -166,6 +167,64 @@ $box-shadow: 0px 2px 1px #ccc;
   }
 }
 
+.course-content-container {
+  margin-top: 30px;
+  .tutorial-section {
+    font-family: $primary-font;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+    .tutorial-head {
+      padding: 15px;
+      h4 {
+        font-weight: bold;
+        font-size: 18px;
+      }
+    }
+  }
+
+
+.tutorial-list-ul {
+  li {
+    a {
+      color: #333;
+      display: block;
+      clear: both;
+      overflow: hidden;
+      border-top: 1px solid $border-color;
+      padding: 10px 0;
+      &:hover {
+        background-color: $bg3;
+      }
+      .video-play {
+        float: left;
+        width: 5%;
+        i {
+          display: inline-block;
+          font-size: 20px;
+          padding-left: 15px;
+        }
+      }
+      .info {
+        padding-left: 15px;
+        float: left;
+        width: 80%;
+      }
+      .time {
+        padding-left: 15px;
+        float: left;
+        width: 10%;
+      }
+      .radio {
+        padding-left: 15px;
+        float: left;
+        width: 5%;
+      }
+    }
+  }
+}
+
 .recent-activity {
   padding-top: 30px;
   border-bottom: 1px solid $border-color;
@@ -269,6 +328,59 @@ $box-shadow: 0px 2px 1px #ccc;
 .subscription-nav {
   border-top: 1px solid #e3e3e3;
   border-bottom: 1px solid #e3e3e3;
+}
+
+.comments-wrap {
+  background-color: white;
+  border: 1px solid $border-color;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.comments-head {
+  background-color: $bg3;
+  padding: 10px 15px;
+  //border-bottom: 1px solid $border-color;
+  clear: both;
+  overflow: hidden;
+  img {
+    border-radius: 50%;
+    float: left;
+    margin-right: 15px;
+    width: 40px;
+  }
+  .info {
+    line-height: 20px;
+    padding-left: 60px;
+    h3 {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+    span {
+      font-size: 10px;
+    }
+  }
+}
+
+.comments-list {
+  border: 1px solid $border-color;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-top: 0;
+}
+
+.comments-content {
+  background-color: white;
+}
+
+.list-container {
+  background-color: $bg3;
+}
+.comments-content, .list-container {
+  padding: 20px 20px 20px 75px;
 }
 
 /* Collapse table design */
