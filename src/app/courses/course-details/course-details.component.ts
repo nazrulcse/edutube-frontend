@@ -6,6 +6,7 @@ import { HelperService } from '../../../services/helper_service';
 import { environment } from '../../../environments/environment';
 import { Category } from '../../models/category';
 import { Course } from '../../models/course';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-course-details',
@@ -21,25 +22,32 @@ export class CourseDetailsComponent implements OnInit {
   	requirements: [],
   	what_to_learn: []
   };
-  author = {};
+  author: User;
+  category: Category;
   constructor(private categoryService: CategoryService,
   	private route: ActivatedRoute, 
   	private  helperService: HelperService,
   	private  courseService: CourseService) { 
     this.course = new Course();
+    this.author = new User();
+    this.category = new Category();
   }
 
   ngOnInit() {
     let course_id =  this.route.snapshot.params['id'];
-    this.loadCourseDetails(course_id);
+    let category =  this.route.snapshot.params['category'];
+    this.loadCourseDetails(course_id, category);
   }
 
-  loadCourseDetails(id) {
-    this.courseService.getCourseDetails(id).subscribe(response => {
+  loadCourseDetails(id, category) {
+    this.courseService.getCourseDetails(id, category).subscribe(response => {
       if(response.success) {
         this.course = response.course;
         this.author = response.user;
         this.setCourseGoal(this.course);
+        if(response.category) {
+          this.category = response.category;
+        }
       }
       else {
       	this.error = response.message;

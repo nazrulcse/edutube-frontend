@@ -52,8 +52,8 @@ export class CourseService {
    * 
    * @returns {Course<JSON>}
    */
-  public getCourseDetails(id): Observable<any> {
-    return this.http.get(this.base_url + "/api/auth/courses/" + id + "/details");
+  public getCourseDetails(id, category): Observable<any> {
+    return this.http.get(this.base_url + "/api/auth/courses/" + id + "/details?category=" + category);
   }
 
   /**

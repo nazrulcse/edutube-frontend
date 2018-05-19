@@ -1,12 +1,13 @@
 <div class="course-details-wrap">
-  <div class="top-nav">
+  <div class="top-nav" *ngIf="category">
     <div class="container top-nav-container">
       <ul id="top-nav-ul" class="common-ul-style">
         <li>
           <a routerLink="/">Home</a><span class="edu-caret right"></span>
         </li>
         <li>
-          <a routerLink="/">Academic Courses</a><span class="edu-caret right"></span>
+          <a routerLink="/c/{{category.slug}}"> {{category.title}} </a>
+          <span class="edu-caret right"></span>
         </li>
         <!-- <li>
           <a href="#">Class-Five-Mathematics</a><span class="edu-caret right"></span>

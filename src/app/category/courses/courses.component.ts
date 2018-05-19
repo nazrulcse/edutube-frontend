@@ -26,9 +26,11 @@ export class CategoryCoursesComponent implements OnInit {
   }
 
   ngOnInit() {
-  	let cat_id =  this.route.snapshot.params['slug'];
   	this.loadAllCategory();
-  	this.loadCategory(cat_id);
+  	this.route.params.forEach(params => {
+        let cat_id =  this.route.snapshot.params['slug'];
+        this.loadCategory(cat_id);
+    });
   }
 
   loadCategory(id) {

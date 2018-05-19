@@ -16,7 +16,7 @@
                   <div class="dropdown-li-head">
                     <strong> {{cat.title}} </strong>
                     <p> 
-                      <a routerLink="/c/{{cat.slug}}" class='text-link'> See All </a> 
+                      <a [routerLink]="['c/' + cat.slug]" class='text-link'> See All </a> 
                     </p>
                   </div>
                 </li>

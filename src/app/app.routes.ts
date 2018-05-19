@@ -27,6 +27,7 @@ export const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'courses', component: CoursesComponent },
   { path: 'courses/:id', component: CourseDetailsComponent },
+  { path: 'c/:category/courses/:id', component: CourseDetailsComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'instructor/dashboard', component: InstructorDashboardComponent },
   { path: 'instructor/dashboard/courses', component: InstructorCoursesComponent },
