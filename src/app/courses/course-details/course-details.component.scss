@@ -132,99 +132,6 @@ $box-shadow: 0px 2px 1px #ccc;
             padding-bottom: 20px;
             margin-bottom: 20px;
           }
-          .tabs-item {
-            border-bottom: 1px solid $border-color;
-            margin-bottom: 20px;
-            .curriculum-tabs {
-              border: 1px solid #ddd;
-              border-radius: 4px;
-              margin-bottom: 20px;
-              border-bottom: none;
-              .nav-tabs {
-                background-color: #f1f1f1;
-                border-top: 0;
-                border-bottom: 0;
-                .nav-item {
-                  &:first-child {
-                    a {
-                      border-left: inherit;
-                    }
-                  }
-                  margin-bottom: -1px;
-                  .active {
-                    background-color: #fff;
-                    border-right: 1px solid #ddd;
-                    border-top-right-radius: inherit;
-                    border-bottom-right-radius: inherit;
-                    border-left: 1px solid #ddd;
-                    border-top-left-radius: inherit;
-                    border-top: 1px solid #fff;
-                  }
-                  a {
-                    color: #333333;
-                    text-decoration: none;
-                    &:hover {
-                      cursor: pointer;
-                      color: #333333;
-                    }
-                  }
-                }
-              }
-            }
-          }
-          .tutor-info-item {
-            .about-tutor-wrap {
-              margin-bottom: 20px;
-              border-bottom: 1px solid $border-color;
-              padding-bottom: 20px;
-              h3 {}
-              .tutor-content {
-                background-color: #fff;
-                padding: 20px;
-                -webkit-border-radius: 4px;
-                -moz-border-radius: 4px;
-                border-radius: 4px;
-                .profile-view {
-                  float: left;
-                  img {
-                    width: 80px;
-                    border: 2px solid #f1f1f1;
-                    border-radius: 50%;
-                  }
-                  p {
-                    margin-top: 5px;
-                    margin-bottom: 10px;
-                    span {
-                      color: #00a54f;
-                    }
-                  }
-                  a {}
-                }
-                .profile-info {
-                  padding-left: 120px;
-                  h4 {
-                    font-size: 18px;
-                    font-weight: bold;
-                    margin-bottom: 5px;
-                  }
-                  .star {}
-                  span {
-                    display: inline-block;
-                    margin-bottom: 5px;
-                  }
-                  p {}
-                  .flowers-details {
-                    .tutor-ul {
-                      li {
-                        p {}
-                        span {}
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
           .other-course-item {
             .subject-group {
               margin-bottom: 60px;
@@ -247,6 +154,106 @@ $box-shadow: 0px 2px 1px #ccc;
             .course-include-ul {
               margin: 0;
               padding-left: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.recent-activity {
+  padding-top: 30px;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 20px;
+}
+
+.tabs-item {
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 20px;
+  .curriculum-tabs {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-bottom: none;
+    .nav-tabs {
+      background-color: #f1f1f1;
+      border-top: 0;
+      border-bottom: 0;
+      .nav-item {
+        &:first-child {
+          a {
+            border-left: inherit;
+          }
+        }
+        margin-bottom: -1px;
+        .active {
+          background-color: #fff;
+          border-right: 1px solid #ddd;
+          border-top-right-radius: inherit;
+          border-bottom-right-radius: inherit;
+          border-left: 1px solid #ddd;
+          border-top-left-radius: inherit;
+          border-top: 1px solid #fff;
+        }
+        a {
+          color: #333333;
+          text-decoration: none;
+          &:hover {
+            cursor: pointer;
+            color: #333333;
+          }
+        }
+      }
+    }
+  }
+}
+.tutor-info-item {
+  .about-tutor-wrap {
+    margin-bottom: 20px;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 20px;
+    h3 {}
+    .tutor-content {
+      background-color: #fff;
+      padding: 20px;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      .profile-view {
+        float: left;
+        img {
+          width: 80px;
+          border: 2px solid #f1f1f1;
+          border-radius: 50%;
+        }
+        p {
+          margin-top: 5px;
+          margin-bottom: 10px;
+          span {
+            color: #00a54f;
+          }
+        }
+        a {}
+      }
+      .profile-info {
+        padding-left: 120px;
+        h4 {
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+        .star {}
+        span {
+          display: inline-block;
+          margin-bottom: 5px;
+        }
+        p {}
+        .flowers-details {
+          .tutor-ul {
+            li {
+              p {}
+              span {}
             }
           }
         }
@@ -391,7 +398,7 @@ $box-shadow: 0px 2px 1px #ccc;
 /* Responsive design */
 //Desktop
 @media all and (max-width: 1199px) {
-  //.learn-item {
+  //.recent-activity {
   //  h3 {
   //    color: green !important;
   //  }
@@ -415,33 +422,22 @@ $box-shadow: 0px 2px 1px #ccc;
 
 //Medium
 @media all and (max-width: 991px) {
-  //.learn-item {
+  //.recent-activity {
   //  h3 {
   //    color: yellow !important;
   //  }
   //}
 
-  .course-details-wrap {
-    .what-learn {
-      .wl-container {
-        .wl-row {
-          .wl-left-col {
-            .tutor-info-item {
-              .about-tutor-wrap {
-                h3 {}
-                .tutor-content {
-                  .profile-view {
-                    float: inherit;
-                    margin-bottom: 15px;
-                  }
-                  .profile-info {
-                    padding-left: inherit;
-                  }
-                }
-              }
-            }
-          }
-          .wl-right-col {}
+  .tutor-info-item {
+    .about-tutor-wrap {
+      h3 {}
+      .tutor-content {
+        .profile-view {
+          float: inherit;
+          margin-bottom: 15px;
+        }
+        .profile-info {
+          padding-left: inherit;
         }
       }
     }
@@ -465,7 +461,7 @@ $box-shadow: 0px 2px 1px #ccc;
 
 //Tab
 @media all and (max-width: 768px) {
-  //.learn-item {
+  //.recent-activity {
   //  h3 {
   //    color: red !important;
   //  }
@@ -479,7 +475,7 @@ $box-shadow: 0px 2px 1px #ccc;
 
 //Mobile
 @media all and (max-width: 575px) {
-  //.learn-item {
+  //.recent-activity {
   //  h3 {
   //    color: greenyellow !important;
   //  }
