@@ -493,3 +493,61 @@
   }
 
 }
+
+/* Edutube default table */
+.edu-table-default {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  thead {
+    background-color: #f1f1f1;
+    border-bottom: inherit;
+    tr {
+      th {
+        padding: 10px 15px;
+        vertical-align: middle;
+        font-weight: normal;
+        border-bottom: 1px solid #ddd;
+        border-top: 0;
+      }
+      .custom-btn {
+        min-width: 150px;
+        a {
+          color: #333;
+          padding: 4px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          min-width: 120px;
+          display: inline-block;
+          text-align: center;
+          background-color: #fff;
+          text-decoration: none;
+          font-weight: normal;
+          &:hover {
+            cursor: pointer;
+            opacity: .8;
+          }
+        }
+      }
+    }
+  }
+  tbody {
+    background-color: #fff;
+    tr {
+      .profile-pic {}
+      .description {}
+      .like, .answer {
+        text-align: center;
+        vertical-align: middle;
+      }
+      td {
+        .see-all {
+          cursor: pointer;
+          &:hover {
+            color: #333;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
