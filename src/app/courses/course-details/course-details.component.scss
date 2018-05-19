@@ -26,6 +26,10 @@ $box-shadow: 0px 2px 1px #ccc;
   box-shadow: $box-shadow;
 }
 
+.border-bottom {
+  border-bottom: 1px solid $border-color;
+}
+
 .course-details-wrap {
   background-color: $main-bg;
   font-family: "Open Sans", sans-serif;
@@ -211,7 +215,7 @@ $box-shadow: 0px 2px 1px #ccc;
 .tutor-info-item {
   .about-tutor-wrap {
     margin-bottom: 20px;
-    border-bottom: 1px solid $border-color;
+    //border-bottom: 1px solid $border-color;
     padding-bottom: 20px;
     h3 {}
     .tutor-content {
