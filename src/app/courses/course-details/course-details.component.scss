@@ -330,6 +330,59 @@ $primary-font: 'Open Sans', sans-serif;
   border-bottom: 1px solid #e3e3e3;
 }
 
+.comments-wrap {
+  background-color: white;
+  border: 1px solid $border-color;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.comments-head {
+  background-color: $bg3;
+  padding: 10px 15px;
+  //border-bottom: 1px solid $border-color;
+  clear: both;
+  overflow: hidden;
+  img {
+    border-radius: 50%;
+    float: left;
+    margin-right: 15px;
+    width: 40px;
+  }
+  .info {
+    line-height: 20px;
+    padding-left: 60px;
+    h3 {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+    span {
+      font-size: 10px;
+    }
+  }
+}
+
+.comments-list {
+  border: 1px solid $border-color;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-top: 0;
+}
+
+.comments-content {
+  background-color: white;
+}
+
+.list-container {
+  background-color: $bg3;
+}
+.comments-content, .list-container {
+  padding: 20px 20px 20px 75px;
+}
+
 /* Collapse table design */
 
 .ratings-wrap {
