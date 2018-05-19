@@ -1,0 +1,98 @@
+<div class="course-wrap">
+  <div class="top-nav">
+    <div class="container top-nav-container">
+      <ul id="top-nav-ul" class="common-ul-style">
+        <li>
+          <a routerLink="/">Home</a><span class="edu-caret right"></span>
+        </li>
+        <li>
+          <a href="javascript:void(0);" class='active'>
+            {{category.title}}
+          </a>
+          <span class="edu-caret right"></span>
+        </li>
+      </ul>
+    </div>
+  </div><!-- Top nav -->
+  <div class="course-container container">
+    <div class="alert alert-danger" *ngIf="error"> {{error}} </div>
+    <div class="row course-row">
+      <div class="col-md-3 left-sidebar">
+        <div class="tab-wrap">
+          <ul id="left-tab-ul" class="common-ul-style">
+            <li *ngFor="let cat of header_categories">
+              <a [routerLink]="'/c/' + cat.slug" [routerLinkActive]="['active']"> {{cat.title}} </a>
+            </li>
+          </ul>
+        </div>
+        <div class="search-bar">
+          <form action="#" role="form" class="navbar-formx">
+            <div class="form-group sidebar-input-group">
+              <input type="search" class="form-control-default" placeholder="Class/Category">
+            </div>
+            <div class="form-group sidebar-input-group">
+              <input type="search" class="form-control-default" placeholder="Subject/Topic">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-9 right-sidebar">
+        <div class="banner">
+          <img src="assets/images/courses/academic-courses-bg.png" class="img-responsive" alt="default category" *ngIf="!category.image">
+          <img src="{{env.assets_host}}/{{category.image}}" class="img-responsive" alt="{{category.title}}-header" *ngIf="category.image">
+        </div>
+
+        <!-- <div class="subject-group">
+          <h3>Class Five</h3>
+          <div class="grid-wrap mb20">
+            <div class="grid-item">
+              <a href="#">
+                <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
+                <p>Mathematics</p>
+              </a>
+            </div>
+            <div class="grid-item">
+              <a href="#">
+                <img src="assets/images/courses/bangla.png" class="img-responsive" alt="Math pic">
+                <p>Bangla</p>
+              </a>
+            </div>
+            <div class="grid-item">
+              <a href="#">
+                <img src="assets/images/courses/english.png" class="img-responsive" alt="Math pic">
+                <p>English</p>
+              </a>
+            </div>
+            <div class="grid-item">
+              <a href="#">
+                <img src="assets/images/courses/science.png" class="img-responsive" alt="Math pic">
+                <p>Science</p>
+              </a>
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <a href="#" class="btn default-btn-sm view-more-btn-size">View More</a>
+          </div>
+        </div> -->
+
+        <div class="subject-group">
+          <h3> All Courses of {{category.title}} </h3>
+          <div class="grid-wrap mb20" *ngFor="let course of courses">
+            <div class="grid-item">
+              <a routerLink="/courses/{{course.course_id}}">
+                <img src="assets/images/envelope-large.png" class="img-responsive" alt="Math pic" *ngIf="!course.image">
+                <img src="{{env.assets_host}}{{course.image}}" class="img-responsive" alt="Math pic" *ngIf="course.image">
+                <p>{{course.title}}</p>
+              </a>
+            </div>
+          </div>
+          <!-- <div class="form-group text-center">
+            <a href="#" class="btn default-btn-sm view-more-btn-size">View More</a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -118,8 +118,19 @@ $border-color: #ddd;
   }
 }
 
+//Desktop
+@media all and (max-width: 1199px) {
+  //.course-wrap {
+  //  background-color: green !important;
+  //}
+}
+
 //Medium
 @media all and (max-width: 991px) {
+  //.course-wrap {
+  //  background-color: yellow !important;
+  //}
+
   .grid-wrap {
     grid-template-columns: auto auto auto;
   }
@@ -127,6 +138,10 @@ $border-color: #ddd;
 
 //Tab
 @media all and (max-width: 768px) {
+  //.course-wrap {
+  //  background-color: red !important;
+  //}
+
   .grid-wrap {
     grid-template-columns: auto auto;
   }
@@ -154,7 +169,12 @@ $border-color: #ddd;
 
 //Mobile
 @media all and (max-width: 575px) {
+  //.course-wrap {
+  //  background-color: greenyellow !important;
+  //}
+
   .grid-wrap {
     grid-template-columns: auto;
   }
+
 }

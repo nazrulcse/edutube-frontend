@@ -3,16 +3,17 @@
     <div class="container top-nav-container">
       <ul id="top-nav-ul" class="common-ul-style">
         <li>
-          <a href="#">Home</a><span class="edu-caret right"></span>
+          <a routerLink="/">Home</a><span class="edu-caret right"></span>
         </li>
         <li>
-          <a href="#">Academic Courses</a><span class="edu-caret right"></span>
+          <a routerLink="/">Academic Courses</a><span class="edu-caret right"></span>
         </li>
-        <li>
+        <!-- <li>
           <a href="#">Class-Five-Mathematics</a><span class="edu-caret right"></span>
-        </li>
+        </li> -->
         <li>
-          <a href="#">Algebraic-Expressions</a><span class="edu-caret right"></span>
+          <a href="javascript:void(0);"> {{course.title}} </a>
+          <span class="edu-caret right"></span>
         </li>
       </ul>
     </div>
@@ -21,9 +22,10 @@
     <div class="algebra-container container">
       <div class="algebra-row row">
         <div class="algebra-content col-md-9 col-sm-6 col-xs-12">
-          <h3>Algebraic Expression</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text
-            of the printing and typesetting industry.</p>
+          <h3> {{course.title}} </h3>
+          <p>
+            {{course.description}}
+          </p>
           <div class="ratings-wrap">
             <ul class="ratings-ul common-ul-style">
               <li>
@@ -53,15 +55,11 @@
               </li>
             </ul>
           </div><!-- Ratings wrap -->
-          <p>Uploaded by <span>Ali Jafar</span></p>
+          <p>Uploaded by <span> {{author.name}} </span></p>
         </div>
         <div class="algebra-video col-md-3 col-sm-6 col-xs-12">
           <img width="100%" height="100%" class="img-responsive" src="assets/images/courses/course-details.png"
                alt="Course details">
-          <!--<div class="video-container">-->
-          <!--<iframe src="https://www.youtube.com/embed/z9Ul9ccDOqE" frameborder="0" width="853" height="480" allowfullscreen></iframe>-->
-          <!--</div>&lt;!&ndash; Video container &ndash;&gt;-->
-          <!--</div>-->
         </div>
       </div>
     </div>
@@ -101,43 +99,19 @@
           <div class="learn-item">
             <h3>What will you learn?</h3>
             <ul class="common-ul-style learn-item-ul">
-              <li>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy
-                  text of the printing and typesetting industry.</p>
-              </li>
-              <li>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy
-                  text of the printing and typesetting industry.</p>
-              </li>
-              <li>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy
-                  text of the printing and typesetting industry.</p>
-              </li>
-              <li>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy
-                  text of the printing and typesetting industry.</p>
-              </li>
-              <li>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy
-                  text of the printing and typesetting industry.</p>
+              <li *ngFor="let learn of course_goal.what_to_learn">
+                <p>
+                 {{learn.name}}
+                </p>
               </li>
             </ul>
-            <a href="#" class="view-more ml30">View More</a>
+            <!-- <a href="#" class="view-more ml30">View More</a> -->
           </div><!-- Learn item  -->
           <div class="requirements-item">
             <h3>Requirements</h3>
             <ul class="requirements-item-ul common-ul-style">
-              <li>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting indus</p>
-              </li>
-              <li>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting indus</p>
-              </li>
-              <li>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting indus</p>
-              </li>
-              <li>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting indus</p>
+              <li *ngFor="let requirement of course_goal.requirements">
+                <p> {{requirement.name}} </p>
               </li>
             </ul>
           </div><!-- Requirements item -->
@@ -232,12 +206,7 @@
                 <div role="tabpanel" class="tab-pane fade show active" id="content-tab">
                   <div class='inner-body'>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis ante libero, in gravida nisl
-                      volutpat ut. Mauris vitae suscipit dolor, id condimentum dolor. Donec cursus mattis egestas.
-                      Curabitur consequat sollicitudin dictum. Pellentesque quis diam sit amet mauris rutrum tempor.
-                      Fusce imperdiet faucibus urna ut tempus. Maecenas pulvinar congue tortor non mollis. Etiam non
-                      erat auctor, aliquam magna eget, commodo dolor. Vestibulum in enim laoreet, bibendum sapien non,
-                      eleifend erat.
+                      {{course.description}}
                     </p>
                   </div>
                 </div>
@@ -259,12 +228,13 @@
               <h3 class="main-title">About the Tutor</h3>
               <div class="tutor-content bottom-box-shadow">
                 <div class="profile-view text-center">
-                  <img class="img-responsive" src="assets/images/newaj.jpg" alt="Tutor pic">
+                  <img class="img-responsive" src="assets/images/newaj.jpg" alt="Tutor pic" *ngIf="!author.image">
+                  <img class="img-responsive" src="{{env.assets_host}}{{author.image}}" alt="Tutor pic" *ngIf="author.image">
                   <p>Online <span class="fa fa-circle"></span></p>
                   <a href="" class="btn default-btn-sm">Follow Me</a>
                 </div>
                 <div class="profile-info">
-                  <h4>Ali Jafar</h4>
+                  <h4> {{author.name}} </h4>
                   <div class="ratings-wrap">
                     <ul class="ratings-ul common-ul-style">
                       <li>
@@ -287,21 +257,16 @@
                         </ul><!-- Star list -->
                       </li>
                       <li>
-                        <span>4.5</span>(15,000 ratings)
+                        <span>4.5</span> (15,000 ratings)
                       </li>
                       <li>
-                        <span>25,000</span>students enrolled
+                        <span>25,000</span> students enrolled
                       </li>
                     </ul>
                   </div><!-- Ratings wrap -->
                   <span>Mathematics</span>
                   <p>
-                    "Best course I've taken on Udemy. Solid course. I'm in the middle of starting a business and this is
-                    perfect. I had heard about how
-                    Best course I've taken on Udemy. Solid course. I'm in the middle of starting a business and this is
-                    perfect. I had heard about how
-                    Best course I've taken on Udemy. Solid course. I'm in the middle of starting a business and this is
-                    perfect. I had heard about how
+                    {{author.about_me}}
                   </p>
                   <div class='user-stats-section'>
                     <section>
