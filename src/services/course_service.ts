@@ -47,6 +47,16 @@ export class CourseService {
   }
 
   /**
+   * get course details of give id
+   * @description Should return course details as json from API.
+   * 
+   * @returns {Course<JSON>}
+   */
+  public getCourseDetails(id): Observable<any> {
+    return this.http.get(this.base_url + "/api/auth/courses/" + id + "/details");
+  }
+
+  /**
    * update instructor course
    * @description Should return updated course as json from API.
    * @input Course id
@@ -74,7 +84,7 @@ export class CourseService {
    * @returns {Category}
    */
   public addCategory(course_id, category_id): Observable<any> {
-    return this.http.post(this.base_url + "/api/auth/courses/" + course_id + "/add_category", category_id, {headers: this.authService.getAuthHeader()});
+    return this.http.post(this.base_url + "/api/auth/courses/" + course_id + "/add_category", {category_id: category_id}, {headers: this.authService.getAuthHeader()});
   }
 
   /**
@@ -84,7 +94,7 @@ export class CourseService {
    * @returns {Void}
    */
   public removeCategory(course_id, category_id): Observable<any> {
-    return this.http.post(this.base_url + "/api/auth/courses/" + course_id + "/remove_category", category_id, {headers: this.authService.getAuthHeader()});
+    return this.http.post(this.base_url + "/api/auth/courses/" + course_id + "/remove_category", {category_id: category_id}, {headers: this.authService.getAuthHeader()});
   }
 
   /**
@@ -94,6 +104,6 @@ export class CourseService {
    * @returns {Category<JSON>}
    */
   public loadCourseCategory(course_id): Observable<any> {
-    return this.http.get(this.base_url + "/api/auth/courses/" + course_id + "/categories/", {headers: this.authService.getAuthHeader()});
+    return this.http.get(this.base_url + "/api/auth/courses/" + course_id + "/categories", {headers: this.authService.getAuthHeader()});
   }
 }

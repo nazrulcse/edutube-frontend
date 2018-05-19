@@ -20,7 +20,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { EventService} from '../services/event_service';
 import { UserService} from '../services/user_service';
+import { HelperService} from '../services/helper_service';
 import { CourseService} from '../services/course_service';
+import { CategoryService } from '../services/category_service';
 import { LogoutComponent } from './logout/logout.component';
 import { SubnavComponent } from './users/student/subnav/subnav.component';
 import { StudentHomeComponent } from './users/student/home/home.component';
@@ -38,6 +40,7 @@ import { InstructorSidenavComponent } from './users/instructor/sidenav/sidenav.c
 import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailsComponent } from './courses/course-details/course-details.component';
 import { CurriculumComponent } from './users/instructor/dashboard/courses/edit/curriculum/curriculum.component';
+import { CategoryCoursesComponent } from './category/courses/courses.component';
 
 let config = new AuthServiceConfig([
   {
@@ -82,7 +85,8 @@ export function provideConfig() {
     InstructorSidenavComponent,
     CoursesComponent,
     CourseDetailsComponent,
-    CurriculumComponent
+    CurriculumComponent,
+    CategoryCoursesComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +99,7 @@ export function provideConfig() {
   providers: [AuthenticationService, TokenStorage, HttpClient, EventService, UserService, CourseService, {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    }],
+    }, HelperService, CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -134,11 +134,12 @@ export class EditCourseComponent implements OnInit {
   public loadCategories() {
     this.courseService.loadCourseCategory(this.course_id).subscribe(response => {
       this.categories = response.categories;
+      this.course_categories = response.course_categories;
     });
   }
 
   public addCategoryToCourse(category) {
-    this.courseService.addCategory(category, this.course_id).subscribe(response => {
+    this.courseService.addCategory(this.course_id, category.id).subscribe(response => {
       if(response.success) {
         this.course_categories.push(category);
         this.category_result = ''; 
@@ -154,7 +155,7 @@ export class EditCourseComponent implements OnInit {
   }
 
   public removeCategory(category, index) {
-    this.courseService.removeCategory(category.id, this.course_id).subscribe(response => {
+    this.courseService.removeCategory(this.course_id, category.id).subscribe(response => {
       if(response.success) {
         this.course_categories.splice(index, 1);
       }

@@ -12,6 +12,16 @@
             <li class="nav-item dropdown thumb-dropdown">
               <a href="#" class="nav-link dropdown-togglex" data-toggle="dropdown">Categories <i class="edu-caret down"></i></a>
               <ul class="dropdown-menu edu-dropdown-menu" role="menu">
+                <li role="presentation" class="dropdown-header" *ngFor="let cat of header_categories"> 
+                  <div class="dropdown-li-head">
+                    <strong> {{cat.title}} </strong>
+                    <p> 
+                      <a routerLink="/c/{{cat.slug}}" class='text-link'> See All </a> 
+                    </p>
+                  </div>
+                </li>
+              </ul>
+              <!-- <ul class="dropdown-menu edu-dropdown-menu" role="menu">
                 <li role="presentation" class="dropdown-header">
                   <div class="dropdown-li-head">
                     <strong>Academic Courses</strong>
@@ -108,7 +118,7 @@
                     <span class="edu-caret right"></span>
                   </a>
                 </li>
-              </ul>
+              </ul> -->
             </li>
           </ul>
           <form class="form-inline mr-auto navbar-form">
