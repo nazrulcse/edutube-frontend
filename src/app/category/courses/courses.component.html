@@ -77,8 +77,8 @@
 
         <div class="subject-group">
           <h3> All Courses of {{category.title}} </h3>
-          <div class="grid-wrap mb20" *ngFor="let course of courses">
-            <div class="grid-item">
+          <div class="grid-wrap mb20">
+            <div class="grid-item" *ngFor="let course of courses">
               <a routerLink="/c/{{category.slug}}/courses/{{course.course_id}}">
                 <img src="assets/images/envelope-large.png" class="img-responsive" alt="Math pic" *ngIf="!course.image">
                 <img src="{{env.assets_host}}{{course.image}}" class="img-responsive" alt="Math pic" *ngIf="course.image">

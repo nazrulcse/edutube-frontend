@@ -178,6 +178,31 @@
                           </div>
 
                           <div class='form-group'>
+                            <div class='row'>
+                              <div class='col-lg-12'>
+                                <div class='row'>
+                                  <div class='col-sm-6'>
+                                    <label class='edu-label-default'> Select Class </label>
+                                    <select class="form-control" name="class_id" [(ngModel)]="course.class_id">
+                                      <option *ngFor="let klass of klasses" [ngValue]="klass.id">
+                                        {{klass.name}}
+                                      </option>
+                                    </select>
+                                  </div>
+                                  <div class='col-sm-6'>
+                                    <label class='edu-label-default'> Select Subject </label>
+                                    <select class="form-control" name="subject" [(ngModel)]="course.subject_id">
+                                      <option *ngFor="let subject of subjects" [ngValue]="subject.id">
+                                        {{subject.title}}
+                                      </option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class='form-group'>
                             <label class='edu-label-default'> Language </label>
                             <select [(ngModel)]="course.language" name="language" class='form-control-default reset-br mx-w120'>
                               <option value="English"> English </option>

@@ -98,12 +98,12 @@ export class CourseService {
   }
 
   /**
-   * Load categories of a course
-   * @description Should return categories from API JSON array.
+   * Load course data like category, class, subject etc.
+   * @description Should return course data from API JSON array.
    * localStorage
-   * @returns {Category<JSON>}
+   * @returns {Data<JSON>}
    */
-  public loadCourseCategory(course_id): Observable<any> {
-    return this.http.get(this.base_url + "/api/auth/courses/" + course_id + "/categories", {headers: this.authService.getAuthHeader()});
+  public editCourse(course_id): Observable<any> {
+    return this.http.get(this.base_url + "/api/auth/courses/" + course_id + "/edit_course", {headers: this.authService.getAuthHeader()});
   }
 }

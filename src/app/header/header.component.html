@@ -12,6 +12,35 @@
             <li class="nav-item dropdown thumb-dropdown">
               <a href="#" class="nav-link dropdown-togglex" data-toggle="dropdown">Categories <i class="edu-caret down"></i></a>
               <ul class="dropdown-menu edu-dropdown-menu" role="menu">
+                <li role="presentation" class="dropdown-header">
+                  <div class="dropdown-li-head">
+                    <strong>Academic Courses</strong>
+                    <p>See All</p>
+                  </div>
+                </li>
+                <li class="nav-item dropdown thumb-dropdown nav-item-nested">
+                  <a href="#" class="nav-link dropdown-togglex" data-toggle="dropdown">
+                    PSC
+                    <span class="edu-caret right"></span>
+                  </a>
+                  <ul class="dropdown-menu edu-dropdown-menu custom-place" role="menu">
+                    <li role="presentation" class="dropdown-header">
+                      <a href="">Bangla</a>
+                    </li>
+                    <li role="presentation" class="dropdown-header">
+                      <a href="">English</a>
+                    </li>
+                    <li role="presentation" class="dropdown-header">
+                      <a href="">Mathematics</a>
+                    </li>
+                    <li role="presentation" class="dropdown-header">
+                      <a href="">Religion</a>
+                    </li>
+                    <li role="presentation" class="dropdown-header">
+                      <a href="">Science</a>
+                    </li>
+                  </ul>
+                </li>
                 <li role="presentation" class="dropdown-header" *ngFor="let cat of header_categories"> 
                   <div class="dropdown-li-head">
                     <strong> {{cat.title}} </strong>

@@ -20,8 +20,10 @@ export class EditCourseComponent implements OnInit {
   uploading_image = false;
   uploading_video = false;
   course_id = '';
-  env: any;
   klass = '';
+  env: any;
+  klasses = [];
+  subjects = [];
   tools_requires = [];
   who_can_takes = [];
   achivements = [];
@@ -40,11 +42,10 @@ export class EditCourseComponent implements OnInit {
   ngOnInit() {
   	this.course_id =  this.route.snapshot.params['id'];
   	this.loadCourse(this.course_id);
-    this.loadCategories();
+    this.editCourse();
   }
 
   public submitCourseUpdate() {
-    console.log(this.course);
     this.courseService.updateCourse(this.course).subscribe(response => {
       if(response.success) {
         this.notification(true, response.message);
@@ -131,10 +132,12 @@ export class EditCourseComponent implements OnInit {
     //event.target.value = '';
   }
 
-  public loadCategories() {
-    this.courseService.loadCourseCategory(this.course_id).subscribe(response => {
+  public editCourse() {
+    this.courseService.editCourse(this.course_id).subscribe(response => {
       this.categories = response.categories;
       this.course_categories = response.course_categories;
+      this.klasses = response.klasses;
+      this.subjects = response.subjects;
     });
   }
 

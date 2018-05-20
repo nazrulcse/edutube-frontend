@@ -1,6 +1,7 @@
 .edu-dropdown-menu {
   width: 270px;
   min-height: 150px;
+  z-index: 9999;
   li {
     .dropdown-li-head {
       clear: both;

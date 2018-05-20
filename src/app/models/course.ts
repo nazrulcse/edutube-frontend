@@ -1,6 +1,8 @@
 export class Course {
 	id: number;
 	title: string;
+	class_id: number;
+	subject_id: number;
 	sub_title: string;
 	description: string;
 	language: string;
