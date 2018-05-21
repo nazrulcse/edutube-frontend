@@ -383,6 +383,23 @@ $primary-font: 'Open Sans', sans-serif;
   padding: 20px 20px 20px 75px;
 }
 
+.course-exam-wrap {
+  .course-exam-container {
+    padding-bottom: 60px;
+    padding-top: 150px;
+    .course-exam-content {
+      font-size: 20px;
+      p {
+
+      }
+      strong {
+        font-weight: bold;
+        display: block;
+      }
+    }
+  }
+}
+
 /* Collapse table design */
 
 .ratings-wrap {
