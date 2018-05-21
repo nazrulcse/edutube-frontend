@@ -2,6 +2,7 @@
   <div class="sub-nav-fluid">
     <ul class="sub-nav-ul-style text-center">
       <li><a href="#" class="active">Profile</a></li>
+      <li><a routerLink="/instructor/dashboard">Home</a></li>
     </ul>
   </div>
 </section>
@@ -13,7 +14,7 @@
       </div>
       <div class="profile row">
         <div class="col-sm-3">
-          <div class="side-panel-default" style="height: 99%;">
+          <div class="side-panel-default pb20">
             <section class='clearfix' style="border: none;">
               <div class="profile-avatar text-center">
                 <div class='avatar teacher-profile-avatar'>
@@ -31,8 +32,8 @@
               </div>
             </section>
             <div class='com-contact-section'>
-                <img src="/assets/images/bell.png"/>
-                <img src="/assets/images/envelope.png" class='mr35 ml35'/>
+                <img src="/assets/images/call.png"/>
+                <img src="/assets/images/chat.png" class='mr40 ml40'/>
                 <img src="/assets/images/love.png"/>
             </div>
             <div class='get-assistance-section'>
@@ -113,6 +114,39 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <p class='fz20'>
+            Courses taught by {{user.name}}
+          </p>
+          <div class='course-listing'>
+            <div class='row'>
+              <div class='col-lg-12'>
+               <div class='row'>
+                <div class="course-block col-sm-4" *ngFor="let course of courses">
+                  <div class='image-header' [style.background-image]="thumb(course.image)"> </div>
+                  <div class="course-body">
+                    <h3> 
+                      <a class='edu-link-default' routerLink="/courses/{{course.id}}"> {{course.title}} </a>
+                    </h3>
+                    <div class='course-details'>  </div>
+                    <div class='course-footer'>
+                      <div class='author'> {{user.name}} </div>
+                      <div class='general-ratting mt4 mb3'>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <div class='course-fee clearfix'> 
+                        <b class='pull-right'> {{course.price ? course.price_currency + " " + course.price : 'Free'}} </b>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               </div>
+             </div>
             </div>
           </div>
         </div>

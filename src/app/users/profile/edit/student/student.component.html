@@ -15,14 +15,14 @@
  <div class='row'>
   <div class='col-sm-3'>
     <div class="nav flex-column nav-pills edu-pill-wrapper" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-	  <a class="nav-link active" (click)="hideNotification()" data-toggle="pill" href="#basic-info-tab" role="tab" aria-selected="true">Basic Information</a>
-	  <a class="nav-link" (click)="hideNotification()" data-toggle="pill" href="#contact-info-tab" role="tab" aria-selected="true">Contact Information</a>
-	  <a class="nav-link" (click)="hideNotification()" data-toggle="pill" href="#about-info-tab" role="tab" aria-selected="true">About Me</a>
-	  <a class="nav-link" (click)="hideNotification()" data-toggle="pill" href="#education-info-tab" role="tab" aria-selected="true">Education</a>
-	  <a *ngIf="user.user_type == 'teacher'" class="nav-link" (click)="hideNotification()" data-toggle="pill" href="#skill-info-tab" role="tab" aria-selected="true">
+	  <a class="nav-link active" data-toggle="pill" href="#basic-info-tab" role="tab" aria-selected="true">Basic Information</a>
+	  <a class="nav-link" data-toggle="pill" href="#contact-info-tab" role="tab" aria-selected="true">Contact Information</a>
+	  <a class="nav-link" data-toggle="pill" href="#about-info-tab" role="tab" aria-selected="true">About Me</a>
+	  <a class="nav-link" data-toggle="pill" href="#education-info-tab" role="tab" aria-selected="true">Education</a>
+	  <a *ngIf="user.user_type == 'teacher'" class="nav-link" data-toggle="pill" href="#skill-info-tab" role="tab" aria-selected="true">
 	    Work Experiences
 	  </a>
-	  <a class="nav-link" data-toggle="pill" href="#language-info-tab" (click)="hideNotification()" role="tab" aria-selected="true">Language</a>
+	  <a class="nav-link" data-toggle="pill" href="#language-info-tab" role="tab" aria-selected="true">Language</a>
 	</div>
   </div>
   <div class='col-sm-9'>
@@ -194,7 +194,7 @@
 		      	  	  <div class='row'>
 		      	  	  	<div class='col-sm-6'>
 		      	  	  	  <div class='form-group'>
-		                    <label class='edu-label-default'> School/Collage/University </label>
+		                    <label class='edu-label-default'> School/Collage/University <span class='required-text'>*</span> </label>
 		                    <input type="text" name='institution' [(ngModel)]="education.institution" class='form-control-gray'>
 		      	  	  	  </div>
 		      	  	  	</div>
@@ -208,7 +208,7 @@
 		      	  	  <div class='row'>
 		      	  	  	<div class='col-sm-6'>
 		      	  	  	  <div class='form-group'>
-		                    <label class='edu-label-default'> Class/Level/Degree </label>
+		                    <label class='edu-label-default'> Class/Level/Degree <span class='required-text'>*</span> </label>
 		                    <input type="text" name='degree' [(ngModel)]="education.degree" class='form-control-gray'>
 		      	  	  	  </div>
 		      	  	  	</div>
@@ -315,7 +315,7 @@
 		      	  	  <div class='row'>
 		      	  	  	<div class='col-sm-12'>
 		      	  	  	  <div class='form-group'>
-		                    <label class='edu-label-default'> Designation/Experience About </label>
+		                    <label class='edu-label-default'> Designation/Experience About<span class='required-text'>*</span> </label>
 		                    <input type="text" name='designation' [(ngModel)]="experience.designation" class='form-control-gray'>
 		      	  	  	  </div>
 		      	  	  	</div>
@@ -323,7 +323,7 @@
 		      	  	  <div class='row'>
 		      	  	  	<div class='col-sm-6'>
 		      	  	  	  <div class='form-group'>
-		                    <label class='edu-label-default'> Institution </label>
+		                    <label class='edu-label-default'> Institution<span class='required-text'>*</span> </label>
 		                    <input type="text" name='institution' [(ngModel)]="experience.institution" class='form-control-gray'>
 		      	  	  	  </div>
 		      	  	  	</div>

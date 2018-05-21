@@ -3,6 +3,7 @@ import { EventService } from '../../services/event_service';
 import { AuthenticationService } from '../authentication';
 import { HelperService } from '../../services/helper_service';
 import { environment } from '../../environments/environment';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -16,10 +17,12 @@ export class HeaderComponent implements OnInit {
     name: ''
   }
   env = {};
+  term = '';
   header_categories = [];
   constructor(private events: EventService,
   	private authService: AuthenticationService,
-    private helperService: HelperService) { 
+    private helperService: HelperService,
+    private router: Router) { 
     this.auth = this.authService.isAuthorized();
     this.env = environment;
     if(this.auth) {
@@ -29,13 +32,18 @@ export class HeaderComponent implements OnInit {
        this.auth = auth;
        if(auth) {
          this.user = this.authService.getAuthUser();
-         console.log("data", this.user);
        }
      });
   }
 
   ngOnInit() {
     this.loadHeaderCategory();
+  }
+
+  search() {
+    if(this.term.length > 1) {
+      this.router.navigate(['/search'], { queryParams: { q: this.term } });
+    }
   }
 
   loadHeaderCategory() {

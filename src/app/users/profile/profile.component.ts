@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../../authentication';
 import { environment } from '../../../environments/environment';
 import { UserService } from '../../../services/user_service';
+import { Notification } from '../../../services/notification';
 
 @Component({
   selector: 'app-profile',
@@ -28,20 +29,26 @@ export class ProfileComponent implements OnInit {
         this.user.last_name = name_devider[1];
       },
       err => {
-        this.error = "Something wrong! Please try after sometimes.";
+        Notification.show('error');
       });
     }
     else {
+      Notification.show('error', 'You are not authorized for this page!');
       route.navigateByUrl('/');
     }
   }
 
   public loadEducation() {
     this.userService.getEducations().subscribe(response => {
-      this.educations = response.educations;
+      if(response.success) {
+        this.educations = response.educations;
+      }
+      else {
+        Notification.show('error', 'Unable to load education data!');
+      }
     },
     err => {
-      this.error = "Unable to load some profile data!";
+      Notification.show('error', 'Unable to load some profile data!');
     });
   }
 

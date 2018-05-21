@@ -41,6 +41,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailsComponent } from './courses/course-details/course-details.component';
 import { CurriculumComponent } from './users/instructor/dashboard/courses/edit/curriculum/curriculum.component';
 import { CategoryCoursesComponent } from './category/courses/courses.component';
+import { SearchComponent } from './search/search.component';
 
 let config = new AuthServiceConfig([
   {
@@ -86,7 +87,8 @@ export function provideConfig() {
     CoursesComponent,
     CourseDetailsComponent,
     CurriculumComponent,
-    CategoryCoursesComponent
+    CategoryCoursesComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

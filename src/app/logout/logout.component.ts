@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication';
 import { EventService } from '../../services/event_service';
+import { Notification } from "../../services/notification";
 
 @Component({
   selector: 'app-logout',
@@ -19,6 +20,7 @@ export class LogoutComponent implements OnInit {
   ngOnInit() {
   	this.authService.logout();
     this.events.emitAuthEvent(false);
+    Notification.show("success", "SignOut Successfully");
     this.route.navigateByUrl('');
   }
 

@@ -7,6 +7,7 @@ import { environment } from '../../../environments/environment';
 import { Category } from '../../models/category';
 import { Course } from '../../models/course';
 import { User } from '../../models/user';
+import {Notification} from '../../../services/notification';
 
 @Component({
   selector: 'app-course-details',
@@ -50,11 +51,11 @@ export class CourseDetailsComponent implements OnInit {
         }
       }
       else {
-      	this.error = response.message;
+        Notification.show('error', response.message);
       }
     },
     err => {
-      this.error = "Unable to load course data";
+      Notification.show('error', 'Unable to load course data');
     });
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { AuthenticationService } from '../authentication';
 import {EventService} from '../../services/event_service';
+import {Notification} from '../../services/notification';
 
 @Component({
   selector: 'app-forgot-password',
@@ -26,20 +27,16 @@ export class ForgotPasswordComponent implements OnInit {
         data => {
           console.log(data);
           if(data.success) {
-            this.message = data.message;
-            this.error = '';
+            Notification.show('success', data.message);
           }
           else {
-            this.error = data.message;
-            this.message = '';
+            Notification.show('error', data.message);
           }
         },
         err =>  { 
           console.log(err);
-          this.message = '';
-          this.error = "Something wrong! Please try after sometimes.";
+          Notification.show('error');
         }
       );
   }
-
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { AuthenticationService } from '../authentication';
 import {EventService} from '../../services/event_service';
+import {Notification} from '../../services/notification';
 declare var $ :any;
 
 @Component({
@@ -40,6 +41,7 @@ export class SignupComponent implements OnInit {
             this.authService.saveAccessData(data.token, "", data.user);
             this.events.emitAuthEvent(true);
             $('#registration-modal').modal('hide');
+            Notification.show('success',  "Signup Successfully");
             this.router.navigateByUrl('/profile/edit');
           }
           else {
@@ -47,7 +49,7 @@ export class SignupComponent implements OnInit {
           }
         },
         err =>  { 
-          this.message = "Something wrong! Please try after sometimes";
+          Notification.show('error',  "Something wrong! Please try after sometimes");
         }
       );
   }

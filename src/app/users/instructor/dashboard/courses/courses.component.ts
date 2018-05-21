@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from "../../../../../services/course_service";
+import { Notification } from "../../../../../services/notification";
 import { Course } from "../../../../models/course";
 import { environment } from '../../../../../environments/environment';
 
@@ -28,16 +29,11 @@ export class InstructorCoursesComponent implements OnInit {
         this.courses = response.courses;
       }
       else {
-        this.notification(false, "Unable to create course!");
+        Notification.show('error', "Unable to create course!");
       }
     },
     err => {
-        this.notification(false, "Something wrong! Please try after sometimes");
+        Notification.show('error', "Something wrong! Please try after sometimes");
     });
   }
-
-  public notification(status, msg) {
-    this.error = msg;
-  }
-
 }

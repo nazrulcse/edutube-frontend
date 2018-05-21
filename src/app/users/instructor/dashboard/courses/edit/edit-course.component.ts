@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import { CourseService } from "../../../../../../services/course_service";
 import { Course } from "../../../../../models/course";
 import { CourseGoal } from "../../../../../models/course_goal";
 import { environment } from '../../../../../../environments/environment';
-import { NgForm } from '@angular/forms';
+import { Notification } from '../../../../../../services/notification';
 
 @Component({
   selector: 'app-edit-course',
@@ -48,14 +49,14 @@ export class EditCourseComponent implements OnInit {
   public submitCourseUpdate() {
     this.courseService.updateCourse(this.course).subscribe(response => {
       if(response.success) {
-        this.notification(true, response.message);
+        Notification.show('success', response.message);
       }
       else {
-        this.notification(false, response.message);
+       Notification.show('success', response.message);
       }
     },
     err => {
-      this.notification(false, 'Something wrong! Please try after sometimes');
+      Notification.show('error', 'Something wrong! Please try after sometimes');
     })
   }
 
@@ -81,7 +82,7 @@ export class EditCourseComponent implements OnInit {
       }
     },
     err => {
-      this.error = "Unable to upload course " + type;
+      Notification.show('error', "Unable to upload course " + type);
       this.uploading_image = false;
       this.uploading_video = false;
     });
@@ -147,13 +148,14 @@ export class EditCourseComponent implements OnInit {
         this.course_categories.push(category);
         this.category_result = ''; 
         this.input_category = '';
+        Notification.show('success', "Category has been added to course");
       }
       else {
-        this.error = 'Unable to add category'; 
+        Notification.show('warning', response.message);
       }
     },
     err => {
-       this.error = 'Something wrong! Try after sometimes';
+       Notification.show('error');
     });
   }
 
@@ -161,13 +163,14 @@ export class EditCourseComponent implements OnInit {
     this.courseService.removeCategory(this.course_id, category.id).subscribe(response => {
       if(response.success) {
         this.course_categories.splice(index, 1);
+        Notification.show('success', "Category deleted from course");
       }
       else {
-        this.error = 'Unable to remove category'; 
+        Notification.show('error', "Unable to remove category");
       }
     },
     err => {
-       this.error = 'Something wrong! Try after sometimes';
+       Notification.show('error');
     });
   }
 
@@ -188,23 +191,12 @@ export class EditCourseComponent implements OnInit {
         this.setCourseGoal(this.course);
       }
       else {
-        this.notification(false, "Unable to create course!");
+        Notification.show('error', "Unable to load course");
       }
     },
     err => {
-        this.notification(false, "Something wrong! Please try after sometimes");
+        Notification.show('error');
     });
-  }
-
-  public notification(status, msg) {
-    if(status) {
-       this.error = '';
-       this.message = msg;
-    }
-    else {
-      this.error = msg;
-      this.message = '';
-    }
   }
 
   public setCourseGoal(course) {
@@ -233,10 +225,5 @@ export class EditCourseComponent implements OnInit {
   public filterGoal(data) {
     var newArray = data.filter(value => value.name !== "");
     return newArray.length > 0 ? newArray : Array(new CourseGoal());
-  }
-
-  public hideNotification() {
-    this.error = '';
-    this.message = '';
   }
 }

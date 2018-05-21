@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CourseService } from "../../../../services/course_service";
+import { Notification } from "../../../../services/notification";
 import { Course } from "../../../models/course";
 
 @Component({
@@ -26,16 +27,11 @@ export class InstructorDashboardComponent implements OnInit {
         this.route.navigateByUrl('/instructor/dashboard/courses');
       }
       else {
-        this.notification(false, "Unable to create course!");
+        Notification.show('error', "Unable to create course!");
       }
     },
     err => {
-        this.notification(false, "Something wrong! Please try after sometimes");
+        Notification.show('error', "Something wrong! Please try after sometimes");
     });
   }
-
-  public notification(status, msg) {
-    this.error = msg;
-  }
-
 }

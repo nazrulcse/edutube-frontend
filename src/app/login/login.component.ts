@@ -4,6 +4,7 @@ import { AuthenticationService } from '../authentication';
 import {EventService} from '../../services/event_service';
 import { AuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider, LinkedInLoginProvider } from "angularx-social-login";
+import { Notification } from "../../services/notification";
 declare var $ :any;
 
 @Component({
@@ -51,15 +52,16 @@ export class LoginComponent implements OnInit {
         if(response.success) {
            this.authService.saveAccessData(response.token, "", response.user);
            this.events.emitAuthEvent(true);
+           Notification.show('success', "Signin successfully");
            $('#login-modal').modal('hide');
            this.router.navigateByUrl('/profile')
         }
         else {
-         this.message = "Unable to login! Please try after sometimes" 
+          Notification.show('error', "Unable to login! Please try after sometimes");
         }
       },
       err => {
-        this.message = "Something wrong! Please try after sometimes"
+        Notification.show('error', "Unable to login! Please try after sometimes");
       });
     });
   }
@@ -77,21 +79,19 @@ export class LoginComponent implements OnInit {
       .login(credential).subscribe(
         data => {
           if(data.success) {
-            this.success = "SignIn Success!";
-            setTimeout(() => { 
               this.authService.saveAccessData(data.token, "", data.user);
               this.events.emitAuthEvent(true);
               $('#login-modal').modal('hide');
+              Notification.show('success', "Signin successfully");
               this.router.navigateByUrl('/profile');
-            }, 2000);
           }
           else {
-            this.message = data.message;
+            Notification.show('error',  data.message, {positionClass: 'toast-top-center'});
           }
         },
         err =>  { 
           console.log(err);
-          this.message = "Something wrong! Please try after sometimes.";
+          Notification.show('error', "Unable to login! Please try after sometimes");
         }
       );
   }

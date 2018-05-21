@@ -38,6 +38,16 @@ export class UserService {
   }
 
   /**
+   * get courses of an user
+   * @description Should return user courses data from API.
+   * localStorage
+   * @returns {Course<JSON>}
+   */
+  public getCourses(): Observable<any> {
+    return this.http.get(this.base_url + "/api/auth/courses", {headers: this.authService.getAuthHeader()});
+  }
+
+  /**
    * get user education list
    * @description Should return education as json array from API.
    * 

@@ -6,6 +6,7 @@ import { EventService } from '../../../../../services/event_service';
 import { environment } from '../../../../../environments/environment';
 import { Education } from '../../../../models/education';
 import { Experience } from '../../../../models/experience';
+import { Notification } from '../../../../../services/notification';
 
 @Component({
   selector: 'app-student',
@@ -43,7 +44,7 @@ export class StudentComponent implements OnInit {
         }
       },
       err => {
-        this.error = "Something wrong! Please try after sometimes.";
+        Notification.show('error');
       });
     }
     else {
@@ -63,31 +64,28 @@ export class StudentComponent implements OnInit {
       this.eventService.emitAuthEvent(true);
     },
     err => {
-      this.error = "Unable to upload profile image";
+      Notification.show('error', "Unable to upload profile image");
       this.uploading = false;
     });
   }
 
   public not_implemented() {
-    this.info = "We are working on this feature!"
+    Notification.show('warning', "We are working on this feature!");
   }
 
   public update_profile() {
     this.userService.updateProfile(this.user).subscribe(response => {
       if(response.success) {
-       this.info = response.message;
-       this.authService.setAuthUser(this.user);
-       this.eventService.emitAuthEvent(true);
-       this.error = '';  
+        this.authService.setAuthUser(this.user);
+        this.eventService.emitAuthEvent(true);
+        Notification.show('success', response.message);
       }
       else {
-        this.info = '';
-        this.error = response.message;
+        Notification.show('error', response.message);
       }
     },
     err => {
-      this.error = "Something wrong! Please try after sometimes.";
-      this.info = '';
+      Notification.show('error');
     });
   }
 
@@ -106,14 +104,14 @@ export class StudentComponent implements OnInit {
       if(response.success) {
         this.educations.push(response.education);
         this.education = this.reset_edu;
-        this.updateStatus(true, "Education information updated");
+        Notification.show('success', "Education information updated");
       }
       else {
-        this.updateStatus(false, response.message);
+        Notification.show('error', response.message);
       }      
     },
     err => {
-      this.error = "Unable to add education"
+      Notification.show('error');
     });
   }
 
@@ -122,14 +120,14 @@ export class StudentComponent implements OnInit {
       if(response.success) {
         this.educations[this.education.index] = response.education;
         this.education = this.reset_edu;
-        this.updateStatus(true, "Education information updated");
+        Notification.show('success', "Education information updated");
       }
       else {
-        this.updateStatus(false, response.message);
+        Notification.show('error', response.message);
       } 
     },
     err => {
-      this.updateStatus(false, "Unable to update education");
+      Notification.show('error');
     })
   }
 
@@ -154,14 +152,14 @@ export class StudentComponent implements OnInit {
       if(response.success) {
         this.experiences.push(response.experience);
         this.experience = this.reset_exp;
-        this.updateStatus(true, "Experience information added");
+        Notification.show('success', "Experience information added");
       }
       else {
-        this.updateStatus(false, response.message);
+        Notification.show('error', response.message);
       }   
     },
     err => {
-      this.error = "Unable to add experience"
+      Notification.show('error');
     });
   }
 
@@ -170,14 +168,14 @@ export class StudentComponent implements OnInit {
       if(response.success) {
         this.experiences[this.experience.index] = response.experience;
         this.experience = this.reset_exp;
-        this.updateStatus(true, "Experience information updated");
+        Notification.show('success', "Experience information updated");
       }
       else {
-        this.updateStatus(false, response.message);
+        Notification.show('error', response.message);
       }  
     },
     err => {
-      this.updateStatus(false, "Unable to update experience");
+      Notification.show('error');
     })
   }
 
@@ -191,37 +189,31 @@ export class StudentComponent implements OnInit {
     this.loadEducation();
   }
 
-  public updateStatus(state, msg) {
-    if(state) {
-      this.info = msg;
-      this.error = "";
-    }
-    else {
-      this.info = "";
-      this.error = msg;
-    }
-  }
-
   public loadEducation() {
     this.userService.getEducations().subscribe(response => {
-      this.educations = response.educations;
+      if(response.success) {
+        this.educations = response.educations;
+      }
+      else {
+        Notification.show('error', 'Unable to load education data!');  
+      }
     },
     err => {
-      this.error = "Unable to load some profile data!";
+      Notification.show('error', 'Unable to load some profile data!');
     });
   }
 
   public loadExperiences() {
     this.userService.getExperiences().subscribe(response => {
-      this.experiences = response.experiences;
+      if(response.success) {
+        this.experiences = response.experiences;
+      }
+      else {
+        Notification.show('error', 'Unable to load experience data!');  
+      }
     },
     err => {
-      this.error = "Unable to load some profile data!";
+      Notification.show('error', 'Unable to load some profile data!');
     });
-  }
- 
-  public hideNotification() {
-    this.error = '';
-    this.info = '';
   }
 }

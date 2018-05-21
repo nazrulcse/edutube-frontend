@@ -1,3 +1,5 @@
+import {environment} from "../../environments/environment";
+
 export class Course {
 	id: number;
 	title: string;

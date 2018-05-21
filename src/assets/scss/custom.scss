@@ -19,3 +19,14 @@
 		}
 	}
 }
+
+#toast-container > div {
+  opacity: 0.95 !important;
+}
+
+.required-text {
+  color: red;
+  display: inline-block;
+  width: 10px;
+  vertical-align: top;
+}

@@ -5,6 +5,7 @@ import { HelperService } from '../../../services/helper_service';
 import { environment } from '../../../environments/environment';
 import { Category } from '../../models/category';
 import { Course } from '../../models/course';
+import {Notification} from '../../../services/notification';
 
 @Component({
   selector: 'app-courses',
@@ -40,11 +41,11 @@ export class CategoryCoursesComponent implements OnInit {
         this.courses = response.courses;
       }
       else {
-      	this.error = response.message;
+        Notification.show('error', response.message);
       }
     },
     err => {
-      this.error = "Unable to load category";
+      Notification.show('error', 'Unable to load category');
     });
   }
 
