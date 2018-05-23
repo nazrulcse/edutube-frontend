@@ -33,11 +33,25 @@
     	font-size: 13px;
     }
     .report-header {
-    	padding: 10px 20px;
-    	border-bottom: solid 1px #cccccc;
-    	margin-top: -15px;
-    	font-weight: bold;
-    	font-size: 20px;
+      padding: 10px 20px;
+      margin-top: -15px;
+      font-weight: bold;
+      font-size: 20px;
+      a {
+        color: #333;
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        &:before {
+          position: absolute;
+          content: '';
+          left: 0;
+          right: 0;
+          bottom: -19px;
+          height: 1px;
+          background-color: red;
+        }
+      }
     }
     .report-items {
       li {
