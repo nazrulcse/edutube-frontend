@@ -1,7 +1,7 @@
 <div class="dropdown-menu custom-nav-dropdown show" aria-labelledby="navbarDropdown">
   <div class='dropdown-item'>
     <img src="/assets/images/community.png" alt="image" class='image-circle' width="25px;"> 
-    <b class='ml15'> {{user.name}} </b>
+    <b class='ml15'> {{user.first_name}} {{user.last_name}} </b>
   </div>
   <div class="dropdown-divider"></div>
   <a class="dropdown-item" [routerLink]="['/instructor/dashboard']" [routerLinkActive]="['active']"> 

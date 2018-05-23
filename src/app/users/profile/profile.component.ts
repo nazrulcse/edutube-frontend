@@ -24,9 +24,6 @@ export class ProfileComponent implements OnInit {
     if(this.authService.isAuthorized()) {
       this.authService.me().subscribe(response => {
         this.user = response;
-        let name_devider = response.name.split(" ", 2);
-        this.user.first_name = name_devider[0];
-        this.user.last_name = name_devider[1];
       },
       err => {
         Notification.show('error');

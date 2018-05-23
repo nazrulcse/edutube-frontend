@@ -18,16 +18,22 @@ export class StudentComponent implements OnInit {
   user:any = {};
   error = "";
   info = "";
+  ins_result = '';
   uploading = false;
   education: Education;
   reset_edu: Education;
   experience: Experience;
   reset_exp: Experience;
   educations: Array<Education>;
-  experiences: Array<Experience>
+  experiences: Array<Experience>;
+  institutions = [];
+  ins_search_results = [];
   env = {}
   months = ['January', 'February', 'March', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   years = ['2000','2001','2002','2003','2004','2005','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018']
+  list_degree = [
+    'JSC/JDC', 'Secondary', 'Higher Secondary', 'Diploma', 'Bachelor/Honors', 'Masters', 'PhD'
+  ]
   constructor(private authService: AuthenticationService,
   	private route: Router,
     private userService: UserService,
@@ -36,9 +42,6 @@ export class StudentComponent implements OnInit {
     if(this.authService.isAuthorized()) {
       this.authService.me().subscribe(response => {
         this.user = response;
-        let name_devider = response.name.split(" ", 2);
-        this.user.first_name = name_devider[0];
-        this.user.last_name = name_devider[1];
         if(this.user.user_type == 'teacher') {
           this.loadExperiences();
         }
@@ -193,6 +196,7 @@ export class StudentComponent implements OnInit {
     this.userService.getEducations().subscribe(response => {
       if(response.success) {
         this.educations = response.educations;
+        this.institutions = response.institutions;
       }
       else {
         Notification.show('error', 'Unable to load education data!');  
@@ -215,5 +219,29 @@ export class StudentComponent implements OnInit {
     err => {
       Notification.show('error', 'Unable to load some profile data!');
     });
+  }
+
+  //################ INSTITUTION SELECTION ######################
+
+  public insSelect(event) {
+    let value = event.target.value;
+    this.ins_search_results = this.institutions.filter(ins => ins.institution.toLowerCase().includes(value.toLowerCase()));
+    if(value != '' && value.length > 1 && this.ins_search_results.length > 0) {
+      this.ins_result = 'show';  
+    }
+    else {
+      this.ins_result = '';
+    }
+  }
+
+  public appendIns(model, ins) {
+    model.institution = ins.institution;
+    this.ins_result = '';
+  }
+
+  public hideInsSelection(event) {
+    setTimeout(()=>{
+      this.ins_result = '';
+    }, 100);
   }
 }

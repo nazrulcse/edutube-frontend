@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   message = "";
   success = '';
   sub: any;
-  user = {}
+  user = {};
   
   constructor(private router: Router,
     private authService: AuthenticationService,
@@ -41,7 +41,8 @@ export class LoginComponent implements OnInit {
     this._sauth.signIn(app_provider).then(user => {
       console.log(user);
       let data = {
-        name: user.name,
+        first_name: user.name,
+        last_name: '',
         id: user.id,
         provider: user.provider,
         email: user.email,
@@ -50,7 +51,7 @@ export class LoginComponent implements OnInit {
       }
       this.authService.socialLogin(data).subscribe(response => {
         if(response.success) {
-           this.authService.saveAccessData(response.token, "", response.user);
+           this.authService.saveAccessData(response.token, "", response.user, response.expires_in);
            this.events.emitAuthEvent(true);
            Notification.show('success', "Signin successfully");
            $('#login-modal').modal('hide');
@@ -79,7 +80,7 @@ export class LoginComponent implements OnInit {
       .login(credential).subscribe(
         data => {
           if(data.success) {
-              this.authService.saveAccessData(data.token, "", data.user);
+              this.authService.saveAccessData(data.token, "", data.user, data.expires_in);
               this.events.emitAuthEvent(true);
               $('#login-modal').modal('hide');
               Notification.show('success', "Signin successfully");

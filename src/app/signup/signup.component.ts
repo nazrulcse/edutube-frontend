@@ -13,7 +13,8 @@ declare var $ :any;
 export class SignupComponent implements OnInit {
 
   user_info = {
-  	name: '',
+  	first_name: '',
+    last_name: '',
     email: '',
     password: '',
     password_confirmation: '',
@@ -38,7 +39,7 @@ export class SignupComponent implements OnInit {
       .registration(this.user_info).subscribe(
         data => {
           if(data.success) {
-            this.authService.saveAccessData(data.token, "", data.user);
+            this.authService.saveAccessData(data.token, "", data.user, data.expires_in);
             this.events.emitAuthEvent(true);
             $('#registration-modal').modal('hide');
             Notification.show('success',  "Signup Successfully");

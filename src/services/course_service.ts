@@ -106,4 +106,14 @@ export class CourseService {
   public editCourse(course_id): Observable<any> {
     return this.http.get(this.base_url + "/api/auth/courses/" + course_id + "/edit_course", {headers: this.authService.getAuthHeader()});
   }
+
+  /**
+   * Search course by class, subject etc.
+   * @description Should return course data from API JSON array.
+   * localStorage
+   * @returns {Data<JSON>}
+   */
+  public search(term): Observable<any> {
+    return this.http.get(this.base_url + "/api/auth/search?term=" + term);
+  }
 }

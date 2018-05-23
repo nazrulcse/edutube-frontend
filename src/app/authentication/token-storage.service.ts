@@ -46,6 +46,31 @@ export class TokenStorage {
     return this;
   }
 
+  /**
+   * Set access token expire
+   * @returns {TokenStorage}
+   */
+  public setExpire(token: string): TokenStorage {
+    var seconds = new Date().getTime() / 1000;
+    var expire_time = seconds + token;
+    console.log(expire_time);
+    localStorage.setItem('tokenExpire', expire_time);
+
+    return this;
+  }
+
+  /**
+   * Set access token expire
+   * @returns {Boolean}
+   */
+  public isTokenExpired(): boolean {
+    var expire_time = localStorage.getItem('tokenExpire');
+    expire_time = (expire_time ? expire_time : '0');
+    var current_time = new Date().getTime() / 1000;
+    console.log(expire_time, current_time);
+    return (current_time > parseInt(expire_time));
+  }
+
   /** 
   * Set user data got from login api
   * @returns void
@@ -72,5 +97,6 @@ export class TokenStorage {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
     localStorage.removeItem('userdata');
+    localStorage.removeItem('tokenExpire');
   }
 }

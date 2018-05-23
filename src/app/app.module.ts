@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -42,6 +43,7 @@ import { CourseDetailsComponent } from './courses/course-details/course-details.
 import { CurriculumComponent } from './users/instructor/dashboard/courses/edit/curriculum/curriculum.component';
 import { CategoryCoursesComponent } from './category/courses/courses.component';
 import { SearchComponent } from './search/search.component';
+import { LoaderComponent } from './loader/loader.component';
 
 let config = new AuthServiceConfig([
   {
@@ -88,7 +90,8 @@ export function provideConfig() {
     CourseDetailsComponent,
     CurriculumComponent,
     CategoryCoursesComponent,
-    SearchComponent
+    SearchComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -96,12 +99,14 @@ export function provideConfig() {
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    NgHttpLoaderModule,
     SocialLoginModule //.initialize(config)
   ],
   providers: [AuthenticationService, TokenStorage, HttpClient, EventService, UserService, CourseService, {
       provide: AuthServiceConfig,
       useFactory: provideConfig
     }, HelperService, CategoryService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LoaderComponent]
 })
 export class AppModule { }

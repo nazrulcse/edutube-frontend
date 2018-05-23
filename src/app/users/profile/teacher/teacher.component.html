@@ -27,7 +27,7 @@
               <div class='profile-basic-information text-center'>
                 <h3> $ {{user.charge}}/hr </h3>
                 <p>
-                  Hello! This is {{user.name}}. Math tutor for you.
+                  Hello! This is {{user.first_name}} {{user.last_name}}. Math tutor for you.
                 </p>
               </div>
             </section>
@@ -117,7 +117,7 @@
             </div>
           </div>
           <p class='fz20'>
-            Courses taught by {{user.name}}
+            Courses taught by {{user.first_name}} {{user.last_name}}
           </p>
           <div class='course-listing'>
             <div class='row'>
@@ -131,7 +131,7 @@
                     </h3>
                     <div class='course-details'>  </div>
                     <div class='course-footer'>
-                      <div class='author'> {{user.name}} </div>
+                      <div class='author'> {{user.first_name}} {{user.last_name}} </div>
                       <div class='general-ratting mt4 mb3'>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>

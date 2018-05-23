@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {EventService} from '../services/event_service';
+import { LoaderComponent } from './loader/loader.component';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ export class AppComponent {
   app_data = {
   	auth: false
   }
+  public loader = LoaderComponent;
 
   constructor(public events: EventService) {
      this.events.dispatcher.subscribe(auth => {

@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
+import {Router} from '@angular/router';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
 import { TokenStorage } from './token-storage.service';
 import { environment } from "../../environments/environment";
+import { Notification } from "../../services/notification";
+import { EventService } from "../../services/event_service";
 
 @Injectable()
 export class AuthenticationService {
 
   base_url = "";
   constructor(
+    private router: Router,
     private http: HttpClient,
-    private tokenStorage: TokenStorage
+    private tokenStorage: TokenStorage,
+    private eventService: EventService
   ) {
     this.base_url = environment.api_url;
   }
@@ -36,7 +41,13 @@ export class AuthenticationService {
    */
 
    public getAuthHeader() {
-      const headers = new HttpHeaders()
+     if(this.tokenStorage.isTokenExpired()) {
+       Notification.show("error", "You authentication tokne has expired! Please signin again");
+       this.tokenStorage.clear();
+       this.eventService.emitAuthEvent(false);
+       this.router.navigateByUrl('');
+     }
+     const headers = new HttpHeaders()
         .set('Authorization', 'Bearer ' + this.getAccessToken());
       return headers;
    }
@@ -169,10 +180,11 @@ export class AuthenticationService {
    * @private
    * @param token data
    */
-  public saveAccessData(accessToken, refreshToken, user) {
+  public saveAccessData(accessToken, refreshToken, user, expire) {
     this.tokenStorage
       .setAccessToken(accessToken)
       .setRefreshToken(refreshToken)
+      .setExpire(expire)
       .setUserData(user);
   }
 

@@ -67,8 +67,9 @@
 								  <div class='col-sm-5'>
 									  <div class='form-group' *ngIf="user.user_type=='student'">
 										  <label class='edu-label-default'> Class/Level/Degree </label>
-										  <input type="text" name='degree' [(ngModel)]="user.degree"
-												 class='form-control-gray'>
+										  <select [(ngModel)]="user.degree" class='form-control-gray' name='degree'>
+										  	<option *ngFor="let deg of list_degree" value="{{deg}}"> {{deg}} </option>
+										  </select>
 									  </div>
 									  <div class='form-group' *ngIf="user.user_type=='teacher'">
 										  <label class='edu-label-default'> Occupation </label>
@@ -77,13 +78,17 @@
 									  </div>
 								  </div>
 								  <div class='col-sm-7'>
-									  <div class='form-group'>
+									  <div class='form-group' style="position: relative;">
 										  <label class='edu-label-default' *ngIf="user.user_type=='student'"> 
 										    School/College/University 
 										  </label>
 										  <label class='edu-label-default' *ngIf="user.user_type=='teacher'"> Institution </label>
-										  <input type="text" name='institution' [(ngModel)]="user.institution"
-												 class='form-control-gray'>
+										  <input type="text" placeholder="Search institution..." name="institution" (blur)="hideInsSelection($event)" (keyup)="insSelect($event)" class='form-control-gray' [(ngModel)]="user.institution">
+				                          <div class="dropdown-menu {{ins_result}}" aria-labelledby="navbarDropdown" style="width: 100%;">
+				                            <a class='dropdown-item pt5 pb5' *ngFor="let ins of ins_search_results" (click)="appendIns(user, ins)" href="javascript:void(0);">
+				                                {{ins.institution}}
+				                            </a>
+				                          </div>
 									  </div>
 								  </div>
 							  </div>
@@ -193,9 +198,14 @@
 			  <div class='col-lg-12'>
 		      	  	  <div class='row'>
 		      	  	  	<div class='col-sm-6'>
-		      	  	  	  <div class='form-group'>
+		      	  	  	  <div class='form-group' style="position: relative;">
 		                    <label class='edu-label-default'> School/Collage/University <span class='required-text'>*</span> </label>
-		                    <input type="text" name='institution' [(ngModel)]="education.institution" class='form-control-gray'>
+		                    <input type="text" placeholder="Search institution..." name="institution" (blur)="hideInsSelection($event)" (keyup)="insSelect($event)" class='form-control-gray' [(ngModel)]="education.institution">
+                            <div class="dropdown-menu {{ins_result}}" aria-labelledby="navbarDropdown" style="width: 100%;">
+                              <a class='dropdown-item pt5 pb5' *ngFor="let ins of ins_search_results" (click)="appendIns(education, ins)" href="javascript:void(0);">
+                                {{ins.institution}}
+                              </a>
+                            </div>
 		      	  	  	  </div>
 		      	  	  	</div>
 		      	  	  	<div class='col-sm-6'>
@@ -209,7 +219,9 @@
 		      	  	  	<div class='col-sm-6'>
 		      	  	  	  <div class='form-group'>
 		                    <label class='edu-label-default'> Class/Level/Degree <span class='required-text'>*</span> </label>
-		                    <input type="text" name='degree' [(ngModel)]="education.degree" class='form-control-gray'>
+		                    <select [(ngModel)]="education.degree" class='form-control-gray' name='degree'>
+							  <option *ngFor="let deg of list_degree" value="{{deg}}"> {{deg}} </option>
+							</select>
 		      	  	  	  </div>
 		      	  	  	</div>
 		      	  	  	<div class='col-sm-6'>
@@ -322,9 +334,15 @@
 		      	  	  </div>
 		      	  	  <div class='row'>
 		      	  	  	<div class='col-sm-6'>
-		      	  	  	  <div class='form-group'>
+		      	  	  	  <div class='form-group' style="position: relative;">
 		                    <label class='edu-label-default'> Institution<span class='required-text'>*</span> </label>
-		                    <input type="text" name='institution' [(ngModel)]="experience.institution" class='form-control-gray'>
+		                    <!-- <input type="text" name='institution' [(ngModel)]="experience.institution" class='form-control-gray'> -->
+		                    <input type="text" placeholder="Search institution..." name="institution" (blur)="hideInsSelection($event)" (keyup)="insSelect($event)" class='form-control-gray' [(ngModel)]="experience.institution">
+                            <div class="dropdown-menu {{ins_result}}" aria-labelledby="navbarDropdown" style="width: 100%;">
+                              <a class='dropdown-item pt5 pb5' *ngFor="let ins of ins_search_results" (click)="appendIns(experience, ins)" href="javascript:void(0);">
+                                {{ins.institution}}
+                              </a>
+                            </div>
 		      	  	  	  </div>
 		      	  	  	</div>
 		      	  	  	<div class='col-sm-6'>
