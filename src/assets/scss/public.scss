@@ -140,6 +140,129 @@
   vertical-align: top;
 }
 
+
+/* Default checkbox button */
+.checkbox-btn-default-wrap {
+  label {
+    color: #555;
+    font-size: 12px;
+  }
+  /* Base for label styling */
+  [type="checkbox"]:not(:checked),
+  [type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+  }
+  [type="checkbox"]:not(:checked) + label,
+  [type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 1.95em;
+    cursor: pointer;
+  }
+
+  /* checkbox aspect */
+  [type="checkbox"]:not(:checked) + label:before,
+  [type="checkbox"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid $ash-shadow;
+    background: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+  /* checked mark aspect */
+  [type="checkbox"]:not(:checked) + label:after,
+  [type="checkbox"]:checked + label:after {
+    font-family: FontAwesome;
+    content: '\f00c';
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    font-size: 14px;
+    line-height: 0.8;
+    color: $ash-shadow;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+  }
+  /* checked mark aspect changes */
+  [type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+  }
+  [type="checkbox"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Radio default button */
+.radio-btn-default--wrap {
+  label {
+    color: #555;
+    font-size: 12px;
+  }
+  [type="radio"]:checked,
+  [type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+  }
+  [type="radio"]:checked + label,
+  [type="radio"]:not(:checked) + label
+  {
+    position: relative;
+    padding-left: 22px;
+    cursor: pointer;
+    display: inline-block;
+    color: #555;
+  }
+  [type="radio"]:checked + label:before,
+  [type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid $ash-shadow;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    background: #fff;
+  }
+  [type="radio"]:checked + label:after,
+  [type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: $ash-shadow;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  [type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  [type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+
 .facebook-btn {
   color: #ffffff !important;
   background-color: #494492;
@@ -239,6 +362,11 @@
     text-align: center;
     position: absolute;
     left: 285px;
+    &:hover {
+      cursor: pointer;
+      color: tomato;
+      border: 1px solid tomato;
+    }
   }
 }
 
@@ -260,6 +388,7 @@
     }
   }
 }
+
 
 /* Footer social media button class declaration */
 .facebook-bg {background-color: $facebook}
@@ -602,5 +731,5 @@
     margin-right: 3px;
     color: #ffcd03;
     font-size: 16px;
-  } 
+  }
 }
