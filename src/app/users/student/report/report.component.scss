@@ -5,8 +5,12 @@
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 0;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
   }
   p {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
     margin-bottom: 5px;
   }
   ul {
