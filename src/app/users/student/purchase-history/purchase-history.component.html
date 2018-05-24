@@ -1,49 +1,83 @@
 <section>
-  <div class="report-head border-bottom row mb15">
-    <h2 class='report-header'>
-      <a>My Purchase History</a>
-    </h2>
+  <div class="purchase-history-head border-bottom row">
+    <div class='default-nav-menu'>
+      <ul class="common-ul-style">
+        <li>
+          <a>My Purchase History</a><span class="edu-caret right"></span>
+        </li>
+        <li>
+          <a class="active">Receipt</a>
+        </li>
+      </ul>
+    </div>
+  </div><!-- Purchase history header -->
+
+  <div class="purchase-history-body">
+    <div class="purchase-history-container">
+      <div class="mb40 text-right">
+        <a class="btn default-btn-sm mr20">Print</a>
+        <a class="btn default-btn-sm mr20">Download</a>
+        <a class="btn default-btn-sm">Share</a>
+      </div>
+      <div class="receipt-history-info clearfix mb15">
+        <div class="left-bar-info pull-left">
+          <strong>Edutube BD</strong><br>
+          123/C, Main Road, Edu Plaza, Dhaka, Bangladesh <br>
+          <a href="mailto:contact@edutubebd.com">contact@edutubebd.com</a> <br>
+          <a target="_blank" href="www.edutubebd.com"></a>
+        </div>
+        <div class="right-bar-info pull-right">
+          <span>January 2018</span><br>
+          <span>Invoice: 10122220</span>
+        </div>
+      </div><!-- Receipt history -->
+      <div class="history-table mb15">
+        <table class="table edu-table-default border-ra">
+          <thead>
+          <tr>
+            <th>Item</th>
+            <th>Order Date</th>
+            <th>Coupon Code</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total Amount</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Algebraic expression</td>
+            <td>Jan, 15 2018</td>
+            <td>-</td>
+            <td>1</td>
+            <td><i class="fa fa-taka"></i>৳ 200</td>
+            <td><i class="fa fa-taka"></i>৳ 200</td>
+          </tr>
+          <tr>
+            <td>Algebraic expression</td>
+            <td>Jan, 15 2018</td>
+            <td>-</td>
+            <td>1</td>
+            <td><i class="fa fa-taka"></i>৳ 200</td>
+            <td><i class="fa fa-taka"></i>৳ 200</td>
+          </tr>
+          <tr>
+            <td>Algebraic expression</td>
+            <td>Jan, 15 2018</td>
+            <td>-</td>
+            <td>1</td>
+            <td><i class="fa fa-taka"></i>৳ 200</td>
+            <td><i class="fa fa-taka"></i>৳ 200</td>
+          </tr>
+          </tbody>
+        </table>
+      </div><!-- Edu default table -->
+      <div class="left-bar-info mb40">
+        <strong>Bill To: Mutaher Hossain Litu</strong><br>
+        123/A, Central Road, Dhaka, Bangladesh <br>
+        <a href="mailto:litu@email.com">litu@email.com</a>
+      </div>
+    </div>
   </div>
-	<table class='table'>
-		<thead>
-			<tr>
-				<th></th>
-				<th>Date</th>
-				<th>Price</th>
-				<th>Payment Type</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>
-				  <ul class='list-default report-items'>
-					<li>
-					  <div class='image-box'>
-					    <img src='assets/images/community.png'/>
-					  </div>
-					  <div class='info-box'>
-						<h4> Taigonal 1st Chapter - Class Six </h4>
-						<p>
-							Lorem ipsum.....................................
-						</p>
-					  </div>
-					</li>
-				  </ul>
-				</td>
-				<td>
-					Jan 15, 2018
-				</td>
-				<td>
-					$ 200
-				</td>
-				<td>
-					Visa ***0000
-				</td>
-				<td>
-					<a [routerLink]="[{outlets: {student: 'purchase-receipt'}}]" class='btn default-btn'> Receipt </a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+
+
 </section>

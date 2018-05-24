@@ -4,34 +4,38 @@
   }
 }
 .report-items {
-  .info-box {
-    font-weight: lighter;
-    font-size: 12px;
-    margin-left: 70px;
-    h4 {
-      color: #333;
-      font-weight: 600;
-      margin-bottom: 0;
-      -ms-word-wrap: break-word;
-      word-wrap: break-word;
-    }
-    p {
-      -ms-word-wrap: break-word;
-      word-wrap: break-word;
-      margin-bottom: 4px;
-    }
-    ul {
-      li {
-        font-size: 12px;
-        display: inline-block;
-        padding: 0;
-        margin-right: 40px;
-        border: none;
-        //font-weight: lighter;
-        margin-top: 0;
+  li {
+    padding-left: 0;
+    .info-box {
+      font-weight: lighter;
+      font-size: 12px;
+      margin-left: 70px;
+      h4 {
+        color: #333;
+        font-weight: 600;
         margin-bottom: 0;
+        -ms-word-wrap: break-word;
+        word-wrap: break-word;
+      }
+      p {
+        -ms-word-wrap: break-word;
+        word-wrap: break-word;
+        margin-bottom: 4px;
+      }
+      ul {
+        li {
+          font-size: 12px;
+          display: inline-block;
+          padding: 0;
+          margin-right: 30px;
+          border: none;
+          //font-weight: lighter;
+          margin-top: 0;
+          margin-bottom: 0;
+        }
       }
     }
   }
+
 }
 

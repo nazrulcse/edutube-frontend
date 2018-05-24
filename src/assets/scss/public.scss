@@ -518,6 +518,16 @@
   }
 }
 
+.default-nav-menu {
+  ul {
+    li {
+      a {
+
+      }
+    }
+  }
+}
+
 .list-default {
   padding: 0;
   margin: 0;
@@ -670,6 +680,8 @@
 /* Edutube default table */
 .edu-table-default {
   border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
   border-radius: 4px;
   thead {
     background-color: #f1f1f1;

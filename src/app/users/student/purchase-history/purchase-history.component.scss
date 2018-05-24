@@ -1,0 +1,75 @@
+.purchase-history-head {
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.default-nav-menu {
+  ul {
+    li {
+      display: inline-block;
+      a {
+        cursor: pointer;
+        text-decoration: none;
+        color: #333;
+        display: inline-block;
+      }
+      .active, a:hover {
+        position: relative;
+        font-weight: 600;
+        -webkit-transition: font-weight 2s ease;
+        -moz-transition: font-weight 2s ease;
+        -ms-transition: font-weight 2s ease;
+        -o-transition: font-weight 2s ease;
+        transition: font-weight 2s ease;
+        &:before {
+          position: absolute;
+          content: '';
+          height: 1px;
+          background-color: tomato;
+          left: 0;
+          right: 0;
+          bottom: -11px;
+        }
+      }
+    }
+  }
+}
+
+.purchase-history-container {
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.left-bar-info, .right-bar-info {
+  font-size: 12px;
+  strong {
+    font-size: 14px;
+  }
+  a {
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+    &:hover {
+      color: #333;
+    }
+  }
+}
+
+.edu-table-default {
+  thead, tbody {
+    tr {
+      th {
+        font-weight: 600;
+      }
+      th, td {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.default-btn-sm {
+  font-size: 12px !important;
+  min-width: 90px;
+}
