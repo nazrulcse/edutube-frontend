@@ -53,21 +53,21 @@
                   <span class='input-icon'> <img src="/assets/images/pad-lock.png"/> </span>
                   <input type="password" [(ngModel)]="user_info.password_confirmation" class="input-inner" name="password_confirmation" required>
                   </div>
-                </div>                
+                </div>
 
-                <div>
+                <div class="checkbox-btn-default-wrap mt10">
+                  <input type="checkbox" [(ngModel)]="user_info.is_teacher" id='user_type' name='is_teacher' value='teacher'>
                   <label for="user_type">
-                    <input type="checkbox" [(ngModel)]="user_info.is_teacher" id='user_type' name='is_teacher' value='teacher'> 
-                    <span class='hints'> Click here if you are teacher </span> 
+                    <span class='hints'> Click here if you are teacher </span>
                   </label>
                 </div>
 
                 <input type="submit" [disabled]="!registrationForm.form.valid" class="btn btn-block primary-btn btn-size-2x" name="submit" value="Sign up">
 
-                <span class='hints'> 
-                  By signing up you are agree to our 
+                <span class='hints mt10'>
+                  By signing up you are agree to our
                   <a href='#'> Terms & Conditions </a>
-                </span> 
+                </span>
             </form>
           </div>
       </div>
