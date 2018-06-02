@@ -77,14 +77,20 @@
 
         <div class="subject-group">
           <h3> All Courses of {{category.title}} </h3>
-          <div class="grid-wrap mb20">
-            <div class="grid-item" *ngFor="let course of courses">
-              <a routerLink="/c/{{category.slug}}/courses/{{course.course_id}}">
-                <img src="assets/images/envelope-large.png" class="img-responsive" alt="Math pic" *ngIf="!course.image">
-                <img src="{{env.assets_host}}{{course.image}}" class="img-responsive" alt="Math pic" *ngIf="course.image">
-                <p>{{course.title}}</p>
-              </a>
+          <div class='row'>
+            <div class="grid-wrap col-lg-12 mb20">
+            <div class='row'>
+              <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let course of courses">
+                <div class='grid-item mb20'>
+                  <a routerLink="/c/{{category.slug}}/courses/{{course.course_id}}">
+                    <img src="assets/images/envelope-large.png" class="img-responsive" alt="Math pic" *ngIf="!course.image">
+                    <img src="{{env.assets_host}}{{course.image}}" class="img-responsive" alt="Math pic" *ngIf="course.image">
+                    <p>{{course.title}}</p>
+                  </a>
+                </div>
+              </div>
             </div>
+          </div>
           </div>
           <!-- <div class="form-group text-center">
             <a href="#" class="btn default-btn-sm view-more-btn-size">View More</a>

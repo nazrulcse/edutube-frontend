@@ -5,7 +5,7 @@
         <li>
           <a routerLink="/">Home</a><span class="edu-caret right"></span>
         </li>
-        <li>
+        <li *ngIf="category.slug">
           <a routerLink="/c/{{category.slug}}"> {{category.title}} </a>
           <span class="edu-caret right"></span>
         </li>
