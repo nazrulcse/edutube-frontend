@@ -50,7 +50,7 @@ export class UserService {
   /**
    * get user education list
    * @description Should return education as json array from API.
-   * 
+   *
    * @returns {Educations<JSON>}
    */
   public getEducations(): Observable<any> {
@@ -60,7 +60,7 @@ export class UserService {
   /**
    * create user education
    * @description Should return education as json from API.
-   * 
+   *
    * @returns {Education<JSON>}
    */
   public createEducation(data): Observable<any> {
@@ -70,7 +70,7 @@ export class UserService {
   /**
    * update user education
    * @description Should return education as json from API.
-   * 
+   *
    * @returns {Education<JSON>}
    */
   public updateEducation(data): Observable<any> {
@@ -80,7 +80,7 @@ export class UserService {
   /**
    * get user experience list
    * @description Should return experience as json array from API.
-   * 
+   *
    * @returns {Educations<JSON>}
    */
   public getExperiences(): Observable<any> {
@@ -90,7 +90,7 @@ export class UserService {
   /**
    * create user experience
    * @description Should return experience as json from API.
-   * 
+   *
    * @returns {Education<JSON>}
    */
   public createExperience(data): Observable<any> {
@@ -100,10 +100,31 @@ export class UserService {
   /**
    * update user experience
    * @description Should return experience as json from API.
-   * 
+   *
    * @returns {Education<JSON>}
    */
   public updateExperience(data): Observable<any> {
     return this.http.post(this.base_url + "/api/auth/experience/" + data.id + "/update", data, {headers: this.authService.getAuthHeader()});
   }
+
+  /**
+   * get user bank account info
+   * @description Should return bank account information as json from API.
+   *
+   * @returns {BankAccount<JSON>}
+   */
+  public getBankAccount(): Observable<any> {
+    return this.http.get(this.base_url + "/api/auth/bank_account", {headers: this.authService.getAuthHeader()});
+  }
+
+  /**
+   * update/create user bank account information
+   * @description Should return experience as json from API.
+   *
+   * @returns {BankAccount<JSON>}
+   */
+  public updateBankAccount(data): Observable<any> {
+    return this.http.post(this.base_url + "/api/auth/bank_account/update", data, {headers: this.authService.getAuthHeader()});
+  }
+
 }

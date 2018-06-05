@@ -6,6 +6,7 @@ import { EventService } from '../../../../../services/event_service';
 import { environment } from '../../../../../environments/environment';
 import { Education } from '../../../../models/education';
 import { Experience } from '../../../../models/experience';
+import { BankAccount } from '../../../../models/bank_account';
 import { Notification } from '../../../../../services/notification';
 
 @Component({
@@ -14,12 +15,13 @@ import { Notification } from '../../../../../services/notification';
   styleUrls: ['./student.component.scss']
 })
 export class StudentComponent implements OnInit {
- 
+
   user:any = {};
   error = "";
   info = "";
   ins_result = '';
   uploading = false;
+  bank_account: BankAccount;
   education: Education;
   reset_edu: Education;
   experience: Experience;
@@ -37,7 +39,7 @@ export class StudentComponent implements OnInit {
   constructor(private authService: AuthenticationService,
   	private route: Router,
     private userService: UserService,
-    private eventService: EventService) { 
+    private eventService: EventService) {
     this.env = environment;
     if(this.authService.isAuthorized()) {
       this.authService.me().subscribe(response => {
@@ -45,6 +47,7 @@ export class StudentComponent implements OnInit {
         if(this.user.user_type == 'teacher') {
           this.loadExperiences();
         }
+          this.loadBankAccount();
       },
       err => {
         Notification.show('error');
@@ -111,7 +114,7 @@ export class StudentComponent implements OnInit {
       }
       else {
         Notification.show('error', response.message);
-      }      
+      }
     },
     err => {
       Notification.show('error');
@@ -127,7 +130,7 @@ export class StudentComponent implements OnInit {
       }
       else {
         Notification.show('error', response.message);
-      } 
+      }
     },
     err => {
       Notification.show('error');
@@ -138,7 +141,7 @@ export class StudentComponent implements OnInit {
     this.education = this.reset_edu;
   }
 
-  //##################### EXPERIENCE SECTION ############################// 
+  //##################### EXPERIENCE SECTION ############################//
 
   public initExperience(index = null) {
     if(index == null) {
@@ -159,7 +162,7 @@ export class StudentComponent implements OnInit {
       }
       else {
         Notification.show('error', response.message);
-      }   
+      }
     },
     err => {
       Notification.show('error');
@@ -175,7 +178,7 @@ export class StudentComponent implements OnInit {
       }
       else {
         Notification.show('error', response.message);
-      }  
+      }
     },
     err => {
       Notification.show('error');
@@ -186,7 +189,7 @@ export class StudentComponent implements OnInit {
     this.experience = this.reset_exp;
   }
 
-  //##################### END EXPERIENCE SECTION ############################// 
+  //##################### END EXPERIENCE SECTION ############################//
 
   ngOnInit() {
     this.loadEducation();
@@ -199,7 +202,7 @@ export class StudentComponent implements OnInit {
         this.institutions = response.institutions;
       }
       else {
-        Notification.show('error', 'Unable to load education data!');  
+        Notification.show('error', 'Unable to load education data!');
       }
     },
     err => {
@@ -213,7 +216,7 @@ export class StudentComponent implements OnInit {
         this.experiences = response.experiences;
       }
       else {
-        Notification.show('error', 'Unable to load experience data!');  
+        Notification.show('error', 'Unable to load experience data!');
       }
     },
     err => {
@@ -227,7 +230,7 @@ export class StudentComponent implements OnInit {
     let value = event.target.value;
     this.ins_search_results = this.institutions.filter(ins => ins.institution.toLowerCase().includes(value.toLowerCase()));
     if(value != '' && value.length > 1 && this.ins_search_results.length > 0) {
-      this.ins_result = 'show';  
+      this.ins_result = 'show';
     }
     else {
       this.ins_result = '';
@@ -243,5 +246,33 @@ export class StudentComponent implements OnInit {
     setTimeout(()=>{
       this.ins_result = '';
     }, 100);
+  }
+
+  public loadBankAccount() {
+    this.userService.getBankAccount().subscribe(response => {
+        if(response.success) {
+          this.bank_account = response.bank_account;
+        }
+        else {
+          Notification.show('error', 'Unable to load bank account data!');
+        }
+      },
+      err => {
+        Notification.show('error', 'Unable to load some profile data!');
+      });
+  }
+
+  public updateBankAccount() {
+    this.userService.updateBankAccount(this.bank_account).subscribe(response => {
+      if(response.success) {
+            Notification.show('success', "Bank account updated successfully!");
+          }
+          else {
+            Notification.show('error', 'Unable to load bank account data!');
+          }
+       },
+      err => {
+         Notification.show('error', 'Unable to load some profile data!');
+      });
   }
 }
