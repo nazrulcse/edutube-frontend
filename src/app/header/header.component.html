@@ -10,7 +10,7 @@
         <div  class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item dropdown thumb-dropdown">
-              <a href="#" class="nav-link dropdown-togglex" data-toggle="dropdown">Categories <i class="edu-caret down"></i></a>
+              <a href="#" class="nav-link dropdown-togglex" data-toggle="dropdown">Subject Categories <i class="edu-caret down"></i></a>
               <ul class="dropdown-menu edu-dropdown-menu" role="menu">
                 <li role="presentation" class="dropdown-header">
                   <div class="dropdown-li-head">
@@ -204,7 +204,10 @@
                 <a style="margin-top: 5px" data-target="#login-modal" data-toggle="modal" class="btn default-btn-sm">Sign in</a>
               </li>
               <li class="nav-item" *ngIf="!auth">
-                <a style="margin-top: 5px" data-target="#registration-modal" data-toggle="modal" class="btn primary-btn-sm">Sign up</a>
+                <span class='help-center-icon'>
+                  <img src="/assets/images/phone.png" alt='phone icon'/>
+                </span>
+                <!-- <a style="margin-top: 5px" data-target="#registration-modal" data-toggle="modal" class="btn primary-btn-sm">Sign up</a> -->
               </li>
           </ul>
         </div><!-- /.navbar-collapse -->

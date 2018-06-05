@@ -6,6 +6,9 @@ import { EventService } from '../../../../../services/event_service';
 import { environment } from '../../../../../environments/environment';
 import { Education } from '../../../../models/education';
 import { Experience } from '../../../../models/experience';
+import { Country } from '../../../../models/country';
+import { Language } from '../../../../models/language';
+import { User } from '../../../../models/user';
 import { Notification } from '../../../../../services/notification';
 
 @Component({
@@ -15,7 +18,7 @@ import { Notification } from '../../../../../services/notification';
 })
 export class StudentComponent implements OnInit {
  
-  user:any = {};
+  user: User;
   error = "";
   info = "";
   ins_result = '';
@@ -26,8 +29,14 @@ export class StudentComponent implements OnInit {
   reset_exp: Experience;
   educations: Array<Education>;
   experiences: Array<Experience>;
+  languages: Array<Language>;
+  language: Language;
+  reset_lang: Language;
   institutions = [];
   ins_search_results = [];
+  language_list = ['Bangla', 'English', 'Arabic', 'Urdu', 'Hindi', 'Korean', 'Chinese', 'Other']
+  designations = ['Teacher', 'Teacher Aide', 'Assistant Teacher', 'Tutor', 'Principal', 'Head Mistress', 'Lecturer', 'Professor', 'Assistant Professor']
+  country_list = Country.list();
   env = {}
   months = ['January', 'February', 'March', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   years = ['2000','2001','2002','2003','2004','2005','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018']
@@ -39,6 +48,7 @@ export class StudentComponent implements OnInit {
     private userService: UserService,
     private eventService: EventService) { 
     this.env = environment;
+    this.user = new User();
     if(this.authService.isAuthorized()) {
       this.authService.me().subscribe(response => {
         this.user = response;
@@ -188,8 +198,57 @@ export class StudentComponent implements OnInit {
 
   //##################### END EXPERIENCE SECTION ############################// 
 
+  public initLanguage(index = null) {
+    if(index == null) {
+      this.language = new Language();
+    }
+    else {
+      this.language = this.languages[index];
+      this.language.index = index;
+    }
+  }
+
+  public addLanguage() {
+    this.userService.createLanguage(this.language).subscribe(response => {
+      if(response.success) {
+        this.languages.push(response.language);
+        this.language = this.reset_lang;
+        Notification.show('success', "Added new language");
+      }
+      else {
+        Notification.show('error', response.message);
+      }      
+    },
+    err => {
+      Notification.show('error');
+    });
+  }
+
+  public updateLanguage() {
+    this.userService.updateLanguage(this.language).subscribe(response => {
+      if(response.success) {
+        this.languages[this.language.index] = response.language;
+        this.language = this.reset_lang;
+        Notification.show('success', "language information updated");
+      }
+      else {
+        Notification.show('error', response.message);
+      } 
+    },
+    err => {
+      Notification.show('error');
+    })
+  }
+
+  public cancelLanguage() {
+    this.language = this.reset_lang;
+  }
+
+  /////////////////////////////// END Language section ////////////////////////
+
   ngOnInit() {
     this.loadEducation();
+    this.loadLanguages();
   }
 
   public loadEducation() {
@@ -214,6 +273,20 @@ export class StudentComponent implements OnInit {
       }
       else {
         Notification.show('error', 'Unable to load experience data!');  
+      }
+    },
+    err => {
+      Notification.show('error', 'Unable to load some profile data!');
+    });
+  }
+
+  public loadLanguages() {
+    this.userService.getLanguages().subscribe(response => {
+      if(response.success) {
+        this.languages = response.languages;
+      }
+      else {
+        Notification.show('error', 'Unable to load language data!');  
       }
     },
     err => {

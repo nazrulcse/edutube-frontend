@@ -1,7 +1,10 @@
 <div class="sub-nav-fluid">
   <ul class="sub-nav-ul-style text-center">
-    <li><a href="#">Profile</a></li>
-    <li><a href="#" class="active">Home</a></li>
+    <li><a routerLink="/profile">Profile</a></li>
+    <li><a routerLink="/instructor/dashboard" class="active">Home</a></li>
+    <li><a routerLink="/instructor/dashboard/courses" (click)="featureNotIncluded()">My Messages</a></li>
+    <li><a routerLink="/instructor/dashboard/courses" (click)="featureNotIncluded()">My Notification</a></li>
+    <li><a routerLink="/profile/edit">Edit Profile</a></li>
   </ul>
 </div>
 <div id="edit-course">

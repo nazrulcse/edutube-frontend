@@ -226,4 +226,8 @@ export class EditCourseComponent implements OnInit {
     var newArray = data.filter(value => value.name !== "");
     return newArray.length > 0 ? newArray : Array(new CourseGoal());
   }
+
+  public featureNotIncluded() {
+    Notification.show('warning', "This feature not included in this pahse");
+  }
 }

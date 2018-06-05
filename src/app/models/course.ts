@@ -23,4 +23,5 @@ export class Course {
 	privacy: string;
 	google_adwards: string;
 	google_tracking_id: string;
+	user?: string;
 }

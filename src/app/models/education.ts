@@ -4,7 +4,7 @@ export class Education {
 	website: string;
 	degree: string; 
 	subject: string;
-	country: string; 
+	country = 'Bangladesh'; 
 	city: string;
 	from_year: string;
 	from_month: string;

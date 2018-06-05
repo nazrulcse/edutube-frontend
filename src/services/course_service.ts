@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
 import { AuthenticationService } from '../app/authentication/authentication.service';
@@ -54,6 +54,16 @@ export class CourseService {
    */
   public getCourseDetails(id, category): Observable<any> {
     return this.http.get(this.base_url + "/api/auth/courses/" + id + "/details?category=" + category);
+  }
+
+  /**
+   * get related courses of a course
+   * @description Should return list of courses as json array from API.
+   * 
+   * @returns {Course<JSON>}
+   */
+  public getRelatedCourse(id): Observable<any> {
+    return this.http.get(this.base_url + "/api/auth/courses/" + id + "/related_course");
   }
 
   /**
@@ -113,7 +123,11 @@ export class CourseService {
    * localStorage
    * @returns {Data<JSON>}
    */
-  public search(term): Observable<any> {
-    return this.http.get(this.base_url + "/api/auth/search?term=" + term);
+  public search(params): Observable<any> {
+    let qparams = new URLSearchParams();
+    for(let key in params){
+        qparams.set(key, params[key]) 
+    }
+    return this.http.get(this.base_url + "/api/auth/search?" + qparams.toString());
   }
 }

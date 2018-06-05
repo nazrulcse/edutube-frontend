@@ -21,10 +21,8 @@ export class TeacherProfileComponent implements OnInit {
   courses: Array<Course>;
   env: any;
   error = '';
-  xyz: Course;
   constructor(private userService: UserService, private domSanitizer: DomSanitizer) { 
     this.env = environment;
-    this.xyz = new Course();
   }
 
   ngOnInit() {
@@ -83,6 +81,10 @@ export class TeacherProfileComponent implements OnInit {
     else {
       return  this.domSanitizer.bypassSecurityTrustStyle("url(/assets/images/courses/science2.png)");
     }
+  }
+
+  public featureNotIncluded() {
+    Notification.show('warning', "This feature not included in this pahse");
   }
 
 }

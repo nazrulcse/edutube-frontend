@@ -34,4 +34,8 @@ export class InstructorDashboardComponent implements OnInit {
         Notification.show('error', "Something wrong! Please try after sometimes");
     });
   }
+
+  public featureNotIncluded() {
+    Notification.show('warning', "This feature not included in this pahse");
+  }
 }

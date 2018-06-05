@@ -5,6 +5,7 @@ import { HelperService } from '../../../services/helper_service';
 import { environment } from '../../../environments/environment';
 import { Category } from '../../models/category';
 import { Course } from '../../models/course';
+import {CourseService} from '../../../services/course_service';
 import {Notification} from '../../../services/notification';
 
 @Component({
@@ -19,9 +20,10 @@ export class CategoryCoursesComponent implements OnInit {
   error = '';
   header_categories = [];
   env: any;
+  search_params = {price_filter: '', subject: '', class_name: '', category_id: ''};
   constructor(private categoryService: CategoryService,
   	private route: ActivatedRoute, 
-  	private  helperService: HelperService) {
+  	private  helperService: HelperService, private courseService: CourseService) {
     this.env = environment;
     this.category = new Category();
   }
@@ -38,6 +40,7 @@ export class CategoryCoursesComponent implements OnInit {
     this.categoryService.getCategory(id).subscribe(response => {
       if(response.success) {
         this.category = response.category;
+        this.search_params.category_id = this.category.id.toString();
         this.courses = response.courses;
       }
       else {
@@ -54,6 +57,20 @@ export class CategoryCoursesComponent implements OnInit {
       if(response.success) {
         this.header_categories = response.categories;
       }
+    });
+  }
+
+  public searchFilter() {
+   this.courseService.search(this.search_params).subscribe(response => {
+      if(response.success) {
+        this.courses = response.courses;
+      }
+      else {
+        Notification.show('error', 'Unable to complete search');
+      }
+    },
+    error => {
+      Notification.show('error');
     });
   }
 

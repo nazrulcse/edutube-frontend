@@ -25,7 +25,7 @@ export class SearchComponent implements OnInit {
   }
 
   searchResult() {
-    this.courseService.search(this.term).subscribe(response => {
+    this.courseService.search({term: this.term}).subscribe(response => {
       if(response.success) {
         this.courses = response.courses;
       }

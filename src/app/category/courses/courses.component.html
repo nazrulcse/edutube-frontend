@@ -26,31 +26,35 @@
           </ul>
         </div>
         <div class="search-bar mb40">
-          <form action="#" role="form" class="navbar-formx">
             <div class="form-group sidebar-input-group">
-              <input type="search" class="form-control-default" placeholder="Class/Category">
+              <input type="search" [(ngModel)]="search_params.class_name" class="form-control-default" placeholder="Class/Category">
             </div>
             <div class="form-group sidebar-input-group">
-              <input type="search" class="form-control-default" placeholder="Subject/Topic">
+              <input type="search" [(ngModel)]="search_params.subject" class="form-control-default" placeholder="Subject/Topic">
             </div>
-            <ul class="common-ul-style display-inline-block--ul mb40">
+            <ul class="common-ul-style display-inline-block--ul">
               <li>
                 <div class='radio-btn-default--wrap'>
-                  <input id="all-courses" type='radio'><label for="all-courses">All</label>
+                  <input id="all-courses" [(ngModel)]="search_params.price_filter" value="" type='radio' name="price_filter">
+                  <label for="all-courses">All</label>
                 </div>
               </li>
               <li>
                 <div class='radio-btn-default--wrap'>
-                  <input id="free-courses" type='radio'><label for="free-courses">Free</label>
+                  <input id="free-courses" [(ngModel)]="search_params.price_filter" value="free" type='radio' name="price_filter">
+                  <label for="free-courses">Free</label>
                 </div>
               </li>
               <li>
                 <div class='radio-btn-default--wrap'>
-                  <input id="paid-courses" type='radio'><label for="paid-courses">Paid</label>
+                  <input id="paid-courses" [(ngModel)]="search_params.price_filter" value="paid" type='radio' name="price_filter">
+                  <label for="paid-courses">Paid</label>
                 </div>
               </li>
             </ul>
-          </form>
+            <div class="text-center mt5">
+              <input type="submit" class="btn primary-btn" value="Search" (click)="searchFilter()"/>
+            </div>
         </div>
       </div>
       <div class="col-md-9 right-sidebar">
@@ -99,7 +103,7 @@
             <div class='row'>
               <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let course of courses">
                 <div class='grid-item mb20'>
-                  <a routerLink="/c/{{category.slug}}/courses/{{course.course_id}}">
+                  <a routerLink="/c/{{category.slug}}/courses/{{course.id}}">
                     <img src="assets/images/envelope-large.png" class="img-responsive" alt="Math pic" *ngIf="!course.image">
                     <img src="{{env.assets_host}}{{course.image}}" class="img-responsive" alt="Math pic" *ngIf="course.image">
                     <p>{{course.title}}</p>

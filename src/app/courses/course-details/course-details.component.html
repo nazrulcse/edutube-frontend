@@ -320,69 +320,45 @@
                       73
                     </section>
                   </div>
-                  <!--<div class="flowers-details">-->
-                  <!--<ul class="tutor-ul common-ul-style">-->
-                  <!--<li>-->
-                  <!--Online Students-->
-                  <!--<p>40,000</p><span class="edu-bar">|</span>-->
-                  <!--</li>-->
-                  <!--<li>-->
-                  <!--Courses-->
-                  <!--<p>7</p><span class="edu-bar">|</span>-->
-                  <!--</li>-->
-                  <!--<li>-->
-                  <!--Live Classes-->
-                  <!--<p>5</p><span class="edu-bar">|</span>-->
-                  <!--</li>-->
-                  <!--<li>-->
-                  <!--Followers-->
-                  <!--<p>40,000</p><span class="edu-bar">|</span>-->
-                  <!--</li>-->
-                  <!--<li>-->
-                  <!--Followings-->
-                  <!--<p>40,000</p><span class="edu-bar">|</span>-->
-                  <!--</li>-->
-                  <!--</ul>-->
-                  <!--</div>-->
                 </div>
               </div>
             </div>
           </div><!-- Tutor info item -->
-          <div class="related-courses">
-            <div class="related-courses-container">
-              <h3 class="main-title">Related Courses</h3>
-              <div class="course-item bottom-box-shadow white-bg">
-                <div class="subject-group p20">
-                  <div class="grid-wrap mb20">
-                    <div class="grid-item">
-                      <a href="#">
-                        <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
-                        <p>Mathematics</p>
-                      </a>
-                    </div>
-                    <div class="grid-item">
-                      <a href="#">
-                        <img src="assets/images/courses/bangla.png" class="img-responsive" alt="Math pic">
-                        <p>Bangla</p>
-                      </a>
-                    </div>
-                    <div class="grid-item">
-                      <a href="#">
-                        <img src="assets/images/courses/english.png" class="img-responsive" alt="Math pic">
-                        <p>English</p>
-                      </a>
-                    </div>
-                    <div class="grid-item">
-                      <a href="#">
-                        <img src="assets/images/courses/science.png" class="img-responsive" alt="Math pic">
-                        <p>Science</p>
-                      </a>
+          
+          <hr/>
+
+          <h3 class="main-title mb20">Related courses: </h3>
+          <div class='course-listing'>
+            <div class='row'>
+              <div class='col-lg-12'>
+               <div class='row'>
+                <div class="course-block col-sm-3" *ngFor="let course of related_course">
+                  <div class='image-header' [style.background-image]="thumb(course.image)"> </div>
+                  <div class="course-body">
+                    <h3> 
+                      <a class='edu-link-default' routerLink="/courses/{{course.id}}"> {{course.title}} </a>
+                    </h3>
+                    <div class='course-details'>  </div>
+                    <div class='course-footer'>
+                      <div class='author'> {{course.user}} </div>
+                      <div class='general-ratting mt4 mb3'>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                      <div class='course-fee clearfix'> 
+                        <b class='pull-right'> {{course.price ? course.price_currency + " " + course.price : 'Free'}} </b>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+               </div>
+             </div>
             </div>
-          </div><!-- Related courses -->
+          </div>
+
         </div>
       </div>
     </div><!-- Overview -->

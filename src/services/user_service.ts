@@ -106,4 +106,34 @@ export class UserService {
   public updateExperience(data): Observable<any> {
     return this.http.post(this.base_url + "/api/auth/experience/" + data.id + "/update", data, {headers: this.authService.getAuthHeader()});
   }
+
+   /**
+   * get user language list
+   * @description Should return language as json array from API.
+   * 
+   * @returns {Language<JSON>}
+   */
+  public getLanguages(): Observable<any> {
+    return this.http.get(this.base_url + "/api/auth/languages", {headers: this.authService.getAuthHeader()});
+  }
+
+  /**
+   * create user language
+   * @description Should return language as json from API.
+   * 
+   * @returns {Language<JSON>}
+   */
+  public createLanguage(data): Observable<any> {
+    return this.http.post(this.base_url + "/api/auth/language/create", data, {headers: this.authService.getAuthHeader()});
+  }
+
+  /**
+   * update user language
+   * @description Should return language as json from API.
+   * 
+   * @returns {Language<JSON>}
+   */
+  public updateLanguage(data): Observable<any> {
+    return this.http.post(this.base_url + "/api/auth/language/" + data.id + "/update", data, {headers: this.authService.getAuthHeader()});
+  }
 }

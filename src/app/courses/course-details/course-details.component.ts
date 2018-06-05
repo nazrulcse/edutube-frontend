@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from '../../../services/category_service';
 import { CourseService } from '../../../services/course_service';
@@ -17,7 +18,9 @@ import {Notification} from '../../../services/notification';
 export class CourseDetailsComponent implements OnInit {
 
   error = '';
+  env: any;
   course: Course;
+  related_course: Array<Course>;
   course_goal = {
   	who_can_take: [],
   	requirements: [],
@@ -28,7 +31,9 @@ export class CourseDetailsComponent implements OnInit {
   constructor(private categoryService: CategoryService,
   	private route: ActivatedRoute, 
   	private  helperService: HelperService,
-  	private  courseService: CourseService) { 
+  	private  courseService: CourseService,
+    private domSanitizer: DomSanitizer) { 
+    this.env = environment;
     this.course = new Course();
     this.author = new User();
     this.category = new Category();
@@ -49,6 +54,7 @@ export class CourseDetailsComponent implements OnInit {
         if(response.category) {
           this.category = response.category;
         }
+        this.getRelatedCourse(this.course.id);
       }
       else {
         Notification.show('error', response.message);
@@ -71,6 +77,30 @@ export class CourseDetailsComponent implements OnInit {
     if(course.achivement) {
       this.course_goal.what_to_learn = JSON.parse(course.achivement);
     } 
+  }
+
+  public getRelatedCourse(course_id) {
+    this.courseService.getRelatedCourse(course_id).subscribe(response => {
+      if(response.success) {
+        this.related_course = response.related_course;
+      }
+      else {
+        Notification.show('error', 'Unable to load related course');
+      }
+    },
+    err => {
+      Notification.show('error', 'Unable to load related course');
+    });
+  }
+
+  public thumb(image) {
+    if(image) {
+      let img = "url(" + this.env.assets_host + image + ")";
+      return  this.domSanitizer.bypassSecurityTrustStyle(img);
+    }
+    else {
+      return  this.domSanitizer.bypassSecurityTrustStyle("url(/assets/images/courses/science2.png)");
+    }
   }
 
 }

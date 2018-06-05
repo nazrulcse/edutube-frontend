@@ -1,0 +1,35 @@
+#our-content {
+  padding: 60px 0;
+  background: #f1f1f1;
+  border-top: solid 1px #ffffff;
+  background-image: url("/assets/images/subbg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  .box-counter {
+    color: #dfdfdf;
+    text-align: center;
+    .box-counter-title {
+    	font-size: 26px;
+    	text-transform: uppercase;
+    }
+    .counter {
+    	font-size: 36px;
+    	line-height: 1.2;
+    	font-weight: 700;
+    	text-align: center;
+      color: #EB002D;
+    }
+    .box-counter-icon {
+    	font-size: 45px;
+    	margin-bottom: 5px;
+    }
+  }
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    opacity: 1;
+}
