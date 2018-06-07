@@ -16,6 +16,7 @@ export class Course {
 	image: string;
 	promo_video: string;
 	discount_price: number;
+	is_paid = false;
 	price: number;
 	welcome_message: string;
 	congratulation_message: string;
