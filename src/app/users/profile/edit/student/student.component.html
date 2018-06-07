@@ -18,6 +18,7 @@
   <div class='col-sm-3'>
     <div class="nav flex-column nav-pills edu-pill-wrapper" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 	  <a class="nav-link active" data-toggle="pill" href="#basic-info-tab" role="tab" aria-selected="true">Basic Information</a>
+	  <a class="nav-link" *ngIf="user.user_type == 'teacher'" data-toggle="pill" href="#bank-info-tab" role="tab" aria-selected="true">Bank Information</a>
 	  <a class="nav-link" data-toggle="pill" href="#contact-info-tab" role="tab" aria-selected="true">Contact Information</a>
 	  <a class="nav-link" data-toggle="pill" href="#about-info-tab" role="tab" aria-selected="true">About Me</a>
 	  <a class="nav-link" data-toggle="pill" href="#education-info-tab" role="tab" aria-selected="true">Education</a>
@@ -81,8 +82,8 @@
 								  </div>
 								  <div class='col-sm-6'>
 									  <div class='form-group' style="position: relative;">
-										  <label class='edu-label-default' *ngIf="user.user_type=='student'"> 
-										    School/College/University 
+										  <label class='edu-label-default' *ngIf="user.user_type=='student'">
+										    School/College/University
 										  </label>
 										  <label class='edu-label-default' *ngIf="user.user_type=='teacher'"> Institution </label>
 										  <input type="text" placeholder="Search institution..." name="institution" (blur)="hideInsSelection($event)" (keyup)="insSelect($event)" class='form-control-gray' [(ngModel)]="user.institution">
@@ -132,6 +133,77 @@
 			  </div>
 		  </div>
 	  </div>
+      <div class="tab-pane fade show" *ngIf="user.user_type=='teacher'" id="bank-info-tab" role="tabpanel">
+        <div class='edu-panel-default'>
+          <div class='panel-header'>
+            Add Your Bank Account Information
+            <p class="fz10" style="font-weight: lighter; color: #777;">Fields with <span style="color: tomato">*</span> are required.</p>
+          </div>
+          <div class='panel-body'>
+            <div class='row'>
+              <div class='col-sm-6'>
+                <div class='form-group'>
+                  <label class='edu-label-default'> Bank Name <span style="color: tomato">*</span> </label>
+                  <input type="text" name='name' [(ngModel)]="bank_account.bank_name"
+                         class='form-control-gray'>
+                </div>
+              </div>
+              <div class='col-sm-6'>
+                <div class='form-group'>
+                  <label class='edu-label-default'> Account Name <span style="color: tomato">*</span> </label>
+                  <input type="text" name='account_name' [(ngModel)]="bank_account.account_name"
+                         class='form-control-gray'>
+                </div>
+              </div>
+            </div>
+            <div class='row'>
+              <div class='col-sm-6'>
+                <div class='form-group'>
+                  <label class='edu-label-default'> Account Number <span style="color: tomato">*</span> </label>
+                  <input type="text" name='account_number' [(ngModel)]="bank_account.account_number"
+                         class='form-control-gray'>
+                </div>
+              </div>
+              <div class='col-sm-6'>
+                <div class='form-group'>
+                  <label class='edu-label-default'> Mobile Number <span style="color: tomato">*</span> </label>
+                  <input type="text" name='mobile_number' [(ngModel)]="bank_account.mobile_number"
+                         class='form-control-gray'>
+                </div>
+              </div>
+            </div>
+            <div class='row'>
+              <div class='col-sm-6'>
+                <div class='form-group'>
+                  <label class='edu-label-default'> NID <span style="color: tomato">*</span> </label>
+                  <input type="text" name='nid_number' [(ngModel)]="bank_account.nid_number"
+                         class='form-control-gray'>
+                </div>
+              </div>
+              <div class='col-sm-6'>
+                <div class='form-group'>
+                  <label class='edu-label-default'> Bkash Number <span style="color: tomato">*</span> </label>
+                  <input type="text" name='bkash_number' [(ngModel)]="bank_account.bkash_number"
+                         class='form-control-gray'>
+                </div>
+              </div>
+            </div>
+            <div class='row'>
+              <div class='col-sm-12'>
+                <div class='form-group'>
+                  <label class='edu-label-default'> Details </label>
+                  <textarea name="details" [(ngModel)]="bank_account.details"
+                            class='form-control-gray' cols="30" rows="3"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class='text-right'>
+              <input type="submit" value='Save' (click)="updateBankAccount()"
+                     class='btn primary-btn btn-size-2x edu-btn-default-width'>
+            </div>
+          </div>
+        </div>
+      </div>
 	  <div class="tab-pane fade" id="contact-info-tab" role="tabpanel">
         <div class='edu-panel-default'>
 		  <div class='panel-header'> Contact Informations </div>
@@ -182,14 +254,14 @@
         <div class='edu-panel-default'>
 		  <div class='panel-header'> Education </div>
 		  <div class='edit-education-display-panel' *ngFor="let edu of educations; let ind = index;">
-		    <a href="javascript:void(0);" (click)="initEducation(ind)" class='edit-education-link'> 
-		      <i class="fa fa-pencil-square-o"></i> 
+		    <a href="javascript:void(0);" (click)="initEducation(ind)" class='edit-education-link'>
+		      <i class="fa fa-pencil-square-o"></i>
 		    </a>
 		  	<h3> {{edu.institution}} </h3>
 		  	<p> {{edu.degree}} </p>
-		  	<p> 
+		  	<p>
 		  	  <span> {{edu.from_month}} {{edu.from_year}} - </span> <span *ngIf="edu.is_continue"> present </span>
-		  	  <span *ngIf="!edu.is_continue"> {{edu.to_month}} {{edu.to_year}} </span> | {{edu.city}}, {{edu.country}} 
+		  	  <span *ngIf="!edu.is_continue"> {{edu.to_month}} {{edu.to_year}} </span> | {{edu.city}}, {{edu.country}}
 		  	</p>
 		  </div>
 		  <div class='panel-body' *ngIf="education">
@@ -247,7 +319,7 @@
 		      	  	  	</div>
 		      	  	  </div>
 		      	  	  <div class='row'>
-		      	  	  	<div class='col-sm-6'> 
+		      	  	  	<div class='col-sm-6'>
 		      	  	  	    <label class='edu-label-default'> Starting From </label>
 		      	  	  	    <div class='row'>
 		      	  	  			<div class='col-sm-6'>
@@ -264,7 +336,7 @@
 		      	  	  			</div>
 		      	  	  		</div>
 		      	  	  	</div>
-		      	  	  	<div class='col-sm-6'> 
+		      	  	  	<div class='col-sm-6'>
                             <label class='edu-label-default'> Ending In </label>
                             <div class='row' *ngIf="!education.is_continue">
                                <div class='col-sm-6'>
@@ -306,14 +378,14 @@
         <div class='edu-panel-default'>
 		  <div class='panel-header'> Work Experiences </div>
 		  <div class='edit-education-display-panel' *ngFor="let exp of experiences; let ind = index;">
-		    <a href="javascript:void(0);" (click)="initExperience(ind)" class='edit-education-link'> 
-		      <i class="fa fa-pencil-square-o"></i> 
+		    <a href="javascript:void(0);" (click)="initExperience(ind)" class='edit-education-link'>
+		      <i class="fa fa-pencil-square-o"></i>
 		    </a>
 		  	<h3> {{exp.designation}} </h3>
 		  	<p> {{exp.institution}} </p>
-		  	<p> 
+		  	<p>
 		  	  <span> {{exp.from_month}} {{exp.from_year}} - </span> <span *ngIf="exp.is_continue"> present </span>
-		  	  <span *ngIf="!exp.is_continue"> {{exp.to_month}} {{exp.to_year}} </span> | {{exp.city}}, {{exp.country}} 
+		  	  <span *ngIf="!exp.is_continue"> {{exp.to_month}} {{exp.to_year}} </span> | {{exp.city}}, {{exp.country}}
 		  	</p>
 		  </div>
 		  <div class='panel-body' *ngIf="experience">
@@ -372,7 +444,7 @@
 		      	  	  	</div>
 		      	  	  </div>
 		      	  	  <div class='row'>
-		      	  	  	<div class='col-sm-6'> 
+		      	  	  	<div class='col-sm-6'>
 		      	  	  	    <label class='edu-label-default'> Starting From </label>
 		      	  	  	    <div class='row'>
 		      	  	  			<div class='col-sm-6'>
@@ -389,7 +461,7 @@
 		      	  	  			</div>
 		      	  	  		</div>
 		      	  	  	</div>
-		      	  	  	<div class='col-sm-6'> 
+		      	  	  	<div class='col-sm-6'>
                             <label class='edu-label-default'> Ending In </label>
                             <div class='row' *ngIf="!experience.is_continue">
                                <div class='col-sm-6'>
