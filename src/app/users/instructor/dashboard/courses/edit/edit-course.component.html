@@ -140,8 +140,8 @@
                         <div class='inner-tab-header clearfix'>
                           <h3>Course Details</h3>
                           <button class="round-btn-default pull-right" type="submit"> Save </button>
-                          <a class="round-btn-default pull-right mr15" routerLink="/courses/{{course.id}}" target="_blank"> 
-                            Preview 
+                          <a class="round-btn-default pull-right mr15" routerLink="/courses/{{course.id}}" target="_blank">
+                            Preview
                           </a>
                         </div>
                         <div class="inner-body">
@@ -262,24 +262,42 @@
                         </div>
                         <div class='inner-body'>
                           <p> Please select the price tier for your course bellow and click 'Save'. The list price that students will see in other currencies is calculated using the price tier matrix, based on the tier that is corresponds to. </p>
-                          <div class='form-group'>
-                            <select name='currency' [(ngModel)]="course.price_currency" style="max-width: 80px;" class='form-control-gray mr10'>
-                              <option value="BDT"> BDT </option>
-                              <option value="BDT"> USD </option>
-                            </select>
-                            <input type="text" [(ngModel)]="course.price" name='price' style="max-width: 170px;" class="form-control-gray text-center" placeholder="Enter price">
+                          <div class="form-group">
+                            <ul class="display-inline-block--ul pl0">
+                              <li>
+                                <div class='radio-btn-default--wrap'>
+                                  <input type='radio' id="paid" [(ngModel)]="course.is_paid" name="is_paid" [value]="1">
+                                  <label for="paid">Paid</label>
+                                </div>
+                              </li>
+                              <li>
+                                <div class='radio-btn-default--wrap'>
+                                  <input id="free" type='radio' [(ngModel)]="course.is_paid" name="is_paid" [value]="0">
+                                  <label for="free">Free</label>
+                                </div>
+                              </li>
+                            </ul>
                           </div>
-                          <p>
-                            <a (click)="addDiscountPrice();" href="javascript:void(0);" class='edu-link-default'>
-                              + Discount Price
-                            </a>
-                          </p>
-                          <div class='form-group' *ngIf="showDiscount()">
-                            <select [(ngModel)]="course.discount_currency" name='discount_currency' style="max-width: 80px;" class='form-control-gray mr10'>
-                              <option value="BDT"> BDT </option>
-                              <option value="BDT"> USD </option>
-                            </select>
-                            <input type="text" name="discount_price" [(ngModel)]="course.discount_price" style="max-width: 170px;" class="form-control-gray text-center" placeholder="Enter New price">
+                          <div class="price-section" *ngIf="course.is_paid == 1">
+                            <div class='form-group'>
+                              <select name='currency' [(ngModel)]="course.price_currency" style="max-width: 80px;" class='form-control-gray mr10'>
+                                <option value="BDT"> BDT </option>
+                                <option value="BDT"> USD </option>
+                              </select>
+                              <input type="text" [(ngModel)]="course.price" name='price' style="max-width: 170px;" class="form-control-gray text-center" placeholder="Enter price">
+                            </div>
+                            <p>
+                              <a (click)="addDiscountPrice();" href="javascript:void(0);" class='edu-link-default'>
+                                + Discount Price
+                              </a>
+                            </p>
+                            <div class='form-group' *ngIf="showDiscount()">
+                              <select [(ngModel)]="course.discount_currency" name='discount_currency' style="max-width: 80px;" class='form-control-gray mr10'>
+                                <option value="BDT"> BDT </option>
+                                <option value="BDT"> USD </option>
+                              </select>
+                              <input type="text" name="discount_price" [(ngModel)]="course.discount_price" style="max-width: 170px;" class="form-control-gray text-center" placeholder="Enter New price">
+                            </div>
                           </div>
                         </div>
                       </form>

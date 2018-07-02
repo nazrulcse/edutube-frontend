@@ -1,5 +1,4 @@
 import {environment} from "../../environments/environment";
-
 export class Course {
 	id: number;
 	title: string;
@@ -16,6 +15,7 @@ export class Course {
 	image: string;
 	promo_video: string;
 	discount_price: number;
+	is_paid = 0;
 	price: number;
 	welcome_message: string;
 	congratulation_message: string;
