@@ -1,0 +1,7 @@
+#main-slider {
+  .carousel-inner {
+    .carousel-item img {
+      min-height: calc(100vh - 150px);
+    }
+  }
+}
