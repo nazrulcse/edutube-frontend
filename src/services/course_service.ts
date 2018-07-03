@@ -118,6 +118,24 @@ export class CourseService {
   }
 
   /**
+   * Load all lecture of a course.
+   * @description Should return lecture data from API as JSON array.
+   * @returns {Data<JSON>}
+   */
+  public getLectures(course_id): Observable<any> {
+    return this.http.get(this.base_url + "/api/auth/courses/" + course_id + "/lectures", {headers: this.authService.getAuthHeader()});
+  }
+
+  /**
+   * Update or create new lecture.
+   * @description Should return lecture data from API as JSON.
+   * @returns {Data<JSON>}
+   */
+  public updateLecture(course_id, lecture): Observable<any> {
+    return this.http.post(this.base_url + "/api/auth/courses/" + course_id + "/update_lecture", lecture, {headers: this.authService.getAuthHeader()});
+  }
+
+  /**
    * Search course by class, subject etc.
    * @description Should return course data from API JSON array.
    * localStorage

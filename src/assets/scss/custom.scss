@@ -30,3 +30,51 @@
   width: 10px;
   vertical-align: top;
 }
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  border: none;
+  background: transparent; 
+  background-color: #F1F1F1;
+  border-radius: 50%;
+  top: 45%;
+  box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1) !important;
+  color: #007791;
+  font-size: 0;
+  height: 47px;
+  line-height: 1;
+  padding: 11px 0;
+  text-align: center;
+  transform: translateY(-50%);
+  transition: .3s;
+  width: 47px;
+  z-index: 999;
+  cursor: pointer;
+  &:before {
+	font-family: "FontAwesome";
+	width: 27px;
+	height: 28px;
+	position: absolute;
+	top: 6px;
+	left: 10px;
+	color: #007791;
+	z-index: 9999;
+	font-size: 36px;
+	font-weight: bold;
+  }
+}
+
+.slick-prev {
+  left: -20px;
+  &:before {
+    content: "\f104";
+  }
+}
+
+.slick-next {
+  right: -10px;
+  &:before {
+    content: "\f105";
+  }
+}

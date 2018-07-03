@@ -1,0 +1,27 @@
+.lecture-title {
+	border: none;
+	width: calc(100% - 100px);
+	margin-left: 10px;
+}
+
+.lecture-description {
+	width: 100%;
+	min-height: 100px;
+	padding-left: 10px;
+}
+
+.lecture-content-url {
+	width: 100%;
+	padding-left: 10px;
+}
+
+.lecture-or-text {
+  display: inline-block;
+  margin: 10px 0 10px 45%;
+  text-align: center;
+  color: #ED003D;
+  font-weight: bold;
+  padding: 7px 9px;
+  border-radius: 100%;
+  background: #f1f1f1;
+}

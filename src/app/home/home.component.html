@@ -97,22 +97,14 @@
     </div>
   </section><!-- Numbers panel -->
 
-  <div class="varieties-courses mb30">
-    <section id="top-viewed" class="top-viewed container mt20 mb20 carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#top-viewed" data-slide-to="0" class="active"></li>
-        <li data-target="#top-viewed" data-slide-to="1"></li>
-        <li data-target="#top-viewed" data-slide-to="2"></li>
-        <li data-target="#top-viewed" data-slide-to="3"></li>
-        <li data-target="#top-viewed" data-slide-to="4"></li>
-        <li data-target="#top-viewed" data-slide-to="5"></li>
-      </ol>
-      <div class="subject-group carousel-inner">
-        <h3>Top viewed courses</h3>
-        <div class="grid-wrap mb20">
-          <div class="grid-item carousel-item active">
+  <div class="varieties-courses mb30 pb20" style="background: #ffffff;">
+    <section class="top-viewed container mb20">
+      <div class="subject-group">
+        <h3 class='pt20 mt0'>Top viewed courses</h3>
+        <div class="grid-wrap mb20" id="top-viewed">
+          <div class="grid-item" *ngFor="let item of items">
             <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
+              <img src="assets/images/courses/english.png" class="img-responsive" alt="Math pic">
               <div class="item-info">
                 <p>Mathematics</p>
                 <span>Plabon Asad</span>
@@ -131,210 +123,14 @@
               </div>
             </a>
           </div><!-- Grid item -->
-          <div class="grid-item carousel-item active">
-            <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
-              <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
-                <div class="ratting-section">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
-                </div>
-                <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
-                </div>
-              </div>
-            </a>
-          </div><!-- Grid item -->
-          <div class="grid-item carousel-item active">
-            <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
-              <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
-                <div class="ratting-section">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
-                </div>
-                <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
-                </div>
-              </div>
-            </a>
-          </div><!-- Grid item -->
-          <div class="grid-item carousel-item active">
-            <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
-              <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
-                <div class="ratting-section">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
-                </div>
-                <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
-                </div>
-              </div>
-            </a>
-          </div><!-- Grid item -->
-          <div class="grid-item carousel-item active">
-            <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
-              <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
-                <div class="ratting-section">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
-                </div>
-                <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
-                </div>
-              </div>
-            </a>
-          </div><!-- Grid item -->
-          <div class="grid-item carousel-item ">
-            <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
-              <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
-                <div class="ratting-section">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
-                </div>
-                <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
-                </div>
-              </div>
-            </a>
-          </div><!-- Grid item -->
-          <a class="carousel-control-prev" href="#communityCarousel" role="button" data-slide="prev">
-            <i class='fa fa-angle-left'></i>
-          </a>
-          <a class="carousel-control-next" href="#communityCarousel" role="button" data-slide="next">
-            <i class='fa fa-angle-right'></i>
-          </a>
         </div><!-- CSS grid -->
       </div><!-- Subject group -->
-
     </section>
     <section class="latest-upload container mt20 mb20">
       <div class="subject-group">
         <h3>Latest upload courses & contents</h3>
-        <div class="grid-wrap mb20">
-          <div class="grid-item">
-            <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
-              <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
-                <div class="ratting-section">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
-                </div>
-                <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
-                </div>
-              </div>
-            </a>
-          </div><!-- Grid item -->
-          <div class="grid-item">
-            <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
-              <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
-                <div class="ratting-section">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
-                </div>
-                <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
-                </div>
-              </div>
-            </a>
-          </div><!-- Grid item -->
-          <div class="grid-item">
-            <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
-              <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
-                <div class="ratting-section">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
-                </div>
-                <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
-                </div>
-              </div>
-            </a>
-          </div><!-- Grid item -->
-          <div class="grid-item">
-            <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
-              <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
-                <div class="ratting-section">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
-                </div>
-                <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
-                </div>
-              </div>
-            </a>
-          </div><!-- Grid item -->
-          <div class="grid-item">
+        <div class="grid-wrap mb20" id='latest-uploads'>
+          <div class="grid-item" *ngFor="let item of items">
             <a href="#">
               <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
               <div class="item-info">
@@ -361,94 +157,10 @@
     <section class="top-shared container mt20 mb20">
       <div class="subject-group">
         <h3>Top shared courses & contents</h3>
-        <div class="grid-wrap mb20">
-          <div class="grid-item">
+        <div class="grid-wrap mb20" id="top-shared">
+          <div class="grid-item" *ngFor="let item of items">
             <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
-              <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
-                <div class="ratting-section">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
-                </div>
-                <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
-                </div>
-              </div>
-            </a>
-          </div><!-- Grid item -->
-          <div class="grid-item">
-            <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
-              <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
-                <div class="ratting-section">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
-                </div>
-                <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
-                </div>
-              </div>
-            </a>
-          </div><!-- Grid item -->
-          <div class="grid-item">
-            <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
-              <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
-                <div class="ratting-section">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
-                </div>
-                <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
-                </div>
-              </div>
-            </a>
-          </div><!-- Grid item -->
-          <div class="grid-item">
-            <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
-              <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
-                <div class="ratting-section">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
-                </div>
-                <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
-                </div>
-              </div>
-            </a>
-          </div><!-- Grid item -->
-          <div class="grid-item">
-            <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
+              <img src="assets/images/courses/bangla.png" class="img-responsive" alt="Math pic">
               <div class="item-info">
                 <p>Mathematics</p>
                 <span>Plabon Asad</span>
@@ -583,7 +295,7 @@
   </div>
 </section><!-- Our Amazing community  -->
 
-<section id="question-blog" class="mb60">
+<section id="question-blog" class="mb1">
   <div class="question-blog">
     <div class="col-lg-12 question-blog-container">
       <div class="row question-blog-row">
