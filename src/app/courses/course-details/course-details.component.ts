@@ -8,6 +8,7 @@ import { environment } from '../../../environments/environment';
 import { Category } from '../../models/category';
 import { Course } from '../../models/course';
 import { User } from '../../models/user';
+import { Lecture } from '../../models/lecture';
 import {Notification} from '../../../services/notification';
 
 @Component({
@@ -28,6 +29,7 @@ export class CourseDetailsComponent implements OnInit {
   };
   author: User;
   category: Category;
+  lectures: Array<Lecture>;
   constructor(private categoryService: CategoryService,
   	private route: ActivatedRoute, 
   	private  helperService: HelperService,
@@ -54,6 +56,7 @@ export class CourseDetailsComponent implements OnInit {
         if(response.category) {
           this.category = response.category;
         }
+        this.lectures = response.lectures;
         this.getRelatedCourse(this.course.id);
       }
       else {

@@ -102,23 +102,31 @@
       <div class="subject-group">
         <h3 class='pt20 mt0'>Top viewed courses</h3>
         <div class="grid-wrap mb20" id="top-viewed">
-          <div class="grid-item" *ngFor="let item of items">
-            <a href="#">
-              <img src="assets/images/courses/english.png" class="img-responsive" alt="Math pic">
+          <div class="grid-item" *ngFor="let course of top_courses.top_views">
+            <a routerLink="/courses/{{course.id}}">
+              <img *ngIf="!course.image" src="assets/images/courses/no_image.jpg" class="img-responsive" alt="Math pic">
+              <img *ngIf="course.image" src="{{env.assets_host}}{{course.image}}" class="img-responsive" alt="Math pic">
               <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
+                <p>{{course.title}}</p>
+                <span>Author</span>
                 <div class="ratting-section">
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
+                  <span> <strong>4.5</strong> (7,000 rattings) </span>
                 </div>
                 <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
+                  <span *ngIf="course.discount_price">
+                    {{course.price_currency}} {{course.discount_price}}
+                  </span>
+                  <strong *ngIf="course.price">
+                    {{course.price_currency}} {{course.price}}
+                  </strong>
+                  <strong *ngIf="!course.price">
+                    FREE
+                  </strong>
                 </div>
               </div>
             </a>
@@ -130,23 +138,31 @@
       <div class="subject-group">
         <h3>Latest upload courses & contents</h3>
         <div class="grid-wrap mb20" id='latest-uploads'>
-          <div class="grid-item" *ngFor="let item of items">
+          <div class="grid-item" *ngFor="let course of top_courses.latest_uploads">
             <a href="#">
-              <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
+              <img *ngIf="!course.image" src="assets/images/courses/no_image.jpg" class="img-responsive" alt="Math pic">
+              <img *ngIf="course.image" src="{{env.assets_host}}{{course.image}}" class="img-responsive" alt="Math pic">
               <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
+                <p>{{course.title}}</p>
+                <span>Author</span>
                 <div class="ratting-section">
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
+                  <span> <strong>4.5</strong> (7,000 rattings) </span>
                 </div>
                 <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
+                  <span *ngIf="course.discount_price">
+                    {{course.price_currency}} {{course.discount_price}}
+                  </span>
+                  <strong *ngIf="course.price">
+                    {{course.price_currency}} {{course.price}}
+                  </strong>
+                  <strong *ngIf="!course.price">
+                    FREE
+                  </strong>
                 </div>
               </div>
             </a>
@@ -158,23 +174,31 @@
       <div class="subject-group">
         <h3>Top shared courses & contents</h3>
         <div class="grid-wrap mb20" id="top-shared">
-          <div class="grid-item" *ngFor="let item of items">
+          <div class="grid-item" *ngFor="let course of top_courses.top_shareds">
             <a href="#">
-              <img src="assets/images/courses/bangla.png" class="img-responsive" alt="Math pic">
+              <img *ngIf="!course.image" src="assets/images/courses/no_image.jpg" class="img-responsive" alt="Math pic">
+              <img *ngIf="course.image" src="{{env.assets_host}}{{course.image}}" class="img-responsive" alt="Math pic">
               <div class="item-info">
-                <p>Mathematics</p>
-                <span>Plabon Asad</span>
+                <p>{{course.title}}</p>
+                <span>Author</span>
                 <div class="ratting-section">
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
-                  <span> <strong>4.5</strong>(7,000 rattings) </span>
+                  <span> <strong>4.5</strong> (7,000 rattings) </span>
                 </div>
                 <div class="text-right main-price">
-                  <span>$40.2</span>
-                  <strong>$22.03</strong>
+                  <span *ngIf="course.discount_price">
+                    {{course.price_currency}} {{course.discount_price}}
+                  </span>
+                  <strong *ngIf="course.price">
+                    {{course.price_currency}} {{course.price}}
+                  </strong>
+                  <strong *ngIf="!course.price">
+                    FREE
+                  </strong>
                 </div>
               </div>
             </a>

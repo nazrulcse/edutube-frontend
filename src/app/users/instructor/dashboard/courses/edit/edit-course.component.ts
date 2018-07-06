@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { CourseService } from "../../../../../../services/course_service";
 import { Course } from "../../../../../models/course";
 import { CourseGoal } from "../../../../../models/course_goal";
@@ -35,7 +35,8 @@ export class EditCourseComponent implements OnInit {
   input_category = '';
 
   constructor(private courseService: CourseService,
-  	private route:ActivatedRoute) { 
+  	private route:ActivatedRoute,
+    private router: Router) { 
   	this.course = new Course();
     this.env = environment;
   }
@@ -63,8 +64,10 @@ export class EditCourseComponent implements OnInit {
   public onFileChanged($event, type) {
     const formData = new FormData();
     var file = $event.target.files[0];
+    console.log(file);
     formData.append('file', file, file.name);
     formData.append('upload_type', type);
+    alert(type);
     if(type == 'image') {
       this.uploading_image = true;
     }
@@ -72,11 +75,13 @@ export class EditCourseComponent implements OnInit {
       this.uploading_video = true;
     }
     this.courseService.uploadFile(this.course_id, formData).subscribe(response => {
+      console.log(response);
       if(type == 'image') {
         this.course.image = response.file;
         this.uploading_image = false;
       }
       else {
+        alert("Video file");
         this.course.promo_video = response.file;
         this.uploading_video = false;
       }
@@ -225,6 +230,23 @@ export class EditCourseComponent implements OnInit {
   public filterGoal(data) {
     var newArray = data.filter(value => value.name !== "");
     return newArray.length > 0 ? newArray : Array(new CourseGoal());
+  }
+
+  deleteCourse() {
+    if(confirm("Are you sure want to delete this course?")) {
+      this.courseService.deleteCourse(this.course.id).subscribe(response => {
+        if(response.success) {
+          Notification.show('success', "Course has been deleted");
+          this.router.navigate(['/instructor/dashboard/courses']);
+        }
+        else {
+          Notification.show('error', response.message);
+        }
+      },
+      err => {
+        Notification.show('error'); 
+      });
+    }
   }
 
   public featureNotIncluded() {

@@ -31,6 +31,15 @@ $primary-font: 'Open Sans', sans-serif;
   border-bottom: 1px solid $border-color;
 }
 
+.collapse-table-wrap {
+  .collapse-item {
+    border-bottom: 1px solid #ddd;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
 .course-details-wrap {
   background-color: $main-bg;
   font-family: "Open Sans", sans-serif;
@@ -542,12 +551,6 @@ $primary-font: 'Open Sans', sans-serif;
 /* Responsive design */
 //Desktop
 @media all and (max-width: 1199px) {
-  //.recent-activity {
-  //  h3 {
-  //    color: green !important;
-  //  }
-  //}
-
   .course-details-wrap {
     .what-learn {
       .wl-container {
@@ -566,12 +569,6 @@ $primary-font: 'Open Sans', sans-serif;
 
 //Medium
 @media all and (max-width: 991px) {
-  //.recent-activity {
-  //  h3 {
-  //    color: yellow !important;
-  //  }
-  //}
-
   .tutor-info-item {
     .about-tutor-wrap {
       h3 {}
@@ -605,12 +602,6 @@ $primary-font: 'Open Sans', sans-serif;
 
 //Tab
 @media all and (max-width: 768px) {
-  //.recent-activity {
-  //  h3 {
-  //    color: red !important;
-  //  }
-  //}
-
   .grid-wrap {
     grid-template-columns: auto auto;
   }
@@ -619,12 +610,6 @@ $primary-font: 'Open Sans', sans-serif;
 
 //Mobile
 @media all and (max-width: 575px) {
-  //.recent-activity {
-  //  h3 {
-  //    color: greenyellow !important;
-  //  }
-  //}
-
   .grid-wrap {
     grid-template-columns: auto;
   }

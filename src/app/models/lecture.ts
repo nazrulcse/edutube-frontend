@@ -5,4 +5,6 @@ export class Lecture {
   content_type: string;
   description: string;
   resource: string;
+  upload: any;
+  is_draft = false;
 }

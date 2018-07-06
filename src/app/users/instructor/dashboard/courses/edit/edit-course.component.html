@@ -1,7 +1,7 @@
 <div class="sub-nav-fluid">
   <ul class="sub-nav-ul-style text-center">
     <li><a routerLink="/profile">Profile</a></li>
-    <li><a routerLink="/instructor/dashboard" class="active">Home</a></li>
+    <li><a routerLink="/instructor/dashboard" class="active">Dashboard</a></li>
     <li><a routerLink="/instructor/dashboard/courses" (click)="featureNotIncluded()">My Messages</a></li>
     <li><a routerLink="/instructor/dashboard/courses" (click)="featureNotIncluded()">My Notification</a></li>
     <li><a routerLink="/profile/edit">Edit Profile</a></li>
@@ -131,7 +131,7 @@
                           <button class="round-btn-default pull-right"> Preview </button>
                           <button class="round-btn-default pull-right mr15"> Upload Multiple Files </button>
                         </div>
-                        <app-course-curriculum [course]="course"></app-course-curriculum>
+                        <app-course-curriculum [course]="course" [course_id]="course_id"></app-course-curriculum>
                       </form>
                     </div>
 
@@ -236,7 +236,7 @@
                             <label class='edu-label-default'> Promotional video </label>
                             <div class='course-upload-file'>
                               <img *ngIf="!course.promo_video" src='/assets/images/envelope-large.png'/>
-                              <img *ngIf="course.promo_video" src='{{env.assets_host}}{{course.promo_video}}'/>
+                              <img *ngIf="course.promo_video" src='/assets/images/video_preview.png'/>
                               <div class='context'>
                                 <p class='mb5'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper ante eget augue malesuada pretium. Sed aliquam convallis tempor. Fusce quis gravida diam. Etiam viverra</p>
                                 <div class="upload-btn-wrapper">
@@ -403,7 +403,7 @@
                         <div class='inner-body'>
                             <p class='mb8'> <b> Course Satus </b> </p>
                             <button type="button" class='btn default-btn pt2 pb2 mb10'> {{course.status}} </button> <br/>
-                            <button type="button" class='btn primary-btn  pt2 pb2'> Delete </button>
+                            <button type="button" class='btn primary-btn  pt2 pb2' (click)="deleteCourse();"> Delete </button>
                           </div>
                       </form>
                     </div>

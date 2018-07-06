@@ -389,68 +389,30 @@
               <div class="col-sm-8">
                 <h3 class="main-title">Curriculum for this course</h3>
               </div>
-              <div class="col-sm-2 text-right"><p>15 lectures</p></div>
+              <div class="col-sm-2 text-right"><p *ngIf="lectures"> {{lectures.length}} lectures</p></div>
               <div class="col-sm-2 text-right"><p>2.05 hours</p></div>
             </div>
-            <div class="course-curriculum">
+            <div class="course-curriculum" *ngIf="lectures">
               <div class="collapse-table-wrap">
-                <div class="collapse-item">
-                  <a href="#collapseOne" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
+                <div class="collapse-item" *ngFor="let lecture of lectures">
+                  <a href="#collapseOne_{{lecture.id}}" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
                     <div class="c-table-row">
                       <div class="c-icon"><i class="fa fa-plus"></i></div>
-                      <div class="c-content">Lorem Ipsum is simply dummy text of the printing</div>
-                      <div class="c-lecture">3 lectures</div>
+                      <div class="c-content"> {{lecture.title}} </div>
                       <div class="c-time">10.35pm</div>
                     </div>
                   </a>
-                  <div id="collapseOne" class="collapse collapse-body">
+                  <div id="collapseOne_{{lecture.id}}" class="collapse collapse-body">
                     <div class="body-item clearfix">
                       <div class="item-left pull-left">
-                        <i class="fa fa-play-circle"></i>Introduction
-                      </div>
-                      <div class="item-right pull-right">10.25</div>
-                    </div><!-- body-item -->
-                    <div class="body-item clearfix">
-                      <div class="item-left pull-left">
-                        <i class="fa fa-play-circle"></i>Introduction
-                      </div>
-                      <div class="item-right pull-right">10.25</div>
-                    </div><!-- body-item -->
-                    <div class="body-item clearfix">
-                      <div class="item-left pull-left">
-                        <i class="fa fa-play-circle"></i>Introduction
+                        <i class="fa fa-play-circle"></i> 
+                        {{lecture.description}}
                       </div>
                       <div class="item-right pull-right">10.25</div>
                     </div><!-- body-item -->
                   </div>
                 </div><!-- collapse-item -->
-
-                <div class="collapse-item">
-                  <a href="#collapseTwo" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
-                    <div class="c-table-row">
-                      <div class="c-icon"><i class="fa fa-plus"></i></div>
-                      <div class="c-content">Lorem Ipsum is simply dummy text of the printing</div>
-                      <div class="c-lecture">3 lectures</div>
-                      <div class="c-time">10.35pm</div>
-                    </div>
-                  </a>
-                  <div id="collapseTwo" class="collapse collapse-body">fdsfsdkfs,mdfnm,sndf,mns,df</div>
-                </div><!-- collapse-item -->
-
-                <div class="collapse-item">
-                  <a href="#collapseThree" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
-                    <div class="c-table-row">
-                      <div class="c-icon"><i class="fa fa-plus"></i></div>
-                      <div class="c-content">Lorem Ipsum is simply dummy text of the printing</div>
-                      <div class="c-lecture">3 lectures</div>
-                      <div class="c-time">10.35pm</div>
-                    </div>
-                  </a>
-                  <div id="collapseThree" class="collapse collapse-body">fdsfsdkfs,mdfnm,sndf,mns,df</div>
-                </div><!-- collapse-item -->
               </div>
-
-
             </div>
           </div><!-- Curriculum collapse item -->
           <div class="tabs-item">
@@ -735,44 +697,29 @@
     </div><!-- Course details -->
     <div id="course-content-tab" class="tab-pane fade" role="tabpanel">
       <div class="course-content-wrap">
-        <div class="course-content-container container pb20">
+        <div class="course-content-container container pb20" *ngFor="let lecture of lectures; let i = index">
           <div class="tutorial-section">
             <div class="tutorial-head">
               <div class="clearfix">
-                <span class="pull-left">Section: 1</span>
-                <span class="pull-right">0/4</span>
+                <span class="pull-left">Lecture: {{i + 1}}</span>
+                <span class="pull-right">{{i + 1}}/{{lectures.length}}</span>
               </div>
-              <h4>Introduction</h4>
+              <h4>{{lecture.title}}</h4>
             </div>
             <div class="tutorial-list">
               <ul class="common-ul-style tutorial-list-ul">
                 <li>
                   <a href="#">
                     <div class="video-play"><i class="fa fa-play-circle"></i></div>
-                    <div class="info">Lorem Ipsum is simply dummy text of the printing and typesetting indus</div>
-                    <div class="time">3.14pm</div>
-                    <div class="radio"></div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <div class="video-play"><i class="fa fa-play-circle"></i></div>
-                    <div class="info">Lorem Ipsum is simply dummy text of the printing and typesetting indus</div>
-                    <div class="time">3.14pm</div>
-                    <div class="radio"></div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <div class="video-play"><i class="fa fa-play-circle"></i></div>
-                    <div class="info">Lorem Ipsum is simply dummy text of the printing and typesetting indus</div>
+                    <div class="info">
+                      {{lecture.description}}
+                    </div>
                     <div class="time">3.14pm</div>
                     <div class="radio"></div>
                   </a>
                 </li>
               </ul>
             </div>
-
           </div>
         </div>
       </div>

@@ -37,13 +37,33 @@ export class CourseService {
   }
 
   /**
-   * get course of give id
+   * get top courses
    * @description Should return course as json from API.
+   * 
+   * @returns {Course<JSON>}
+   */
+  public getTopCourses(): Observable<any> {
+    return this.http.get(this.base_url + "/api/auth/top_courses");
+  }
+
+  /**
+   * get top courses of different type
+   * @description Should return courses from different category like top view, latest upload, top shared.
    * 
    * @returns {Course<JSON>}
    */
   public getCourse(id): Observable<any> {
     return this.http.get(this.base_url + "/api/auth/courses/" + id, {headers: this.authService.getAuthHeader()});
+  }
+
+  /**
+   * delete course by id
+   * @description Should delete course and return status.
+   * 
+   * @returns {Response<JSON>}
+   */
+  public deleteCourse(id): Observable<any> {
+    return this.http.post(this.base_url + "/api/auth/courses/" + id + "/delete", {course_id: id}, {headers: this.authService.getAuthHeader()});
   }
 
   /**
