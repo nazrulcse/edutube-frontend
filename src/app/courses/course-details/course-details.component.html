@@ -3,7 +3,8 @@
     <div class="container top-nav-container">
       <ul id="top-nav-ul" class="common-ul-style">
         <li>
-          <a routerLink="/">Home</a><span class="edu-caret right"></span>
+          <a routerLink="/">Home</a>
+          <span class="edu-caret right"></span>
         </li>
         <li *ngIf="category.slug">
           <a routerLink="/c/{{category.slug}}"> {{category.title}} </a>
@@ -15,7 +16,8 @@
         </li>
       </ul>
     </div>
-  </div><!-- Top nav -->
+  </div>
+  <!-- Top nav -->
   <div class="algebra-wrap bg2 white">
     <div class="algebra-container container">
       <div class="algebra-row row">
@@ -29,21 +31,32 @@
               <li>
                 <ul class="star-ul common-ul-style">
                   <li>
-                    <a href="#"><i class="fa fa-star checked"></i></a>
+                    <a href="#">
+                      <i class="fa fa-star checked"></i>
+                    </a>
                   </li>
                   <li>
-                    <a href="#"><i class="fa fa-star checked"></i></a>
+                    <a href="#">
+                      <i class="fa fa-star checked"></i>
+                    </a>
                   </li>
                   <li>
-                    <a href="#"><i class="fa fa-star checked"></i></a>
+                    <a href="#">
+                      <i class="fa fa-star checked"></i>
+                    </a>
                   </li>
                   <li>
-                    <a href="#"><i class="fa fa-star checked"></i></a>
+                    <a href="#">
+                      <i class="fa fa-star checked"></i>
+                    </a>
                   </li>
                   <li>
-                    <a href="#"><i class="fa fa-star checked"></i></a>
+                    <a href="#">
+                      <i class="fa fa-star checked"></i>
+                    </a>
                   </li>
-                </ul><!-- Star list -->
+                </ul>
+                <!-- Star list -->
               </li>
               <li>
                 <span>4.5</span>(15,000 ratings)
@@ -52,16 +65,21 @@
                 <span>25,000</span>students enrolled
               </li>
             </ul>
-          </div><!-- Ratings wrap -->
-          <p>Uploaded by <span> {{author.first_name}} {{author.last_name}} </span></p>
+          </div>
+          <!-- Ratings wrap -->
+          <p>Uploaded by
+            <span> {{author.first_name}} {{author.last_name}} </span>
+          </p>
         </div>
         <div class="algebra-video col-md-3 col-sm-6 col-xs-12">
-          <img width="100%" height="100%" class="img-responsive" src="assets/images/courses/course-details.png"
-               alt="Course details">
+          <a data-target="#lecture-content-modal" data-toggle="modal">
+            <img width="100%" height="100%" class="img-responsive" src="assets/images/video_preview.png" alt="Course details" style="cursor: pointer;">
+          </a>
         </div>
       </div>
     </div>
-  </div><!-- Algebraic expressions -->
+  </div>
+  <!-- Algebraic expressions -->
 
   <div class="subscription-nav white-bg">
     <div class="sub-nav-container container">
@@ -86,12 +104,14 @@
         </li>
         <li>
           <a data-toggle="tab" href="#more-tab" role="tab" aria-controls="more-tab" aria-selected="false">
-            More <span class="edu-caret down"></span>
+            More
+            <span class="edu-caret down"></span>
           </a>
         </li>
       </ul>
     </div>
-  </div><!-- Subscription nav menu -->
+  </div>
+  <!-- Subscription nav menu -->
 
   <div class="tab-content what-learn">
     <div id="overview-tab" class="tab-pane fade show active" role="tabpanel">
@@ -103,133 +123,144 @@
               <div class="col-sm-8">
                 <table class="table edu-table-default table-responsive">
                   <thead>
-                  <tr>
-                    <th colspan="3">Recent Questions</th>
-                    <th class="custom-btn"><a>Ask Question</a></th>
-                  </tr>
+                    <tr>
+                      <th colspan="3">Recent Questions</th>
+                      <th class="custom-btn">
+                        <a>Ask Question</a>
+                      </th>
+                    </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td class="profile-pic">
-                      <a><img src="assets/images/newaj.jpg" alt="Profile pic"></a>
-                    </td>
-                    <td class="description">
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply
-                        dummy text of the printing and typesetting industry.
-                      </p>
-                      <span>1 day ago</span>
-                    </td>
-                    <td class="like">0 <br>Likes</td>
-                    <td class="answer">1 <br>Answer</td>
-                  </tr>
-                  <tr>
-                    <td class="profile-pic">
-                      <a><img src="assets/images/newaj.jpg" alt="Profile pic"></a>
-                    </td>
-                    <td class="description">
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply
-                        dummy text of the printing and typesetting industry.
-                      </p>
-                      <span>1 day ago</span>
-                    </td>
-                    <td class="like">0 <br>Likes</td>
-                    <td class="answer">1 <br>Answer</td>
-                  </tr>
-                  <tr>
-                    <td class="profile-pic">
-                      <a><img src="assets/images/newaj.jpg" alt="Profile pic"></a>
-                    </td>
-                    <td class="description">
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply
-                        dummy text of the printing and typesetting industry.
-                      </p>
-                      <span>1 day ago</span>
-                    </td>
-                    <td class="like">0 <br>Likes</td>
-                    <td class="answer">1 <br>Answer</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td colspan="3">
-                      <a class="see-all">See All</a>
-                    </td>
-                  </tr>
+                    <tr>
+                      <td class="profile-pic">
+                        <a>
+                          <img src="assets/images/newaj.jpg" alt="Profile pic">
+                        </a>
+                      </td>
+                      <td class="description">
+                        <p>
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing
+                          and typesetting industry.
+                        </p>
+                        <span>1 day ago</span>
+                      </td>
+                      <td class="like">0
+                        <br>Likes</td>
+                      <td class="answer">1
+                        <br>Answer</td>
+                    </tr>
+                    <tr>
+                      <td class="profile-pic">
+                        <a>
+                          <img src="assets/images/newaj.jpg" alt="Profile pic">
+                        </a>
+                      </td>
+                      <td class="description">
+                        <p>
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing
+                          and typesetting industry.
+                        </p>
+                        <span>1 day ago</span>
+                      </td>
+                      <td class="like">0
+                        <br>Likes</td>
+                      <td class="answer">1
+                        <br>Answer</td>
+                    </tr>
+                    <tr>
+                      <td class="profile-pic">
+                        <a>
+                          <img src="assets/images/newaj.jpg" alt="Profile pic">
+                        </a>
+                      </td>
+                      <td class="description">
+                        <p>
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing
+                          and typesetting industry.
+                        </p>
+                        <span>1 day ago</span>
+                      </td>
+                      <td class="like">0
+                        <br>Likes</td>
+                      <td class="answer">1
+                        <br>Answer</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td colspan="3">
+                        <a class="see-all">See All</a>
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
               <div class="col-sm-4">
                 <table class="table edu-table-default table-responsive">
                   <thead>
-                  <tr>
-                    <th colspan="3">Tutor Announcements</th>
-                  </tr>
+                    <tr>
+                      <th colspan="3">Tutor Announcements</th>
+                    </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td class="description">
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply
-                        dummy text of the printing and typesetting industry.
-                      </p>
-                      <span>1 day ago</span>
-                    </td>
-                    <td class="description">
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply
-                        dummy text of the printing and typesetting industry.
-                      </p>
-                      <span>1 day ago</span>
-                    </td>
-                    <td class="description">
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply
-                        dummy text of the printing and typesetting industry.
-                      </p>
-                      <span>1 day ago</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="3">
-                      <a class="see-all">See All</a>
-                    </td>
-                  </tr>
+                    <tr>
+                      <td class="description">
+                        <p>
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing
+                          and typesetting industry.
+                        </p>
+                        <span>1 day ago</span>
+                      </td>
+                      <td class="description">
+                        <p>
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing
+                          and typesetting industry.
+                        </p>
+                        <span>1 day ago</span>
+                      </td>
+                      <td class="description">
+                        <p>
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing
+                          and typesetting industry.
+                        </p>
+                        <span>1 day ago</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">
+                        <a class="see-all">See All</a>
+                      </td>
+                    </tr>
 
                   </tbody>
                 </table>
               </div>
             </div>
-          </div><!-- Recent activity -->
+          </div>
+          <!-- Recent activity -->
           <div class="tabs-item">
             <div class='curriculum-tabs'>
               <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#overview-tab-1" role="tab" aria-controls="home"
-                     aria-selected="true">
+                  <a class="nav-link active" data-toggle="tab" href="#overview-tab-1" role="tab" aria-controls="home" aria-selected="true">
                     Description
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#overview-tab-2" role="tab" aria-controls="profile"
-                     aria-selected="false">Feedback</a>
+                  <a class="nav-link" data-toggle="tab" href="#overview-tab-2" role="tab" aria-controls="profile" aria-selected="false">Feedback</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#overview-tab-3" role="tab" aria-controls="contact"
-                     aria-selected="false">Reviews</a>
+                  <a class="nav-link" data-toggle="tab" href="#overview-tab-3" role="tab" aria-controls="contact" aria-selected="false">Reviews</a>
                 </li>
               </ul>
               <div class="tab-content tab-content-default">
                 <div role="tabpanel" class="tab-pane fade show active" id="overview-tab-1">
                   <div class='inner-body'>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis ante libero, in gravida nisl
-                      volutpat ut. Mauris vitae suscipit dolor, id condimentum dolor. Donec cursus mattis egestas.
-                      Curabitur consequat sollicitudin dictum. Pellentesque quis diam sit amet mauris rutrum tempor.
-                      Fusce imperdiet faucibus urna ut tempus. Maecenas pulvinar congue tortor non mollis. Etiam non
-                      erat auctor, aliquam magna eget, commodo dolor. Vestibulum in enim laoreet, bibendum sapien non,
-                      eleifend erat.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis ante libero, in gravida nisl volutpat ut. Mauris vitae
+                      suscipit dolor, id condimentum dolor. Donec cursus mattis egestas. Curabitur consequat sollicitudin
+                      dictum. Pellentesque quis diam sit amet mauris rutrum tempor. Fusce imperdiet faucibus urna ut tempus.
+                      Maecenas pulvinar congue tortor non mollis. Etiam non erat auctor, aliquam magna eget, commodo dolor.
+                      Vestibulum in enim laoreet, bibendum sapien non, eleifend erat.
                     </p>
                   </div>
                 </div>
@@ -245,14 +276,17 @@
                 </div>
               </div>
             </div>
-          </div><!-- Curriculum tabs -->
+          </div>
+          <!-- Curriculum tabs -->
           <div class="tutor-info-item">
             <div class="about-tutor-wrap mb0">
               <h3 class="main-title">About the Tutor</h3>
               <div class="tutor-content bottom-box-shadow">
                 <div class="profile-view text-center">
                   <img class="img-responsive" src="assets/images/newaj.jpg" alt="Tutor pic">
-                  <p>Online <span class="fa fa-circle"></span></p>
+                  <p>Online
+                    <span class="fa fa-circle"></span>
+                  </p>
                   <a href="" class="btn default-btn-sm">Follow Me</a>
                 </div>
                 <div class="profile-info">
@@ -262,21 +296,32 @@
                       <li>
                         <ul class="star-ul common-ul-style">
                           <li>
-                            <a href="#"><i class="fa fa-star checked"></i></a>
+                            <a href="#">
+                              <i class="fa fa-star checked"></i>
+                            </a>
                           </li>
                           <li>
-                            <a href="#"><i class="fa fa-star checked"></i></a>
+                            <a href="#">
+                              <i class="fa fa-star checked"></i>
+                            </a>
                           </li>
                           <li>
-                            <a href="#"><i class="fa fa-star checked"></i></a>
+                            <a href="#">
+                              <i class="fa fa-star checked"></i>
+                            </a>
                           </li>
                           <li>
-                            <a href="#"><i class="fa fa-star checked"></i></a>
+                            <a href="#">
+                              <i class="fa fa-star checked"></i>
+                            </a>
                           </li>
                           <li>
-                            <a href="#"><i class="fa fa-star checked"></i></a>
+                            <a href="#">
+                              <i class="fa fa-star checked"></i>
+                            </a>
                           </li>
-                        </ul><!-- Star list -->
+                        </ul>
+                        <!-- Star list -->
                       </li>
                       <li>
                         <span>4.5</span>(15,000 ratings)
@@ -285,15 +330,14 @@
                         <span>25,000</span>students enrolled
                       </li>
                     </ul>
-                  </div><!-- Ratings wrap -->
+                  </div>
+                  <!-- Ratings wrap -->
                   <span>Mathematics</span>
                   <p>
-                    "Best course I've taken on Udemy. Solid course. I'm in the middle of starting a business and this is
-                    perfect. I had heard about how
-                    Best course I've taken on Udemy. Solid course. I'm in the middle of starting a business and this is
-                    perfect. I had heard about how
-                    Best course I've taken on Udemy. Solid course. I'm in the middle of starting a business and this is
-                    perfect. I had heard about how
+                    "Best course I've taken on Udemy. Solid course. I'm in the middle of starting a business and this is perfect. I had heard
+                    about how Best course I've taken on Udemy. Solid course. I'm in the middle of starting a business and
+                    this is perfect. I had heard about how Best course I've taken on Udemy. Solid course. I'm in the middle
+                    of starting a business and this is perfect. I had heard about how
                   </p>
                   <div class='user-stats-section'>
                     <section>
@@ -320,45 +364,47 @@
                 </div>
               </div>
             </div>
-          </div><!-- Tutor info item -->
-          
+          </div>
+          <!-- Tutor info item -->
+
           <hr/>
 
           <h3 class="main-title mb20">Related courses: </h3>
           <div class='course-listing'>
             <div class='row'>
               <div class='col-lg-12'>
-               <div class='row'>
-                <div class="course-block col-sm-3" *ngFor="let course of related_course">
-                  <div class='image-header' [style.background-image]="thumb(course.image)"> </div>
-                  <div class="course-body">
-                    <h3> 
-                      <a class='edu-link-default' routerLink="/courses/{{course.id}}"> {{course.title}} </a>
-                    </h3>
-                    <div class='course-details'>  </div>
-                    <div class='course-footer'>
-                      <div class='author'> {{course.user}} </div>
-                      <div class='general-ratting mt4 mb3'>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <div class='course-fee clearfix'> 
-                        <b class='pull-right'> {{course.price ? course.price_currency + " " + course.price : 'Free'}} </b>
+                <div class='row'>
+                  <div class="course-block col-sm-3" *ngFor="let course of related_course">
+                    <div class='image-header' [style.background-image]="thumb(course.image)"> </div>
+                    <div class="course-body">
+                      <h3>
+                        <a class='edu-link-default' routerLink="/courses/{{course.id}}"> {{course.title}} </a>
+                      </h3>
+                      <div class='course-details'> </div>
+                      <div class='course-footer'>
+                        <div class='author'> {{course.user}} </div>
+                        <div class='general-ratting mt4 mb3'>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                        </div>
+                        <div class='course-fee clearfix'>
+                          <b class='pull-right'> {{course.price ? course.price_currency + " " + course.price : 'Free'}} </b>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-               </div>
-             </div>
+              </div>
             </div>
           </div>
 
         </div>
       </div>
-    </div><!-- Overview -->
+    </div>
+    <!-- Overview -->
     <div id="course-details-tab" class="tab-pane fade wl-container container" role="tabpanel">
       <div class="wl-row row">
         <div class="wl-left-col col-md-9 col-sm-6 col-xs-12">
@@ -367,12 +413,13 @@
             <ul class="common-ul-style learn-item-ul">
               <li *ngFor="let learn of course_goal.what_to_learn">
                 <p>
-                 {{learn.name}}
+                  {{learn.name}}
                 </p>
               </li>
             </ul>
             <!-- <a href="#" class="view-more ml30">View More</a> -->
-          </div><!-- Learn item  -->
+          </div>
+          <!-- Learn item  -->
           <div class="requirements-item">
             <h3>Requirements</h3>
             <ul class="requirements-item-ul common-ul-style">
@@ -380,21 +427,28 @@
                 <p> {{requirement.name}} </p>
               </li>
             </ul>
-          </div><!-- Requirements item -->
+          </div>
+          <!-- Requirements item -->
           <div class="curriculum-item clearfix">
             <div class="row pt20">
               <div class="col-sm-8">
                 <h3 class="main-title">Curriculum for this course</h3>
               </div>
-              <div class="col-sm-2 text-right"><p *ngIf="lectures"> {{lectures.length}} lectures</p></div>
-              <div class="col-sm-2 text-right"><p>2.05 hours</p></div>
+              <div class="col-sm-2 text-right">
+                <p *ngIf="lectures"> {{lectures.length}} lectures</p>
+              </div>
+              <div class="col-sm-2 text-right">
+                <p>2.05 hours</p>
+              </div>
             </div>
             <div class="course-curriculum" *ngIf="lectures">
               <div class="collapse-table-wrap">
                 <div class="collapse-item" *ngFor="let lecture of lectures">
                   <a href="#collapseOne_{{lecture.id}}" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
                     <div class="c-table-row">
-                      <div class="c-icon"><i class="fa fa-plus"></i></div>
+                      <div class="c-icon">
+                        <i class="fa fa-plus"></i>
+                      </div>
                       <div class="c-content"> {{lecture.title}} </div>
                       <div class="c-time">10.35pm</div>
                     </div>
@@ -402,32 +456,32 @@
                   <div id="collapseOne_{{lecture.id}}" class="collapse collapse-body">
                     <div class="body-item clearfix">
                       <div class="item-left pull-left">
-                        <i class="fa fa-play-circle"></i> 
+                        <i class="fa fa-play-circle"></i>
                         {{lecture.description}}
                       </div>
                       <div class="item-right pull-right">10.25</div>
-                    </div><!-- body-item -->
+                    </div>
+                    <!-- body-item -->
                   </div>
-                </div><!-- collapse-item -->
+                </div>
+                <!-- collapse-item -->
               </div>
             </div>
-          </div><!-- Curriculum collapse item -->
+          </div>
+          <!-- Curriculum collapse item -->
           <div class="tabs-item">
             <div class='curriculum-tabs'>
               <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#content-tab" role="tab" aria-controls="home"
-                     aria-selected="true">
+                  <a class="nav-link active" data-toggle="tab" href="#content-tab" role="tab" aria-controls="home" aria-selected="true">
                     Description
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#description-tab" role="tab" aria-controls="profile"
-                     aria-selected="false">Feedback</a>
+                  <a class="nav-link" data-toggle="tab" href="#description-tab" role="tab" aria-controls="profile" aria-selected="false">Feedback</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#resource-tab" role="tab" aria-controls="contact"
-                     aria-selected="false">Reviews</a>
+                  <a class="nav-link" data-toggle="tab" href="#resource-tab" role="tab" aria-controls="contact" aria-selected="false">Reviews</a>
                 </li>
               </ul>
               <div class="tab-content tab-content-default">
@@ -450,7 +504,8 @@
                 </div>
               </div>
             </div>
-          </div><!-- Curriculum tabs -->
+          </div>
+          <!-- Curriculum tabs -->
           <div class="tutor-info-item">
             <div class="about-tutor-wrap border-bottom">
               <h3 class="main-title">About the Tutor</h3>
@@ -458,7 +513,9 @@
                 <div class="profile-view text-center">
                   <img class="img-responsive" src="assets/images/newaj.jpg" alt="Tutor pic" *ngIf="!author.image">
                   <img class="img-responsive" src="{{env.assets_host}}{{author.image}}" alt="Tutor pic" *ngIf="author.image">
-                  <p>Online <span class="fa fa-circle"></span></p>
+                  <p>Online
+                    <span class="fa fa-circle"></span>
+                  </p>
                   <a href="" class="btn default-btn-sm">Follow Me</a>
                 </div>
                 <div class="profile-info">
@@ -468,21 +525,32 @@
                       <li>
                         <ul class="star-ul common-ul-style">
                           <li>
-                            <a href="#"><i class="fa fa-star checked"></i></a>
+                            <a href="#">
+                              <i class="fa fa-star checked"></i>
+                            </a>
                           </li>
                           <li>
-                            <a href="#"><i class="fa fa-star checked"></i></a>
+                            <a href="#">
+                              <i class="fa fa-star checked"></i>
+                            </a>
                           </li>
                           <li>
-                            <a href="#"><i class="fa fa-star checked"></i></a>
+                            <a href="#">
+                              <i class="fa fa-star checked"></i>
+                            </a>
                           </li>
                           <li>
-                            <a href="#"><i class="fa fa-star checked"></i></a>
+                            <a href="#">
+                              <i class="fa fa-star checked"></i>
+                            </a>
                           </li>
                           <li>
-                            <a href="#"><i class="fa fa-star checked"></i></a>
+                            <a href="#">
+                              <i class="fa fa-star checked"></i>
+                            </a>
                           </li>
-                        </ul><!-- Star list -->
+                        </ul>
+                        <!-- Star list -->
                       </li>
                       <li>
                         <span>4.5</span> (15,000 ratings)
@@ -491,7 +559,8 @@
                         <span>25,000</span> students enrolled
                       </li>
                     </ul>
-                  </div><!-- Ratings wrap -->
+                  </div>
+                  <!-- Ratings wrap -->
                   <span>Mathematics</span>
                   <p>
                     {{author.about_me}}
@@ -521,7 +590,8 @@
                 </div>
               </div>
             </div>
-          </div><!-- Tutor info item -->
+          </div>
+          <!-- Tutor info item -->
 
           <div class="other-course-item">
             <div class="subject-group p20">
@@ -535,21 +605,32 @@
                     <div class="star-wrap">
                       <ul class="star-item common-ul-style">
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
-                      </ul><!-- Star list -->
+                      </ul>
+                      <!-- Star list -->
                     </div>
                     <div class="text-right price">
                       <span>
@@ -560,7 +641,8 @@
                       </strong>
                     </div>
                   </div>
-                </div><!-- Grid item -->
+                </div>
+                <!-- Grid item -->
                 <div class="grid-item">
                   <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
                   <div class="subject-info">
@@ -569,21 +651,32 @@
                     <div class="star-wrap">
                       <ul class="star-item common-ul-style">
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
-                      </ul><!-- Star list -->
+                      </ul>
+                      <!-- Star list -->
                     </div>
                     <div class="text-right price">
                       <span>
@@ -594,7 +687,8 @@
                       </strong>
                     </div>
                   </div>
-                </div><!-- Grid item -->
+                </div>
+                <!-- Grid item -->
                 <div class="grid-item">
                   <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
                   <div class="subject-info">
@@ -603,21 +697,32 @@
                     <div class="star-wrap">
                       <ul class="star-item common-ul-style">
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
-                      </ul><!-- Star list -->
+                      </ul>
+                      <!-- Star list -->
                     </div>
                     <div class="text-right price">
                       <span>
@@ -628,7 +733,8 @@
                       </strong>
                     </div>
                   </div>
-                </div><!-- Grid item -->
+                </div>
+                <!-- Grid item -->
                 <div class="grid-item">
                   <img src="assets/images/courses/math.png" class="img-responsive" alt="Math pic">
                   <div class="subject-info">
@@ -637,21 +743,32 @@
                     <div class="star-wrap">
                       <ul class="star-item common-ul-style">
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-star checked"></i></a>
+                          <a href="#">
+                            <i class="fa fa-star checked"></i>
+                          </a>
                         </li>
-                      </ul><!-- Star list -->
+                      </ul>
+                      <!-- Star list -->
                     </div>
                     <div class="text-right price">
                       <span>
@@ -662,18 +779,25 @@
                       </strong>
                     </div>
                   </div>
-                </div><!-- Grid item -->
-              </div><!-- CSS grid -->
-            </div><!-- Subject group -->
-          </div><!-- Other-course-item -->
+                </div>
+                <!-- Grid item -->
+              </div>
+              <!-- CSS grid -->
+            </div>
+            <!-- Subject group -->
+          </div>
+          <!-- Other-course-item -->
 
         </div>
         <div class="wl-right-col col-md-3 col-sm-6 col-xs-12">
           <div class="course-price bottom-box-shadow ">
             <div class="text-content">
-              Course Fee: <strong>Free</strong>
+              Course Fee:
+              <strong>Free</strong>
             </div>
-            <p>Have a Coupon? <a href="#">Click Here</a></p>
+            <p>Have a Coupon?
+              <a href="#">Click Here</a>
+            </p>
             <div class="form-group mb10">
               <a href="#" class="btn primary-btn width-100">Buy Now</a>
             </div>
@@ -691,7 +815,8 @@
           </div>
         </div>
       </div>
-    </div><!-- Course details -->
+    </div>
+    <!-- Course details -->
     <div id="course-content-tab" class="tab-pane fade" role="tabpanel">
       <div class="course-content-wrap pb30">
         <div class="course-content-container container" *ngFor="let lecture of lectures; let i = index">
@@ -707,7 +832,11 @@
               <ul class="common-ul-style tutorial-list-ul">
                 <li>
                   <a routerLink="/courses/{{course.id}}/lectures/{{lecture.id}}">
-                    <div class="video-play"><i class="fa fa-play-circle"></i></div>
+                    <!-- <div class="video-play"><i class="fa fa-play-circle"></i></div> -->
+                  <!-- <a href="#"> -->
+                    <div class="video-play">
+                      <i class="fa fa-play-circle"></i>
+                    </div>
                     <div class="info">
                       {{lecture.description}}
                     </div>
@@ -719,7 +848,7 @@
             </div>
           </div>
         </div>
-    </div>
+      </div>
     </div><!-- Course content -->
     <div id="announcement-tab" class="tab-pane fade" role="tabpanel">
       <div class="announcement-wrap">
@@ -733,20 +862,23 @@
               </div>
             </div>
             <div class="comments-content">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text
+                of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply
+                dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum
+                is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing
+                and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
             </div>
-          </div><!-- Comments wrap -->
+          </div>
+          <!-- Comments wrap -->
           <div class="comments-list">
             <div class="list-container">
               <div class="comments-head mb15 border-bottom">
                 <img src="assets/images/newaj.jpg" alt="">
                 <div class="info">
                   <form class="" role="form">
-                    <input type="email" class="input-inner form-control" >
+                    <input type="email" class="input-inner form-control">
                   </form>
                 </div>
               </div>
@@ -755,9 +887,10 @@
                 <div class="info">
                   <h3>Ali Jafar</h3>
                   <span>posted 2 days ago</span>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum is simply dummy text of the printing and types</p>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text
+                    of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply
+                    dummy text of the printing and types</p>
                 </div>
               </div>
               <div class="comments-head mb15 border-bottom">
@@ -765,18 +898,22 @@
                 <div class="info">
                   <h3>Ali Jafar</h3>
                   <span>posted 2 days ago</span>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum is simply dummy text of the printing and types</p>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text
+                    of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply
+                    dummy text of the printing and types</p>
                 </div>
               </div>
             </div>
 
-          </div><!-- Comments list -->
+          </div>
+          <!-- Comments list -->
         </div>
       </div>
-    </div><!-- Course announcement -->
-    <div id="q-a-tab" class="custom-note tab-pane fade" role="tabpanel">We are working here....</div><!-- Q&A -->
+    </div>
+    <!-- Course announcement -->
+    <div id="q-a-tab" class="custom-note tab-pane fade" role="tabpanel">We are working here....</div>
+    <!-- Q&A -->
 
 
 
@@ -791,11 +928,28 @@
           </div>
         </div>
       </div>
-    </div><!-- Exam -->
+    </div>
+    <!-- Exam -->
 
 
 
 
-    <div id="more-tab" class="custom-note tab-pane fade" role="tabpanel">We are working here....</div><!-- More -->
-  </div><!-- What will learn -->
+    <div id="more-tab" class="custom-note tab-pane fade" role="tabpanel">We are working here....</div>
+    <!-- More -->
+  </div>
+  <!-- What will learn -->
+</div>
+
+<div class="modal fade" id="lecture-content-modal" tabindex="-1" role="dialog" aria-labelledby="modalLoginForm">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{course.title}}</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <video width="100%" class="video" autoplay controls src="{{env.assets_host}}{{course.promo_video}}" *ngIf="course.promo_video"></video>
+    </div>
+  </div>
 </div>

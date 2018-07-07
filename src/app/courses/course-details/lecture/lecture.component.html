@@ -1,12 +1,12 @@
 <div class="course-details-wrap">
-  <div class="top-nav">
+  <div class="top-nav" *ngIf="course">
     <div class="container top-nav-container">
       <ul id="top-nav-ul" class="common-ul-style">
         <li>
           <a routerLink="/">Home</a><span class="edu-caret right"></span>
         </li>
         <li>
-          <a href="javascript:void(0);"> {{course.title}} </a>
+          <a routerLink="/courses/{{course.id}}"> {{course.title}} </a>
           <span class="edu-caret right"></span>
         </li>
       </ul>
@@ -26,6 +26,12 @@
 		  	  </p>
 		  	  <div class='lecture-main-content'>
 		  	  	<div [innerHTML]="getContent(lecture.content_url)"></div>
+		  	  </div>
+		  	  <div>
+		  	  	<a href='/' class='btn btn-light'> Download </a>
+		  	  	<a href='/' class='btn btn-primary'> Share </a>
+		  	  	<a href='/' class='btn btn-info'> Comments </a>
+		  	  	<a href='/' class='btn btn-success'> Assessment </a>
 		  	  </div>
       	  	</div>
       	  	<div class='col-md-4'>

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser'
 import { Course } from '../../../models/course';
 import { Lecture } from '../../../models/lecture';
 import { CourseService } from '../../../../services/course_service';
 import {Notification} from '../../../../services/notification';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-lecture',
@@ -14,7 +16,10 @@ export class LectureComponent implements OnInit {
 
   course: Course;
   lecture: Lecture;
-  constructor(private  courseService: CourseService, private route: ActivatedRoute) { }
+  env: any;
+  constructor(private  courseService: CourseService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
+    this.env = environment
+  }
 
   ngOnInit() {
   	this.course = new Course();
@@ -55,21 +60,24 @@ export class LectureComponent implements OnInit {
   getContent(url) {
   	var youtube = url.search(/youtube.com/i);
     if(youtube > 0) {
-      return "<div> <iframe width='500' height='480' src='" + url + "' frameborder='0'></iframe> </div>";
+      let html = "<div> <iframe width='100%' height='480' src='" + url + "' frameborder='0'></iframe> </div>";
+      return this.sanitizer.bypassSecurityTrustHtml(html);
     }
 
     var re = /(?:\.([^.]+))?$/;
     var ext = re.exec(url)[1];
 
     if(ext && (ext == 'pdf' || ext == 'doc' || ext == 'docx')) {
-      return "<iframe width='100%' height='480' src='" + url + "'></iframe>";
+      let html = "<iframe width='100%' height='480' border='none' src='" + this.env.assets_host + url + "'></iframe>";
+      return this.sanitizer.bypassSecurityTrustHtml(html);
     }
 
     if(ext && (ext == 'png' || ext == 'gif' || ext == 'jpg' || ext == 'jpeg')) {
-      return "<img src='" + url + "' alt='content'/>";
+      return "<img src='" + this.env.assets_host + url + "' alt='content'/>";
     }
 
-    return "<video id='player' playsinline controls width='100%'> <source src='" + url + "' type='video/mp4'> <source src='" + url + "' type='video/webm'>    <track kind='captions' label='English captions' src='/path/to/captions.vtt' srclang='en' default> </video>";
+    let html = "<video id='player' playsinline controls width='100%'> <source src='" + this.env.assets_host + url + "' type='video/mp4'> <source src='" + this.env.assets_host + url + "' type='video/webm'> </video>";
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
 }

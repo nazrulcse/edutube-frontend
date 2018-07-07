@@ -1,9 +1,10 @@
 <div class="inner-body">
   <p> Create curriculum by adding lecture and resourse. </p>
   <div class='curriculum-containers mb15' *ngFor="let lecture of lectures; let i = index">
-    <form (submit)="updateLecture(lecture, i, lectureForm.valid)" #lectureForm="ngForm">
-      <div class='curriculum-header'> 
-        Lecture {{i + 1}}:  <input type='text' name='title' class='lecture-title' [(ngModel)]="lecture.title" placeholder="Type lecture title" required/>
+    <form (submit)="updateLecture(lecture, index, lectureForm.valid)" #lectureForm="ngForm">
+      <div class='curriculum-header'>
+        Lecture 1:
+        <input type='text' name='title' class='lecture-title' [(ngModel)]="lecture.title" placeholder="Type lecture title" required/>
       </div>
       <div class='curriculum-tabs'>
         <ul class="nav nav-tabs" id="myTab{{i}}" role="tablist">
@@ -23,13 +24,19 @@
           <div role="tabpanel" class="tab-pane fade show active" id="content-tab{{i}}">
             <div class='inner-body'>
               <p> Upload main type of content video, video url, pdf, doc file </p>
-              <input type='text' class='lecture-content-url' placeholder="Input content url" [(ngModel)]="lecture.content_url" name='content_url'/>
-              <span class='lecture-or-text'> OR </span><br/>
-              <div class="upload-btn-wrapper">
-                <button class="btn btn-info">
-                  <span> Upload Content </span>
-                </button>
-                <input name="file" type="file" (change)="onFileChanged($event, lecture)">
+              <input type='text' class='lecture-content-url' placeholder="Input content url" [(ngModel)]="lecture.content_url" name='content_url'
+              />
+              <span class='lecture-or-text'> OR </span>
+              <div class="content-action-wrapper">
+                <div class="upload-btn-wrapper">
+                  <button class="btn btn-info">
+                    <span> Upload Content </span>
+                  </button>
+                  <input name="file" type="file" (change)="onFileChanged($event, lecture)">
+                </div>
+                <a class="btn btn-info record-link" data-target="#lecture-content-recording-modal" data-toggle="modal">
+                  Record
+                </a>
               </div>
             </div>
           </div>
@@ -52,8 +59,9 @@
         </div>
       </div>
       <div class='text-right'>
-        <button *ngIf="lecture.id" (click)="loadAssesment(lecture.id)" data-toggle="modal" data-target="#assesment-modal" type="button" class='round-btn-default mb5 mr10 reset-br'> 
-          + Add Quiz 
+        <button *ngIf="lecture.id" (click)="loadAssesment(lecture.id)" data-toggle="modal" data-target="#assesment-modal" type="button"
+          class='round-btn-default mb5 mr10 reset-br'>
+          + Add Quiz
         </button>
         <button class='round-btn-default mb5 mr5 reset-br' type='submit'> Save </button>
       </div>
@@ -67,9 +75,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"> Create lecture assessment </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class='btn defaul-btn mr10'> + Add Quiz </button>
       </div>
       <div class="modal-body">
         <form #assesmentForm="ngForm" (ngSubmit)="updateAssesment(assessment)">
@@ -95,7 +101,8 @@
               <form #questionForm="ngForm" (ngSubmit)="updateQuestion(questionForm.valid, assessment, question, i)">
                 <div class='form-group'>
                   <div class="input-group mb-3">
-                    <input type="text" class='form-control' name='question_title' [(ngModel)]="question.title" placeholder="Assesment title" required>
+                    <input type="text" class='form-control' name='question_title' [(ngModel)]="question.title" placeholder="Assesment title"
+                      required>
                     <div class="input-group-append">
                       <button type="button" (click)="addAnswer(question)" class='input-group-text'> Add Answer </button>
                     </div>
@@ -117,6 +124,29 @@
               </form>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="lecture-content-recording-modal" tabindex="-1" role="dialog" aria-labelledby="modalLoginForm">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Record Lecture Content</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <video width="100%" height="380" #video class="video"></video>
+      <div class="row">
+        <div class="col-sm-12 text-center p20">
+          <button class="btn btn-info mr5" (click)="startRecording()"> {{start_string}} </button>
+          <button class="btn btn-danger mr5 ml5" (click)="stopRecording()"> Stop</button>
+          <button class="btn btn-success ml5" (click)="doneRecording()"> Done</button>
         </div>
       </div>
     </div>
