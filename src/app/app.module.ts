@@ -45,6 +45,7 @@ import { CurriculumComponent } from './users/instructor/dashboard/courses/edit/c
 import { CategoryCoursesComponent } from './category/courses/courses.component';
 import { SearchComponent } from './search/search.component';
 import { LoaderComponent } from './loader/loader.component';
+import { LectureComponent } from './courses/course-details/lecture/lecture.component';
 
 let config = new AuthServiceConfig([
   {
@@ -92,7 +93,8 @@ export function provideConfig() {
     CurriculumComponent,
     CategoryCoursesComponent,
     SearchComponent,
-    LoaderComponent
+    LoaderComponent,
+    LectureComponent
   ],
   imports: [
     BrowserModule,

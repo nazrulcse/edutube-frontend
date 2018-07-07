@@ -9,9 +9,6 @@
           <a routerLink="/c/{{category.slug}}"> {{category.title}} </a>
           <span class="edu-caret right"></span>
         </li>
-        <!-- <li>
-          <a href="#">Class-Five-Mathematics</a><span class="edu-caret right"></span>
-        </li> -->
         <li>
           <a href="javascript:void(0);"> {{course.title}} </a>
           <span class="edu-caret right"></span>
@@ -696,8 +693,8 @@
       </div>
     </div><!-- Course details -->
     <div id="course-content-tab" class="tab-pane fade" role="tabpanel">
-      <div class="course-content-wrap">
-        <div class="course-content-container container pb20" *ngFor="let lecture of lectures; let i = index">
+      <div class="course-content-wrap pb30">
+        <div class="course-content-container container" *ngFor="let lecture of lectures; let i = index">
           <div class="tutorial-section">
             <div class="tutorial-head">
               <div class="clearfix">
@@ -709,7 +706,7 @@
             <div class="tutorial-list">
               <ul class="common-ul-style tutorial-list-ul">
                 <li>
-                  <a href="#">
+                  <a routerLink="/courses/{{course.id}}/lectures/{{lecture.id}}">
                     <div class="video-play"><i class="fa fa-play-circle"></i></div>
                     <div class="info">
                       {{lecture.description}}
@@ -722,7 +719,7 @@
             </div>
           </div>
         </div>
-      </div>
+    </div>
     </div><!-- Course content -->
     <div id="announcement-tab" class="tab-pane fade" role="tabpanel">
       <div class="announcement-wrap">

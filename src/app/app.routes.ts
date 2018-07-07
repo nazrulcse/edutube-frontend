@@ -17,6 +17,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailsComponent } from './courses/course-details/course-details.component';
 import { CategoryCoursesComponent } from './category/courses/courses.component';
 import { SearchComponent } from './search/search.component';
+import { LectureComponent } from './courses/course-details/lecture/lecture.component';
 
 // Route Configuration
 export const routes: Routes = [
@@ -28,6 +29,7 @@ export const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'courses', component: CoursesComponent },
   { path: 'courses/:id', component: CourseDetailsComponent },
+  { path: 'courses/:course_id/lectures/:id', component: LectureComponent },
   { path: 'c/:category/courses/:id', component: CourseDetailsComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'search', component: SearchComponent },

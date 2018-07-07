@@ -57,6 +57,16 @@ export class CourseService {
   }
 
   /**
+   * get lecture by lecture id
+   * @description Should return lecture details.
+   * 
+   * @returns {Lecture<JSON>}
+   */
+  public getLecture(course_id, id): Observable<any> {
+    return this.http.get(this.base_url + "/api/auth/courses/" + course_id + "/lectures/" + id, {headers: this.authService.getAuthHeader()});
+  }
+
+  /**
    * delete course by id
    * @description Should delete course and return status.
    * 

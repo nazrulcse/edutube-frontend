@@ -1,0 +1,58 @@
+<div class="course-details-wrap">
+  <div class="top-nav">
+    <div class="container top-nav-container">
+      <ul id="top-nav-ul" class="common-ul-style">
+        <li>
+          <a routerLink="/">Home</a><span class="edu-caret right"></span>
+        </li>
+        <li>
+          <a href="javascript:void(0);"> {{course.title}} </a>
+          <span class="edu-caret right"></span>
+        </li>
+      </ul>
+    </div>
+  </div><!-- Top nav -->
+  <div class='lecture-details pb20 pt20' *ngIf="lecture">
+    <div class='container'>
+      <div class='row'>
+      	<div class='col-lg-12'>
+      	  <div class='row'>
+      	  	<div class='col-md-8'>
+      	  	  <h2>
+		  		Lecture: {{lecture.title}}
+		  	  </h2>
+		  	  <p>
+		  	  	{{lecture.description}}
+		  	  </p>
+		  	  <div class='lecture-main-content'>
+		  	  	<div [innerHTML]="getContent(lecture.content_url)"></div>
+		  	  </div>
+      	  	</div>
+      	  	<div class='col-md-4'>
+      	  		<div class='card'>
+      	  		  <div class='card-header'>
+      	  		    <i class='fa fa-bell-o'></i> Tutor Announcements
+      	  		  </div>
+      	  		  <div class='card-body'>
+      	  		  	<p class='clearfix'>
+      	  		  	  Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br/>
+      	  		  	  <span class='pull-right'> 
+      	  		  	    <i class='fa fa-clock-o'></i> 1 day ago 
+      	  		  	  </span>
+      	  		  	</p>
+      	  		  	<hr/>
+      	  		  	<p class='clearfix'>
+      	  		  	  Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br/>
+      	  		  	  <span class='pull-right'> 
+      	  		  	    <i class='fa fa-clock-o'></i> 1 day ago 
+      	  		  	  </span>
+      	  		  	</p>
+      	  		  </div>
+      	  		</div>
+      	  	</div>
+      	  </div>
+      	</div>
+      </div>
+    </div>
+  </div>
+</div>
