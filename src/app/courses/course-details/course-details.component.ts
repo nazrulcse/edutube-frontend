@@ -51,6 +51,7 @@ export class CourseDetailsComponent implements OnInit {
     this.courseService.getCourseDetails(id, category).subscribe(response => {
       if(response.success) {
         this.course = response.course;
+        console.log(this.course.promo_video);
         this.author = response.user;
         this.setCourseGoal(this.course);
         if(response.category) {

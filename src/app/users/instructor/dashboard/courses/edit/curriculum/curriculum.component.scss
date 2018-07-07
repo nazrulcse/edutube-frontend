@@ -26,7 +26,7 @@
   background: #f1f1f1;
 }
 
-#assesment-modal {
+#assesment-modal, #lecture-content-recording-modal {
   .modal-dialog {
     max-width: 650px;
   }
@@ -35,5 +35,13 @@
 .questions-wrapper {
   .card {
     margin-bottom: 15px;
+  }
+}
+
+.content-action-wrapper {
+  .record-link {
+    vertical-align: top;
+    margin-left: 10px;
+    color: white;
   }
 }
