@@ -23,6 +23,7 @@ import { EventService} from '../services/event_service';
 import { UserService} from '../services/user_service';
 import { HelperService} from '../services/helper_service';
 import { CourseService} from '../services/course_service';
+import { AssesmentService} from '../services/assesment_service';
 import { CategoryService } from '../services/category_service';
 import { LogoutComponent } from './logout/logout.component';
 import { SubnavComponent } from './users/student/subnav/subnav.component';
@@ -105,7 +106,7 @@ export function provideConfig() {
   providers: [AuthenticationService, TokenStorage, HttpClient, EventService, UserService, CourseService, {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    }, HelperService, CategoryService],
+    }, HelperService, CategoryService, AssesmentService],
   bootstrap: [AppComponent],
   entryComponents: [LoaderComponent]
 })

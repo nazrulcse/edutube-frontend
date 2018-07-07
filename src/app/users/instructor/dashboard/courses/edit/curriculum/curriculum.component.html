@@ -66,24 +66,58 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"> Create lecture assesment </h5>
+        <h5 class="modal-title" id="exampleModalLabel"> Create lecture assessment </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class='fomr-group'>
-          <input type="text" class='form-control' [(ngModel)]="assesment.title" placeholder="Assesment title">
-        </div>
-
+        <form #assesmentForm="ngForm" (ngSubmit)="updateAssesment(assessment)">
+          <div class="input-group mb-3">
+            <input type="text" class='form-control' [(ngModel)]="assessment.title" name="title" placeholder="Assesment title">
+            <div class="input-group-append">
+              <button type="submit" class='input-group-text btn btn-info'> Save </button>
+            </div>
+          </div>
+        </form>
         <div class='add-question text-right'>
-          <a href='#'> + Add Question </a>
+          <a href='javascript:void(0);' (click)="addQuestion(assessment)"> + Add Question </a>
         </div>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="questions-wrapper">
+          <div class="card" *ngFor="let question of assessment.questions; let i = index;">
+            <a data-toggle="collapse" href="#collapse_{{i}}" role="button" aria-expanded="true" aria-controls="collapseExample">
+              <div class='card-header'>
+                <i class='fa fa-plus'></i> {{question.title}}
+              </div>
+            </a>
+            <div class="card-body" id="collapse_{{i}}">
+              <form #questionForm="ngForm" (ngSubmit)="updateQuestion(questionForm.valid, assessment, question, i)">
+                <div class='form-group'>
+                  <div class="input-group mb-3">
+                    <input type="text" class='form-control' name='question_title' [(ngModel)]="question.title" placeholder="Assesment title" required>
+                    <div class="input-group-append">
+                      <button type="button" (click)="addAnswer(question)" class='input-group-text'> Add Answer </button>
+                    </div>
+                  </div>
+                </div>
+                <div class='answer-options'>
+                  <div class="input-group mb-3" *ngFor="let answer of question.answers; let ia = index;">
+                    <input type="text" class='form-control' name="answer_title_{{ia}}" [(ngModel)]="answer.title" placeholder="Answer hints">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <input type="radio" name="is_correct" [checked]="answer.is_correct" (change)="checkCorrectAnswer(i); answer.is_correct = 1">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class='actions'>
+                  <button type="submit"> Save </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

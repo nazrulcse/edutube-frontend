@@ -7,7 +7,7 @@ import { AuthenticationService } from '../app/authentication/authentication.serv
 import { environment } from "../environments/environment";
 
 @Injectable()
-export class CourseService {
+export class AssesmentService {
   base_url = "";
   constructor(
     private http: HttpClient,
@@ -22,6 +22,24 @@ export class CourseService {
    * @returns {Data<JSON>}
    */
   public getAssesment(lecture_id): Observable<any> {
-    return this.http.get(this.base_url + "/api/auth/lectures/" + lecture_id + "/assesments");
+    return this.http.get(this.base_url + "/api/auth/lectures/" + lecture_id + "/assessments");
+  }
+
+  /**
+  * Create or update assesment
+  * @return assesment data as json 
+  *
+  */
+  public updateAssesment(assessment): Observable<any> {
+    return this.http.post(this.base_url + "/api/auth/lectures/" + assessment.lecture_id + "/update_assessment", {title: assessment.title}, {headers: this.authService.getAuthHeader()});
+  }
+
+  /**
+  * Create or update question with answer
+  * @return assesment data as json 
+  *
+  */
+  public updateQuestion(assessment, question): Observable<any> {
+    return this.http.post(this.base_url + "/api/auth/lecture/assessment/" + assessment.id + "/update_question", question, {headers: this.authService.getAuthHeader()});
   }
 }
