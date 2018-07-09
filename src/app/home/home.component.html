@@ -139,7 +139,7 @@
         <h3>Latest upload courses & contents</h3>
         <div class="grid-wrap mb20" id='latest-uploads'>
           <div class="grid-item" *ngFor="let course of top_courses.latest_uploads">
-            <a href="#">
+            <a routerLink="/courses/{{course.id}}">
               <img *ngIf="!course.image" src="assets/images/courses/no_image.jpg" class="img-responsive" alt="Math pic">
               <img *ngIf="course.image" src="{{env.assets_host}}{{course.image}}" class="img-responsive" alt="Math pic">
               <div class="item-info">
@@ -175,7 +175,7 @@
         <h3>Top shared courses & contents</h3>
         <div class="grid-wrap mb20" id="top-shared">
           <div class="grid-item" *ngFor="let course of top_courses.top_shareds">
-            <a href="#">
+            <a routerLink="/courses/{{course.id}}">
               <img *ngIf="!course.image" src="assets/images/courses/no_image.jpg" class="img-responsive" alt="Math pic">
               <img *ngIf="course.image" src="{{env.assets_host}}{{course.image}}" class="img-responsive" alt="Math pic">
               <div class="item-info">

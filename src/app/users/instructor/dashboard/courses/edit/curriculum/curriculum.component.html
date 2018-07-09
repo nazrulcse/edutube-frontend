@@ -86,7 +86,7 @@
             </div>
           </div>
         </form>
-        <div class='add-question text-right'>
+        <div class='add-question text-right' *ngIf="assessment.id">
           <a href='javascript:void(0);' (click)="addQuestion(assessment)"> + Add Question </a>
         </div>
 
@@ -101,7 +101,7 @@
               <form #questionForm="ngForm" (ngSubmit)="updateQuestion(questionForm.valid, assessment, question, i)">
                 <div class='form-group'>
                   <div class="input-group mb-3">
-                    <input type="text" class='form-control' name='question_title' [(ngModel)]="question.title" placeholder="Assesment title"
+                    <input type="text" class='form-control' name='question_title' [(ngModel)]="question.title" placeholder="Question"
                       required>
                     <div class="input-group-append">
                       <button type="button" (click)="addAnswer(question)" class='input-group-text'> Add Answer </button>

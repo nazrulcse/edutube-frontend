@@ -158,8 +158,8 @@ export class CurriculumComponent implements OnInit, AfterViewInit {
     this.assessment = new Assesment();
     this.assessment.lecture_id = lecture_id;
     this.assesmentService.getAssesment(lecture_id).subscribe(response => {
-      if(response.success) {
-        this.assessment = response.assesment[0];
+      if(response.success && response.assessment) {
+        this.assessment = response.assessment;
         this.assessment.lecture_id = this.assessment.assessmentable_id;
         console.log(this.assessment);
       }

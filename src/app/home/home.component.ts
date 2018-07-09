@@ -39,7 +39,21 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       $('#latest-uploads, #top-shared, #top-viewed').slick({
         slidesToShow: 4,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 850,
+            settings: {
+              slidesToShow: 2
+            }
+          },
+          {
+            breakpoint: 500,
+            settings: {
+              slidesToShow: 1
+            }
+          },
+        ]
       });
     }, 100); 
   }
