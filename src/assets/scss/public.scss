@@ -157,6 +157,9 @@
 *guest-default-btn
 *block-default-btn
 */
+.min-width-115 {
+  min-width: 115px !important;
+}
 .primary-btn, .default-btn {
   min-width: 180px;
   min-height: 40px;
@@ -479,6 +482,24 @@
   }
   .checkbox-success input[type="checkbox"]:checked + label::after {
     color: #fff;
+  }
+}
+
+/* Edutube panel design */
+.default-panel {
+  background-color: white;
+  border: 1px solid #d5d3d4;
+  .panel-header {
+    background-color: #f1f1f1;
+    padding: 15px 20px;
+    strong {
+      font-size: 14px;
+    }
+  }
+  .panel-body {}
+  .panel-footer {
+    border-top: 1px solid #d5d3d4;
+    padding: 15px 20px;
   }
 }
 

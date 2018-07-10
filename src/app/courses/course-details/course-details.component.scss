@@ -352,13 +352,15 @@ $primary-font: 'Open Sans', sans-serif;
 }
 
 .question-title {
-  margin-bottom: 0;
+  margin-bottom: 5px;
   font-size: 14px;
   color: #777;
 }
 
-.question-item {
-  padding: 10px;
+.question-option-list {
+  li {
+    margin-bottom: 10px;
+  }
 }
 
 .comments-foot {
